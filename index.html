@@ -122,12 +122,11 @@
         }
 
         main {
-            /* The fix is here: Adjusted the padding-top to create space for the fixed header */
-            padding-top: 80px; 
+            padding-top: 80px;
             background-color: var(--secondary-color);
             padding-bottom: 40px;
         }
-
+        
         .hero {
             text-align: center;
             padding: 120px 0;
@@ -139,10 +138,35 @@
             margin-bottom: 20px;
         }
 
-        .hero h1 {
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .poet-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .poet-info h1 {
             font-size: 2.8rem;
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 0;
+            margin-left: 15px; /* Add space between image and name */
+        }
+        
+        .poet-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Circular image */
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            animation: pulse 2s infinite ease-in-out;
         }
 
         .hero h2 {
@@ -268,12 +292,15 @@
             }
         }
         
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
             }
-            to {
-                opacity: 1;
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
             }
         }
 
@@ -282,56 +309,49 @@
             .container {
                 padding: 0 20px;
             }
-
             .header-content {
                 flex-direction: column;
                 text-align: center;
                 padding: 1rem;
             }
-
             .logo {
                 margin-bottom: 1rem;
             }
-
             nav ul {
                 justify-content: center;
                 margin-bottom: 1rem;
             }
-
             nav li {
                 margin: 0 10px;
             }
-
             .hero {
                 padding: 100px 0;
             }
-
-            .hero h1 {
-                font-size: 2.2rem;
+            .poet-info {
+                flex-direction: column-reverse;
             }
-
+            .poet-info h1 {
+                font-size: 2.2rem;
+                margin-left: 0;
+                margin-top: 15px;
+            }
             .hero h2 {
                 font-size: 1.1rem;
             }
-
             .section {
                 padding: 60px 0;
             }
-
             .poem-container {
                 font-size: 1rem;
                 padding: 20px;
             }
-
             .footer-nav ul {
                 flex-direction: column;
                 align-items: center;
             }
-
             .footer-nav li {
                 margin: 10px 0;
             }
-
             .social-links a {
                 margin: 0 8px;
                 font-size: 1.2rem;
@@ -360,8 +380,11 @@
 
     <main>
         <section class="hero">
-            <div class="container">
-                <h1>لیلا رضاوند</h1>
+            <div class="container hero-content">
+                <div class="poet-info">
+                    <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-12_16-51-54.jpg?raw=true" alt="عکس لیلا رضاوند" class="poet-image">
+                    <h1>لیلا رضاوند</h1>
+                </div>
                 <h2>متخلص به تمنا - شاعر اهل تبریز</h2>
             </div>
         </section>
