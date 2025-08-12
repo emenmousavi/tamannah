@@ -135,7 +135,7 @@
             background-color: var(--secondary-color);
             padding-bottom: 40px;
         }
-        
+
         .hero {
             text-align: center;
             padding: 120px 0;
@@ -187,40 +187,63 @@
             background-color: var(--accent-color);
         }
 
-        .gallery-grid {
+        .thumbnails-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
             justify-content: center;
+            align-items: center;
         }
 
-        .gallery-item {
+        .thumbnail-item {
             background-color: #fff;
-            border-radius: 8px;
+            border-radius: 5px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            animation: fadeIn 0.8s ease-in-out forwards;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
             opacity: 0;
-            transform: scale(0.95);
+            animation: fadeIn 0.5s ease-in-out forwards;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        .thumbnail-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
 
-        .gallery-item img {
+        .thumbnail-item img {
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
+            object-fit: cover;
         }
 
-        .gallery-item p {
-            padding: 15px;
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--text-color);
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .overlay-image {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
         }
 
         footer {
@@ -294,15 +317,13 @@
                 transform: translateY(0);
             }
         }
-        
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: scale(0.95);
             }
             to {
                 opacity: 1;
-                transform: scale(1);
             }
         }
 
@@ -338,8 +359,8 @@
             .section {
                 padding: 60px 0;
             }
-            .gallery-grid {
-                grid-template-columns: 1fr;
+            .thumbnails-grid {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
             }
             .footer-nav ul {
                 flex-direction: column;
@@ -385,38 +406,50 @@
         <section class="section">
             <div class="container">
                 <h2>بخش عکاسی</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item" style="animation-delay: 0.1s;">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/1280px-Beautiful_view_of_Tabriz_in_Iran.jpg?raw=true" alt="نمونه عکس ۱">
-                        <p>نمونه عکس ۱</p>
+                <div class="thumbnails-grid">
                     </div>
-                    <div class="gallery-item" style="animation-delay: 0.2s;">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-12_16-51-54.jpg?raw=true" alt="نمونه عکس ۲">
-                        <p>نمونه عکس ۲</p>
-                    </div>
-                    <div class="gallery-item" style="animation-delay: 0.3s;">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/1280px-Beautiful_view_of_Tabriz_in_Iran.jpg?raw=true" alt="نمونه عکس ۳">
-                        <p>نمونه عکس ۳</p>
-                    </div>
-                </div>
             </div>
         </section>
-        
+
         <section class="section">
             <div class="container">
                 <h2>بخش اشعار</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item" style="animation-delay: 0.4s;">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-12_16-51-54.jpg?raw=true" alt="نمونه شعر ۱">
-                        <p>نمونه شعر ۱</p>
+                <div class="thumbnails-grid">
+                    <div class="thumbnail-item" style="animation-delay: 0.1s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1196%4023-05-2018_17-11-21.jpg?raw=true')">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1196%4023-05-2018_17-11-21.jpg?raw=true" alt="شعر ۱">
                     </div>
-                    <div class="gallery-item" style="animation-delay: 0.5s;">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/1280px-Beautiful_view_of_Tabriz_in_Iran.jpg?raw=true" alt="نمونه شعر ۲">
-                        <p>نمونه شعر ۲</p>
+                    <div class="thumbnail-item" style="animation-delay: 0.2s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1557%4013-02-2019_15-03-57.jpg?raw=true')">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1557%4013-02-2019_15-03-57.jpg?raw=true" alt="شعر ۲">
                     </div>
-                    <div class="gallery-item" style="animation-delay: 0.6s;">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-12_16-51-54.jpg?raw=true" alt="نمونه شعر ۳">
-                        <p>نمونه شعر ۳</p>
+                    <div class="thumbnail-item" style="animation-delay: 0.3s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1594%4009-07-2019_17-38-48_thumb.jpg?raw=true')">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1594%4009-07-2019_17-38-48_thumb.jpg?raw=true" alt="شعر ۳">
+                    </div>
+                    <div class="thumbnail-item" style="animation-delay: 0.4s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1608%4004-08-2019_18-02-53.jpg?raw=true')">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1608%4004-08-2019_18-02-53.jpg?raw=true" alt="شعر ۴">
+                    </div>
+                    <div class="thumbnail-item" style="animation-delay: 0.5s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1813%4016-04-2021_15-32-59.jpg?raw=true')">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1813%4016-04-2021_15-32-59.jpg?raw=true" alt="شعر ۵">
+                    </div>
+                    <div class="thumbnail-item" style="animation-delay: 0.6s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1909%4003-11-2021_16-09-43.jpg?raw=true')">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1909%4003-11-2021_16-09-43.jpg?raw=true" alt="شعر ۶">
+                    </div>
+                    <div class="thumbnail-item" style="animation-delay: 0.7s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1925%4016-11-2021_07-43-53.jpg?raw=true')">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1925%4016-11-2021_07-43-53.jpg?raw=true" alt="شعر ۷">
+                    </div>
+                    <div class="thumbnail-item" style="animation-delay: 0.8s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2053%4009-10-2022_15-54-20_thumb.jpg?raw=true')">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2053%4009-10-2022_15-54-20_thumb.jpg?raw=true" alt="شعر ۸">
+                    </div>
+                    <div class="thumbnail-item" style="animation-delay: 0.9s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2101%4009-04-2024_08-57-20_thumb.jpg?raw=true')">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2101%4009-04-2024_08-57-20_thumb.jpg?raw=true" alt="شعر ۹">
+                    </div>
+                    <div class="thumbnail-item" style="animation-delay: 1s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2106%4007-05-2024_13-32-22_thumb.jpg?raw=true')">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2106%4007-05-2024_13-32-22_thumb.jpg?raw=true" alt="شعر ۱۰">
+                    </div>
+                    <div class="thumbnail-item" style="animation-delay: 1.1s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2115%4027-08-2024_09-37-19_thumb.jpg?raw=true')">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2115%4027-08-2024_09-37-19_thumb.jpg?raw=true" alt="شعر ۱۱">
+                    </div>
+                    <div class="thumbnail-item" style="animation-delay: 1.2s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_458%4005-07-2017_10-26-29.jpg?raw=true')">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_458%4005-07-2017_10-26-29.jpg?raw=true" alt="شعر ۱۲">
                     </div>
                 </div>
             </div>
@@ -446,5 +479,25 @@
         </div>
     </footer>
 
+    <div id="image-overlay" class="overlay" onclick="closeOverlay()">
+        <img id="overlay-image-content" class="overlay-image" src="" alt="Full-size image">
+    </div>
+
+    <script>
+        function showOverlay(imageUrl) {
+            const overlay = document.getElementById('image-overlay');
+            const overlayImage = document.getElementById('overlay-image-content');
+            
+            overlayImage.src = imageUrl;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevents scrolling when modal is open
+        }
+
+        function closeOverlay() {
+            const overlay = document.getElementById('image-overlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enables scrolling
+        }
+    </script>
 </body>
 </html>
