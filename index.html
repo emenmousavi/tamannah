@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تمنا - لیلا رضاوند</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #4CAF50; /* سبز */
+            --secondary-color: #f0f0f0; /* خاکستری روشن برای پس‌زمینه */
+            --text-color: #333;
+            --link-hover-color: #388E3C; /* سبز تیره‌تر برای هاور */
+            --header-bg-color: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            direction: rtl;
+            text-align: right;
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--header-bg-color);
+            backdrop-filter: blur(5px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo a:hover {
+            color: var(--link-hover-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: 400;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            font-weight: 400;
+        }
+
+        .hero-image {
+            margin-top: 40px;
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+        
+        .poem-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 2.2;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .poem-line {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        footer p {
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                justify-content: center;
+                padding: 0;
+            }
+            
+            nav li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .poem-container {
+                font-size: 1rem;
+                line-height: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html">تمنا</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">گالری</a></li>
+                    <li><a href="#">اشعار</a></li>
+                    <li><a href="#">کتاب‌ها</a></li>
+                    <li><a href="#">جوایز</a></li>
+                    <li><a href="#">تماس با ما</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>لیلا رضاوند</h1>
+                <h2>متخلص به تمنا - شاعر اهل تبریز</h2>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section latest-poem">
+            <div class="container">
+                <h2>منتخب اشعار</h2>
+                <div class="poem-container">
+                    <p class="poem-line">به نگاهت اگرم دل نسپارم چه کنم</p>
+                    <p class="poem-line">سر به سجاده شکرت نگذارم چه کنم</p>
+                    <p class="poem-line">خوبی‌ات بی حدومهرت همه درحدسپاس</p>
+                    <p class="poem-line">ندهم جان وبه شوق تو نبارم چه کنم</p>
+                    <p class="poem-line">هرسحر با نفسم شکر خدا گویم و تو</p>
+                    <p class="poem-line">لطف زیبای تو را جان نشمارم چه کنم</p>
+                    <p class="poem-line">درد بسیار مرا هیچ کسی جز تو ندید</p>
+                    <p class="poem-line">دست گرمت به وفا گر نفشارم چه کنم</p>
+                    <p class="poem-line">سجده بر غیر خداوند اگر جایز نیست؛</p>
+                    <p class="poem-line">نکنم سجده به پای تو نگارم چه کنم</p>
+                    <p class="poem-line">نفست روح نواز است ومسیحا صفتی</p>
+                    <p class="poem-line">رو به این قبله عشاق نیارم چه کنم</p>
+                    <p class="poem-line">بنشینم همه‌ی عمر به وصفت با عشق</p>
+                    <p class="poem-line">باغ دستت گلی از بوسه نکارم چه کنم</p>
+                    <p class="poem-line">گر نریزم دو جهان زیرقدم‌های تو یا</p>
+                    <p class="poem-line">به نگاهت اگرم دل نسپارم چه کنم؟!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="social-links">
+                <a href="https://t.me/ashkeghalb" target="_blank" title="تلگرام">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </a>
+                <a href="mailto:support@tamannah.website" title="ایمیل">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+            </div>
+            <p>&copy; 2025 تمنا. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
