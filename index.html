@@ -7,6 +7,14 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
 
+        /* Custom Font for Nastaliq text */
+        @font-face {
+            font-family: 'IranNastaliq';
+            src: url('https://github.com/emenmousavi/tamannah/blob/main/fonts/IranNastaliq.ttf?raw=true') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         :root {
             --primary-color: #4CAF50; /* Green */
             --secondary-color: rgba(244, 248, 244, 0.8); /* Semi-transparent light green/grey */
@@ -78,10 +86,11 @@
         }
 
         .logo a {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-family: 'IranNastaliq', serif; /* Apply the custom font */
+            font-size: 2.5rem;
             color: var(--primary-color);
             text-decoration: none;
+            line-height: 1; /* Adjust line height for better alignment */
         }
 
         nav ul {
@@ -162,7 +171,7 @@
         .poet-image {
             width: 120px;
             height: 120px;
-            border-radius: 50%; /* Circular image */
+            border-radius: 8px; /* Square image with rounded corners */
             border: 3px solid var(--accent-color);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             object-fit: cover;
