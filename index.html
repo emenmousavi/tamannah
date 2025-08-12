@@ -8,14 +8,14 @@
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
 
         :root {
-            --primary-color: #4CAF50;
-            --secondary-color: #f4f8f4;
+            --primary-color: #4CAF50; /* Green */
+            --secondary-color: rgba(244, 248, 244, 0.8); /* Semi-transparent light green/grey */
             --text-color: #333;
-            --accent-color: #8BC34A;
+            --accent-color: #8BC34A; /* Lighter green accent */
             --link-color: var(--text-color);
             --link-hover-color: var(--primary-color);
-            --header-bg-color: rgba(255, 255, 255, 0.95);
-            --footer-bg-color: #333;
+            --header-bg-color: rgba(255, 255, 255, 0.85);
+            --footer-bg-color: rgba(51, 51, 51, 0.85);
             --footer-text-color: #eee;
         }
 
@@ -23,17 +23,34 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            transition: all 0.2s ease-in-out;
+            transition: all 0.3s ease-in-out;
         }
 
         body {
             font-family: 'Vazirmatn', sans-serif;
-            background-color: var(--secondary-color);
             color: var(--text-color);
             line-height: 1.7;
             direction: rtl;
             text-align: right;
             overflow-x: hidden;
+            background-color: #333; /* Fallback color */
+            background-image: url('https://github.com/emenmousavi/tamannah/blob/main/images/1280px-Beautiful_view_of_Tabriz_in_Iran.jpg?raw=true');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); /* Dark overlay */
+            backdrop-filter: blur(3px); /* Subtle blur effect */
+            z-index: -1;
         }
 
         .container {
@@ -106,6 +123,8 @@
 
         main {
             margin-top: 80px;
+            background-color: var(--secondary-color);
+            padding-bottom: 40px;
         }
 
         .hero {
@@ -113,7 +132,10 @@
             padding: 120px 0;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeUp 0.6s ease-out 0.3s forwards;
+            animation: fadeUp 0.8s ease-out 0.3s forwards;
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            margin-bottom: 20px;
         }
 
         .hero h1 {
@@ -132,7 +154,7 @@
             padding: 80px 0;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeUp 0.6s ease-out 0.4s forwards;
+            animation: fadeUp 0.8s ease-out 0.4s forwards;
         }
 
         .section h2 {
@@ -166,6 +188,7 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .poem-line {
@@ -174,12 +197,13 @@
 
         footer {
             background-color: var(--footer-bg-color);
+            backdrop-filter: blur(5px);
             color: var(--footer-text-color);
             padding: 40px 0;
             text-align: center;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeUp 0.6s ease-out 0.5s forwards;
+            animation: fadeUp 0.8s ease-out 0.5s forwards;
         }
 
         .footer-content {
@@ -202,7 +226,6 @@
             text-decoration: none;
             color: var(--footer-text-color);
             font-size: 0.9rem;
-            transition: color 0.3s ease;
         }
 
         .footer-nav a:hover {
@@ -224,6 +247,7 @@
         .social-links a:hover {
             opacity: 1;
             color: var(--primary-color);
+            transform: scale(1.1);
         }
 
         footer p {
@@ -240,6 +264,15 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
             }
         }
 
