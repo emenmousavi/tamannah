@@ -154,38 +154,35 @@
             justify-content: center;
         }
 
+        /* Adjustments for the poet's image */
         .poet-image-container {
             width: 150px;
-            height: 150px; /* Changed height to match width for a square shape */
+            height: 150px;
             overflow: hidden;
-            border-radius: 8px; /* Square with rounded corners */
+            border-radius: 50%; /* Make it a circle */
             margin-bottom: 20px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            /* Removed animation from here */
             position: relative;
         }
 
         .poet-image {
             width: 100%;
             height: 100%;
-            /* 'cover' will fit the image and clip any excess */
-            object-fit: cover; 
+            object-fit: cover;
             display: block;
         }
         
-        /* New styling to align the picture and name vertically */
         .poet-info {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-bottom: 10px;
         }
 
         .poet-info h1 {
             font-size: 2.8rem;
             color: var(--primary-color);
-            margin-bottom: 10px; /* Add margin below the name */
+            margin-bottom: 10px;
         }
         
         .hero h2 {
@@ -265,7 +262,7 @@
             animation: fadeUp 0.8s ease-out 0.6s forwards;
             opacity: 0;
         }
-
+        
         .about-section-content {
             max-width: 800px;
             margin: 0 auto;
@@ -292,6 +289,23 @@
             border-radius: 8px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .poem-container .view-all-link {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        
+        .poem-container .view-all-link:hover {
+            background-color: var(--primary-color);
+            color: #fff;
         }
 
         .poem-line {
@@ -367,18 +381,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
             }
         }
 
