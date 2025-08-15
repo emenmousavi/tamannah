@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماس با ما - تمنا</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
+
+        /* Custom Font for Nastaliq text */
+        @font-face {
+            font-family: 'IranNastaliq';
+            src: url('https://github.com/emenmousavi/tamannah/blob/main/fonts/IranNastaliq.ttf?raw=true') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --primary-color: #F44336; /* Red */
+            --secondary-color: rgba(255, 240, 240, 0.8); /* Semi-transparent light red/grey */
+            --text-color: #333;
+            --accent-color: #E57373; /* Lighter red accent */
+            --link-color: var(--text-color);
+            --link-hover-color: var(--primary-color);
+            --header-bg-color: rgba(255, 255, 255, 0.85);
+            --footer-bg-color: rgba(51, 51, 51, 0.85);
+            --footer-text-color: #eee;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+            direction: rtl;
+            text-align: right;
+            overflow-x: hidden;
+            background-color: #333; /* Fallback color */
+            background-image: url('https://github.com/emenmousavi/tamannah/blob/main/images/1280px-Beautiful_view_of_Tabriz_in_Iran.jpg?raw=true');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); /* Dark overlay */
+            backdrop-filter: blur(3px); /* Subtle blur effect */
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        header {
+            background-color: var(--header-bg-color);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-family: 'IranNastaliq', serif; /* Apply the custom font */
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            line-height: 1; /* Adjust line height for better alignment */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-size: 1rem;
+            font-weight: 300;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: var(--link-hover-color);
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        main {
+            padding-top: 80px;
+            background-color: var(--secondary-color);
+            padding-bottom: 40px;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 120px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease-out 0.3s forwards;
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 300;
+        }
+
+        .section {
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1rem;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(244, 67, 54, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        footer {
+            background-color: var(--footer-bg-color);
+            backdrop-filter: blur(5px);
+            color: var(--footer-text-color);
+            padding: 40px 0;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease-out 0.5s forwards;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-nav ul {
+            list-style: none;
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .footer-nav li {
+            margin: 0 15px;
+        }
+
+        .footer-nav a {
+            text-decoration: none;
+            color: var(--footer-text-color);
+            font-size: 0.9rem;
+        }
+
+        .footer-nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--footer-text-color);
+            font-size: 1.3rem;
+            margin: 0 10px;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+            .logo {
+                margin-bottom: 1rem;
+            }
+            nav ul {
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+            nav li {
+                margin: 0 10px;
+            }
+            .hero {
+                padding: 100px 0;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero h2 {
+                font-size: 1.1rem;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .form-container {
+                padding: 20px;
+            }
+            .footer-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-nav li {
+                margin: 10px 0;
+            }
+            .social-links a {
+                margin: 0 8px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html">تمنا</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="https://github.com/emenmousavi/tamannah/blob/main/gallery.html">گالری</a></li>
+                    <li><a href="#">اشعار</a></li>
+                    <li><a href="#">کتاب‌ها</a></li>
+                    <li><a href="#">جوایز</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>تماس با ما</h1>
+                <h2>با افتخار پاسخگوی شما هستیم</h2>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>فرم تماس</h2>
+                <div class="form-container">
+                    <form name="contact" method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="contact">
+                        
+                        <div class="form-group">
+                            <label for="full-name">نام کامل</label>
+                            <input type="text" id="full-name" name="full-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">ایمیل</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reason">دلیل تماس</label>
+                            <select id="reason" name="reason" required>
+                                <option value="" disabled selected>انتخاب کنید</option>
+                                <option value="poetry-question">پرسش درباره اشعار</option>
+                                <option value="collaboration">همکاری</option>
+                                <option value="feedback">انتقاد یا پیشنهاد</option>
+                                <option value="other">سایر</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description">توضیحات کامل</label>
+                            <textarea id="description" name="description" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">ارسال</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="https://github.com/emenmousavi/tamannah/blob/main/gallery.html">گالری</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                    <li><a href="#">اشعار</a></li>
+                    <li><a href="#">کتاب‌ها</a></li>
+                    <li><a href="#">جوایز</a></li>
+                </ul>
+            </nav>
+            <div class="social-links">
+                <a href="https://t.me/ashkeghalb" target="_blank" title="تلگرام">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </a>
+                <a href="mailto:support@tamannah.website" title="ایمیل">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+            </div>
+            <p>&copy; 2025 تمنا. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
