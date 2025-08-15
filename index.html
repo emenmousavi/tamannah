@@ -276,6 +276,17 @@
             font-size: 1.1rem;
             line-height: 2;
         }
+        
+        #poem {
+            white-space: pre-wrap;
+        }
+        
+        #poem-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            color: var(--primary-color);
+        }
 
         .poem-container {
             max-width: 700px;
@@ -486,23 +497,9 @@
         <section class="section latest-poem">
             <div class="container">
                 <h2>منتخب اشعار</h2>
-                <div class="poem-container">
-                    <p class="poem-line">به نگاهت اگرم دل نسپارم چه کنم</p>
-                    <p class="poem-line">سر به سجاده شکرت نگذارم چه کنم</p>
-                    <p class="poem-line">خوبی‌ات بی حدومهرت همه درحدسپاس</p>
-                    <p class="poem-line">ندهم جان وبه شوق تو نبارم چه کنم</p>
-                    <p class="poem-line">هرسحر با نفسم شکر خدا گویم و تو</p>
-                    <p class="poem-line">لطف زیبای تو را جان نشمارم چه کنم</p>
-                    <p class="poem-line">درد بسیار مرا هیچ کسی جز تو ندید</p>
-                    <p class="poem-line">دست گرمت به وفا گر نفشارم چه کنم</p>
-                    <p class="poem-line">سجده بر غیر خداوند اگر جایز نیست؛</p>
-                    <p class="poem-line">نکنم سجده به پای تو نگارم چه کنم</p>
-                    <p class="poem-line">نفست روح نواز است ومسیحا صفتی</p>
-                    <p class="poem-line">رو به این قبله عشاق نیارم چه کنم</p>
-                    <p class="poem-line">بنشینم همه‌ی عمر به وصفت با عشق</p>
-                    <p class="poem-line">باغ دستت گلی از بوسه نکارم چه کنم</p>
-                    <p class="poem-line">گر نریزم دو جهان زیرقدم‌های تو یا</p>
-                    <p class="poem-line">به نگاهت اگرم دل نسپارم چه کنم؟!</p>
+                <div id="poem" class="poem-container">
+                    <div id="poem-title"></div>
+                    <div id="poem-text"></div>
                 </div>
             </div>
         </section>
@@ -530,6 +527,21 @@
             <p>&copy; 2025 تمنا. تمامی حقوق محفوظ است.</p>
         </div>
     </footer>
+    <script>
+        const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
 
+        fetch(poemsUrl)
+            .then(response => response.json())
+            .then(data => {
+                // انتخاب شعری به دلخواه
+                const randomIndex = Math.floor(Math.random() * data.length);
+                const poem = data[randomIndex];
+                
+                // نمایش شعر
+                document.getElementById('poem-title').textContent = poem.title;
+                document.getElementById('poem-text').textContent = poem.text;
+            })
+            .catch(err => console.error("خطا در بارگذاری اشعار:", err));
+    </script>
 </body>
 </html>
