@@ -154,8 +154,29 @@
             justify-content: center;
         }
 
+        .poet-image-container {
+            width: 150px;
+            height: 150px; /* Changed height to match width for a square shape */
+            overflow: hidden;
+            border-radius: 8px; /* Square with rounded corners */
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            /* Removed animation from here */
+            position: relative;
+        }
+
+        .poet-image {
+            width: 100%;
+            height: 100%;
+            /* 'cover' will fit the image and clip any excess */
+            object-fit: cover; 
+            display: block;
+        }
+        
+        /* New styling to align the picture and name vertically */
         .poet-info {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             margin-bottom: 10px;
@@ -164,31 +185,17 @@
         .poet-info h1 {
             font-size: 2.8rem;
             color: var(--primary-color);
-            margin-bottom: 0;
-            margin-left: 15px; /* Add space between image and name */
+            margin-bottom: 10px; /* Add margin below the name */
         }
         
-        .poet-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 8px; /* Square image with rounded corners */
-            border: 3px solid var(--accent-color);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            /* FIX: Use 'contain' to show the whole picture, not crop it */
-            object-fit: contain; 
-            background-color: white; /* Add a white background to the image container */
-            padding: 5px; /* Add some padding so the image isn't right against the border */
-            animation: pulse 2s infinite ease-in-out;
-        }
-
         .hero h2 {
             font-size: 1.4rem;
             color: var(--text-color);
             font-weight: 300;
+            margin-bottom: 40px;
         }
 
         .telegram-section {
-            margin-top: 40px;
             animation: fadeUp 0.8s ease-out 0.5s forwards;
             opacity: 0;
             text-align: center;
@@ -398,16 +405,17 @@
             .hero {
                 padding: 100px 0;
             }
-            .poet-info {
-                flex-direction: column-reverse;
+            .poet-image-container {
+                width: 100px;
+                height: 100px;
             }
             .poet-info h1 {
                 font-size: 2.2rem;
-                margin-left: 0;
                 margin-top: 15px;
             }
             .hero h2 {
                 font-size: 1.1rem;
+                margin-bottom: 20px;
             }
             .section {
                 padding: 60px 0;
@@ -452,8 +460,10 @@
     <main>
         <section class="hero">
             <div class="container hero-content">
-                <div class="poet-info">
+                <div class="poet-image-container">
                     <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-12_16-51-54.jpg?raw=true" alt="عکس لیلا رضاوند زایری" class="poet-image">
+                </div>
+                <div class="poet-info">
                     <h1>لیلا رضاوند زایری</h1>
                 </div>
                 <h2>متخلص به تمنا - شاعر اهل تبریز</h2>
