@@ -174,7 +174,10 @@
             border-radius: 8px; /* Square image with rounded corners */
             border: 3px solid var(--accent-color);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            object-fit: cover;
+            /* FIX: Use 'contain' to show the whole picture, not crop it */
+            object-fit: contain; 
+            background-color: white; /* Add a white background to the image container */
+            padding: 5px; /* Add some padding so the image isn't right against the border */
             animation: pulse 2s infinite ease-in-out;
         }
 
