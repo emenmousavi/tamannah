@@ -402,14 +402,22 @@
             <div class="container">
                 <h2>فرم تماس</h2>
                 <div class="form-container">
-                    <form name="contact" method="POST" data-netlify="true" action="/thankyou.html">
+                    <form name="contact"
+                          method="POST"
+                          netlify
+                          netlify-honeypot="bot-field"
+                          accept-charset="UTF-8"
+                          action="/thankyou.html">
                         <input type="hidden" name="form-name" value="contact">
-                        
+                        <p style="display:none;">
+                            <label>Don’t fill this out: <input name="bot-field"></label>
+                        </p>
+
                         <div class="form-group">
                             <label for="full-name">نام کامل</label>
-                            <input type="text" id="full-name" name="full-name" required>
+                            <input type="text" id="full-name" name="full_name" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">ایمیل</label>
                             <input type="email" id="email" name="email" required>
@@ -425,7 +433,7 @@
                                 <option value="other">سایر</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="description">توضیحات کامل</label>
                             <textarea id="description" name="description" required></textarea>
@@ -461,5 +469,37 @@
         </div>
     </footer>
 
+    <script>
+        // robust submit: POST to root so Netlify captures it, then hard-redirect (GET) to thankyou page
+        (function () {
+            const form = document.querySelector('form[name="contact"]');
+            if (!form) return;
+
+            function encode(data) {
+                return Object.keys(data)
+                    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+                    .join("&");
+            }
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const action = form.getAttribute("action") || "/";
+                const formData = new FormData(form);
+
+                // ensure form-name is present (some browsers strip hidden inputs on JS submit)
+                if (!formData.get("form-name")) formData.append("form-name", "contact");
+
+                fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                }).then(function () {
+                    window.location.href = action; // GET the thank-you page (no 404)
+                }).catch(function () {
+                    window.location.href = action; // still redirect even if network hiccup
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
