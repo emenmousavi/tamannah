@@ -187,13 +187,42 @@
             background-color: var(--accent-color);
         }
 
-        .empty-content {
-            text-align: center;
-            padding: 50px 0;
+        .awards-list {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .awards-list ul {
+            list-style: none;
+        }
+
+        .awards-list li {
             font-size: 1.2rem;
-            color: #777;
+            line-height: 2;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-right: 25px;
+        }
+
+        .awards-list li::before {
+            content: "🏆";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--primary-color);
         }
         
+        .awards-list li:last-child {
+            border-bottom: none;
+        }
+
         footer {
             background-color: var(--footer-bg-color);
             backdrop-filter: blur(5px);
@@ -342,8 +371,11 @@
         <section class="section">
             <div class="container">
                 <h2>جوایز و افتخارات</h2>
-                <div class="empty-content">
-                    <p>به زودی اطلاعات جوایز در این بخش قرار خواهد گرفت.</p>
+                <div class="awards-list">
+                    <ul>
+                        <li>برنده بیست و یکمین دوره مسابقات پرسش مهر ۱۳۹۹-۱۴۰۰ از اداره کل آموزش و پرورش استان مازندران</li>
+                        <li>تجلیل از منتخبین دومین جشنواره استانی کانون بازیگران زندگی ۱۴۰۱-۱۴۰۰</li>
+                    </ul>
                 </div>
             </div>
         </section>
