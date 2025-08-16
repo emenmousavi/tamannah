@@ -187,13 +187,68 @@
             background-color: var(--accent-color);
         }
 
-        .empty-content {
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .book-item {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             text-align: center;
-            padding: 50px 0;
-            font-size: 1.2rem;
-            color: #777;
+            padding: 20px;
+            animation: fadeIn 0.8s ease-in-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
         }
         
+        .book-item:nth-child(1) { animation-delay: 0.1s; }
+        .book-item:nth-child(2) { animation-delay: 0.2s; }
+        .book-item:nth-child(3) { animation-delay: 0.3s; }
+        .book-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .book-cover {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .book-item h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .book-item p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .book-item .download-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+        
+        .book-item .download-link:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
         footer {
             background-color: var(--footer-bg-color);
             backdrop-filter: blur(5px);
@@ -265,6 +320,17 @@
                 transform: translateY(0);
             }
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -297,6 +363,9 @@
             }
             .section {
                 padding: 60px 0;
+            }
+            .books-grid {
+                grid-template-columns: 1fr;
             }
             .footer-nav ul {
                 flex-direction: column;
@@ -342,8 +411,30 @@
         <section class="section">
             <div class="container">
                 <h2>آثار</h2>
-                <div class="empty-content">
-                    <p>به زودی اطلاعات کتاب‌ها در این بخش قرار خواهد گرفت.</p>
+                <div class="books-grid">
+                    <div class="book-item">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/26676.jpg?raw=true" alt="جلد کتاب گل واژه های سبز دعا" class="book-cover">
+                        <h3>گل واژه های سبز دعا</h3>
+                        <p>سال انتشار: ۱۳۹۵</p>
+                        <p>انتشارات: مینوفر</p>
+                        <a href="https://taaghche.com/book/26676/%DA%AF%D9%84-%D9%88%D8%A7%DA%98%D9%87-%D9%87%D8%A7%DB%8C-%D8%B3%D8%A8%D8%B2-%D8%AF%D8%B9%D8%A7" target="_blank" class="download-link">دریافت کتاب</a>
+                    </div>
+                    
+                    <div class="book-item">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/26763.jpg?raw=true" alt="جلد کتاب قاصدک" class="book-cover">
+                        <h3>قاصدک</h3>
+                        <p>سال انتشار: ۱۳۹۵</p>
+                        <p>انتشارات: مینوفر</p>
+                        <a href="https://taaghche.com/book/26763/%D9%82%D8%A7%D8%B5%D8%AF%DA%A9" target="_blank" class="download-link">دریافت کتاب</a>
+                    </div>
+                    
+                    <div class="book-item">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/26673.jpg?raw=true" alt="جلد کتاب اشک قلب" class="book-cover">
+                        <h3>اشک قلب</h3>
+                        <p>سال انتشار: ۱۳۹۵</p>
+                        <p>انتشارات: مینوفر</p>
+                        <a href="https://taaghche.com/book/26673/%D8%A7%D8%B4%DA%A9-%D9%82%D9%84%D8%A8" target="_blank" class="download-link">دریافت کتاب</a>
+                    </div>
                 </div>
             </div>
         </section>
