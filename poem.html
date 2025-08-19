@@ -187,13 +187,69 @@
             background-color: var(--accent-color);
         }
 
-        .empty-content {
-            text-align: center;
-            padding: 50px 0;
-            font-size: 1.2rem;
-            color: #777;
+        .poem-list-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+        }
+
+        .poem-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .poem-list-item {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-color);
+            cursor: pointer;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .poem-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .poem-list-item:hover,
+        .poem-list-item.active {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
         }
         
+        .poem-display-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 2.2;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: none; /* Initially hidden */
+        }
+
+        .poem-display-container.active {
+            display: block;
+        }
+
+        .poem-display-container h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .poem-display-container p {
+            white-space: pre-line;
+        }
+
         footer {
             background-color: var(--footer-bg-color);
             backdrop-filter: blur(5px);
@@ -233,6 +289,9 @@
 
         .social-links {
             margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .social-links a {
@@ -247,6 +306,16 @@
             opacity: 1;
             color: var(--primary-color);
             transform: scale(1.1);
+        }
+
+        .social-links .instagram-icon {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         footer p {
@@ -298,6 +367,12 @@
             .section {
                 padding: 60px 0;
             }
+            .poem-list-container {
+                padding: 20px;
+            }
+            .poem-list-item {
+                font-size: 1.2rem;
+            }
             .footer-nav ul {
                 flex-direction: column;
                 align-items: center;
@@ -324,7 +399,7 @@
                     <li><a href="gallery.html">گالری</a></li>
                     <li><a href="poem.html">اشعار</a></li>
                     <li><a href="books.html">کتاب‌ها</a></li>
-                    <li><a href="awards.html">افتخارات</a></li>
+                    <li><a href="awards.html">جوایز</a></li>
                     <li><a href="contact.html">تماس با ما</a></li>
                 </ul>
             </nav>
@@ -342,9 +417,12 @@
         <section class="section">
             <div class="container">
                 <h2>مجموعه اشعار</h2>
-                <div class="empty-content">
-                    <p>به زودی اشعار در این بخش قرار خواهد گرفت.</p>
+                <div class="poem-list-container">
+                    <ul class="poem-list">
+                        </ul>
                 </div>
+                <div id="poem-display" class="poem-display-container">
+                    </div>
             </div>
         </section>
     </main>
@@ -357,10 +435,13 @@
                     <li><a href="contact.html">تماس با ما</a></li>
                     <li><a href="poem.html">اشعار</a></li>
                     <li><a href="books.html">کتاب‌ها</a></li>
-                    <li><a href="awards.html">افتخارات</a></li>
+                    <li><a href="awards.html">جوایز</a></li>
                 </ul>
             </nav>
             <div class="social-links">
+                <a href="https://www.instagram.com/leylarezavandtamanna/" target="_blank" title="اینستاگرام">
+                    <svg class="instagram-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37a4 4 0 1 1-7.23-2.92L16 11.37zM17.5 6.5h.01"></path></svg>
+                </a>
                 <a href="https://t.me/ashkeghalb" target="_blank" title="تلگرام">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </a>
@@ -372,5 +453,51 @@
         </div>
     </footer>
 
+    <script>
+        const poems = [
+            {
+                title: "وطن",
+                text: `وطن يعني حماسه، عشق، ايمان \nوطن يعني سراسر عهد و پيمان \nوطن مصداق زيباي شكفتن \nبه هر كس غير او آري نگفتن \nوطن آغوش گرم و شور و همت \nوطن مشتي براي خصم و ذلت \nوطن خاكي كه عزت آفرين است \nسرايي خالي از نفس لعين است \nوطن طومار مهر و مهرباني \nبهشتي ماندگار و جاوداني \nوطن رنگين كماني از صداقت \nبود همواره بر پا از شهادت \nوطن يعني سرود عاشقانه \nترنم‌هاي بي عذر و بهانه \nوطن يعني سفيد و سبز و قرمز \nرفيق دشمنان باشی تو هرگز \nوطن سرخ از شهيد لاله گونش \nگلستاني زمين و آسمونش \nشهيدان تاخدا پرواز كردند \nدر آزادگي را باز كردند \nوطن گنجي كه پاياني ندارد \nكتابي كه سرانجامي ندارد \nوطن ميراث ياراني كه رفته \nهمان عهدي كه با معشوق بسته \nوطن يعني بهاري كه بماند \nبه دل آهنگ هستي را بخواند \nوطن يعني چراغي در شبستان \nوطن يعني گلي در شوره زاران \nوطن اشك و وطن يك مشت لبخند \nعزيز و يادگار يار دلبند \nنبايد صيد اين صياد گردد \nبه خون آري وطن آباد گردد \nوطن يعني كه دشمن خواب بيند \nتن ايراني‌اش بي تاب بيند \nبه لطف حق جهان بايد بداند \nكه ايران تا ابد آزاد ماند \nوطن لطفي ز رب العالمين است \nنگين سبز در قلب زمين است \nوطن يعني من و تو ما و آنها \nهمه يكرنگ زير پرچم لا \nوطن نوري كه خاموشي ندارد \nوطن هوشي كه بيهوشي ندارد.`
+            },
+            {
+                title: "روز دریا (روز زن)",
+                text: `آسمان و زمين از تو روشن \nاز تو پيدا شده دشت و گلشن \nنام تو آتش خصم دون شد \nآمدي و ستم سرنگون شد \nهديه كردي به وقت نمازت \nتو شدي بر پدر ام بابا \nيك طلوعي تو از جانمازت \nدر كنار علي گنج طاها \nاختران از وجودت درخشان \nسايه‌اي بر سرما يتميان \nباغبان گل مصطفايي \nبهترين همدم مرتضايي \nكرده‌اي بر خلايق عنايت \nروشن از تو چراغ امامت \nآمدي تا كه ظالم بميرد \nآمدي تا جهان جان بگيرد \nاز تو ممكن شده غير ممكن \nكافر از عشق تو گشته مؤمن \nهر كجا بسته ديدي گشودي \nدل تو از صاحب دل ربودي \nسمبل مادر و همسري تو \nمركز ثقل پيغمبري تو \nروز گل، روز زن، روز زهرا \nصد مبارك به دلسوز زهرا \nبا ملائك تو خلوت نمودي \nاي نشان خدايي چه بودي؟ \nبيت الأحزان تو كعبه‌ي من \nشيوه‌ي بودنت قبله‌ي من \nبين در قامتت را شكستند \nآيه‌ها را سرنيزه بستند \nخطبه‌ات لرزه بر اهرمن زد \nدست آمالشان را رسن زد \nتو صدايت صداي علي بود \nرفتنت هم براي علي بود \nفاطمه فا طمه پاره‌ي تن \nراه تو بهترين راه يك زن \nآب دريا ز اشك تو جوشيد \nآسمان با صدايت خروشيد \nتو مكرم محدث، مطهر \nبر ولايت شدي ام اطهر \nمنشأ خير و لطف و صفايي \nبر همه زخم دوران دوايي \nروز ميلاد زهرا مبارك \nروز زن روز دريا مبارك`
+            }
+        ];
+
+        const poemList = document.querySelector('.poem-list');
+        const poemDisplay = document.getElementById('poem-display');
+
+        function displayPoem(poem) {
+            poemDisplay.innerHTML = `
+                <h3>${poem.title}</h3>
+                <p>${poem.text}</p>
+            `;
+            poemDisplay.classList.add('active');
+        }
+
+        function createPoemList() {
+            poemList.innerHTML = ''; // Clear existing list to prevent duplicates
+            poems.forEach((poem, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'poem-list-item';
+                listItem.textContent = poem.title;
+                listItem.dataset.poemId = index;
+                poemList.appendChild(listItem);
+                
+                listItem.addEventListener('click', () => {
+                    document.querySelectorAll('.poem-list-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    listItem.classList.add('active');
+                    
+                    displayPoem(poem);
+                });
+            });
+        }
+
+        createPoemList();
+
+    </script>
 </body>
 </html>
