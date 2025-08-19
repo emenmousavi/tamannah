@@ -55,7 +55,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;ب
+            height: 100%;
             background-color: rgba(0, 0, 0, 0.3); /* Dark overlay */
             backdrop-filter: blur(3px); /* Subtle blur effect */
             z-index: -1;
@@ -187,30 +187,44 @@
             background-color: var(--accent-color);
         }
 
-        .awards-list {
+        .awards-list-container,
+        .experience-list-container,
+        .research-list-container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 40px auto;
             background-color: #fff;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
         }
 
-        .awards-list ul {
+        .awards-list-container ul,
+        .experience-list-container ul,
+        .research-list-container ul {
             list-style: none;
         }
 
-        .awards-list li {
+        .awards-list-container li,
+        .experience-list-container li,
+        .research-list-container li {
             font-size: 1.2rem;
             line-height: 2;
             padding: 10px 0;
             border-bottom: 1px solid #eee;
             position: relative;
-            padding-right: 25px;
+            padding-right: 40px; /* Added padding to create space */
         }
 
-        .awards-list li::before {
-            content: "🏆";
+        .awards-list-container li:last-child,
+        .experience-list-container li:last-child,
+        .research-list-container li:last-child {
+            border-bottom: none;
+        }
+
+        .awards-list-container li::before,
+        .experience-list-container li::before,
+        .research-list-container li::before {
+            content: "🏆"; /* Default icon, will be changed for others */
             position: absolute;
             right: 0;
             top: 50%;
@@ -218,11 +232,15 @@
             font-size: 1.5rem;
             color: var(--primary-color);
         }
-        
-        .awards-list li:last-child {
-            border-bottom: none;
-        }
 
+        .experience-list-container li::before {
+            content: "💼";
+        }
+        
+        .research-list-container li::before {
+            content: "🔬";
+        }
+        
         footer {
             background-color: var(--footer-bg-color);
             backdrop-filter: blur(5px);
@@ -262,6 +280,9 @@
 
         .social-links {
             margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .social-links a {
@@ -276,6 +297,17 @@
             opacity: 1;
             color: var(--primary-color);
             transform: scale(1.1);
+        }
+
+        /* Instagram icon styling */
+        .social-links .instagram-icon {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         footer p {
@@ -327,6 +359,12 @@
             .section {
                 padding: 60px 0;
             }
+            .awards-list-container,
+            .experience-list-container,
+            .research-list-container {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
             .footer-nav ul {
                 flex-direction: column;
                 align-items: center;
@@ -364,17 +402,40 @@
         <section class="hero">
             <div class="container">
                 <h1>افتخارات</h1>
-                <h2>جوایز و افتخارات</h2>
+                <h2>جوایز، سوابق کاری و پژوهش‌ها</h2>
             </div>
         </section>
 
         <section class="section">
             <div class="container">
                 <h2>جوایز و افتخارات</h2>
-                <div class="awards-list">
+                <div class="awards-list-container">
                     <ul>
                         <li>برنده بیست و یکمین دوره مسابقات پرسش مهر ۱۳۹۹-۱۴۰۰ از اداره کل آموزش و پرورش استان مازندران</li>
                         <li>تندیس تجلیل از منتخبین دومین جشنواره استانی کانون یاریگران زندگی ۱۴۰۱-۱۴۰۰</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <h2>سوابق کاری</h2>
+                <div class="experience-list-container">
+                    <ul>
+                        <li>مدیر دبیرستان فرهنگ</li>
+                        <li>مدیر کل و دبیر ستاد مرکزی ایثارگر معاونت وزیر آموزش و پرورش</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>تحقیقات و پژوهش‌ها</h2>
+                <div class="research-list-container">
+                    <ul>
+                        <li>تحقیق و پژوهش: آموزش پرورش و نوآوری در ایران و جهان (نگارنده)</li>
                     </ul>
                 </div>
             </div>
@@ -386,13 +447,16 @@
             <nav class="footer-nav">
                 <ul>
                     <li><a href="gallery.html">گالری</a></li>
-                    <li><a href="contact.html">تماس با ما</a></li>
                     <li><a href="poem.html">اشعار</a></li>
                     <li><a href="books.html">کتاب‌ها</a></li>
                     <li><a href="awards.html">افتخارات</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
                 </ul>
             </nav>
             <div class="social-links">
+                <a href="https://www.instagram.com/leylarezavandtamanna/" target="_blank" title="اینستاگرام">
+                    <svg class="instagram-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37a4 4 0 1 1-7.23-2.92L16 11.37zM17.5 6.5h.01"></path></svg>
+                </a>
                 <a href="https://t.me/ashkeghalb" target="_blank" title="تلگرام">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </a>
