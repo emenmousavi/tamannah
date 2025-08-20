@@ -94,7 +94,7 @@
             text-decoration: none;
             color: var(--link-color);
             font-size: 1rem;
-            font-weight: 300;
+            font-weight: 700;
             position: relative;
             padding: 0.5rem 0;
         }
@@ -163,6 +163,28 @@
             width: 50px;
             height: 2px;
             background-color: var(--accent-color);
+        }
+        .contact-info p {
+            font-size: 1.1rem;
+            line-height: 2.2;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .contact-details {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .contact-details p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .contact-details a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-details a:hover {
+            color: var(--primary-color);
         }
         .form-container {
             max-width: 600px;
@@ -246,6 +268,7 @@
             text-decoration: none;
             color: var(--footer-text-color);
             font-size: 0.9rem;
+            font-weight: 700;
         }
         .footer-nav a:hover {
             color: var(--primary-color);
@@ -262,8 +285,16 @@
         }
         .social-links a:hover {
             opacity: 1;
-            color: var(--primary-color);
             transform: scale(1.1);
+        }
+        .social-links a[title="تلگرام"]:hover {
+            color: #0088cc; /* Telegram blue */
+        }
+        .social-links a[title="اینستاگرام"]:hover {
+            color: #C13584; /* Instagram purple */
+        }
+        .social-links a[title="ایمیل"]:hover {
+            color: #4CAF50; /* Green color for email */
         }
         footer p {
             font-size: 0.8rem;
@@ -337,8 +368,10 @@
             </div>
             <nav>
                 <ul>
+                    <li><a href="#">زندگینامه</a></li>
                     <li><a href="gallery.html">گالری</a></li>
                     <li><a href="poem.html">اشعار</a></li>
+                    <li><a href="#">دکلمه</a></li>
                     <li><a href="books.html">کتاب‌ها</a></li>
                     <li><a href="awards.html">افتخارات</a></li>
                     <li><a href="contact.html">تماس با ما</a></li>
@@ -353,6 +386,23 @@
                 <h2>با افتخار پاسخگوی شما هستیم</h2>
             </div>
         </section>
+        
+        <section class="section">
+            <div class="container">
+                <h2>روش‌های ارتباط با ما</h2>
+                <div class="contact-info">
+                    <p>
+                        برای دلنوشته‌ها، انتقادات سازنده یا پرسش‌های شاعرانه، از طریق این پل‌های ارتباطی با ما در ارتباط باشید. ما منتظر شنیدن صدای قلب و قلم شما هستیم. هر پیام شما، شعری است که به این دفتر اضافه می‌شود.
+                    </p>
+                </div>
+                <div class="contact-details">
+                    <p>ایمیل: <a href="mailto:support@tamannah.website">support@tamannah.website</a></p>
+                    <p>اینستاگرام: <a href="https://www.instagram.com/tamanna_poem/" target="_blank">@tamanna_poem</a></p>
+                    <p>تلگرام: <a href="https://t.me/ashkeghalb" target="_blank">@ashkeghalb</a></p>
+                </div>
+            </div>
+        </section>
+
         <section class="section">
             <div class="container">
                 <h2>فرم تماس</h2>
@@ -399,8 +449,10 @@
         <div class="container footer-content">
             <nav class="footer-nav">
                 <ul>
+                    <li><a href="#">زندگینامه</a></li>
                     <li><a href="gallery.html">گالری</a></li>
                     <li><a href="poem.html">اشعار</a></li>
+                    <li><a href="#">دکلمه</a></li>
                     <li><a href="books.html">کتاب‌ها</a></li>
                     <li><a href="awards.html">افتخارات</a></li>
                     <li><a href="contact.html">تماس با ما</a></li>
@@ -410,7 +462,7 @@
                 <a href="https://t.me/ashkeghalb" target="_blank" title="تلگرام">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </a>
-                <a href="https://www.instagram.com/leylarezavandtamanna/" target="_blank" title="اینستاگرام">
+                <a href="https://www.instagram.com/tamanna_poem/" target="_blank" title="اینستاگرام">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
                 </a>
                 <a href="mailto:support@tamannah.website" title="ایمیل">
@@ -421,7 +473,60 @@
         </div>
     </footer>
     <script>
-        // robust submit: POST to root so Netlify captures it, then hard-redirect (GET) to thankyou page
+        const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
+        fetch(poemsUrl)
+            .then(response => response.json())
+            .then(data => {
+                const randomIndex = Math.floor(Math.random() * data.length);
+                const poem = data[randomIndex];
+            })
+            .catch(err => console.error("خطا در بارگذاری اشعار:", err));
+        const audio = document.getElementById('declamationAudio');
+        const playPauseButton = document.getElementById('playPauseButton');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        const progressBarContainer = document.querySelector('.progress-bar-container');
+        const progressBar = document.querySelector('.progress-bar');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+        }
+        if (playPauseButton) {
+            playPauseButton.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'block';
+                } else {
+                    audio.pause();
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                }
+            });
+            audio.addEventListener('timeupdate', () => {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+                currentTimeEl.textContent = formatTime(audio.currentTime);
+            });
+            audio.addEventListener('loadedmetadata', () => {
+                durationEl.textContent = formatTime(audio.duration);
+            });
+            audio.addEventListener('ended', () => {
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+                audio.currentTime = 0;
+                progressBar.style.width = '0%';
+            });
+            progressBarContainer.addEventListener('click', (e) => {
+                const clickPosition = e.offsetX;
+                const containerWidth = progressBarContainer.clientWidth;
+                const newTime = (clickPosition / containerWidth) * audio.duration;
+                audio.currentTime = newTime;
+            });
+        }
         (function () {
             const form = document.querySelector('form[name="contact"]');
             if (!form) return;
@@ -434,16 +539,15 @@
                 e.preventDefault();
                 const action = form.getAttribute("action") || "/";
                 const formData = new FormData(form);
-                // ensure form-name is present (some browsers strip hidden inputs on JS submit)
                 if (!formData.get("form-name")) formData.append("form-name", "contact");
                 fetch("/", {
                     method: "POST",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: new URLSearchParams(formData).toString()
                 }).then(function () {
-                    window.location.href = action; // GET the thank-you page (no 404)
+                    window.location.href = action;
                 }).catch(function () {
-                    window.location.href = action; // still redirect even if network hiccup
+                    window.location.href = action;
                 });
             });
         })();
