@@ -94,7 +94,7 @@
             text-decoration: none;
             color: var(--link-color);
             font-size: 1rem;
-            font-weight: 300;
+            font-weight: 700; /* Made bold */
             position: relative;
             padding: 0.5rem 0;
         }
@@ -370,6 +370,7 @@
             text-decoration: none;
             color: var(--footer-text-color);
             font-size: 0.9rem;
+            font-weight: 700; /* Made bold */
         }
         .footer-nav a:hover {
             color: var(--primary-color);
@@ -386,8 +387,16 @@
         }
         .social-links a:hover {
             opacity: 1;
-            color: var(--primary-color);
             transform: scale(1.1);
+        }
+        .social-links a[title="تلگرام"]:hover {
+            color: #0088cc; /* Telegram blue */
+        }
+        .social-links a[title="اینستاگرام"]:hover {
+            color: #C13584; /* Instagram purple */
+        }
+        .social-links a[title="ایمیل"]:hover {
+            color: #4CAF50; /* Green color for email */
         }
         footer p {
             font-size: 0.8rem;
@@ -514,7 +523,7 @@
                 </div>
             </div>
         </section>
-        <section class="about-section">     
+        <section class="about-section">   
             <div class="container">
                 <h2>درباره تمنا</h2>
                 <div class="about-section-content">
@@ -573,7 +582,7 @@
                 <a href="https://t.me/ashkeghalb" target="_blank" title="تلگرام">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </a>
-                <a href="https://www.instagram.com/leylarezavandtamanna/" target="_blank" title="اینستاگرام">
+                <a href="https://www.instagram.com/tamanna_poem/" target="_blank" title="اینستاگرام">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
                 </a>
                 <a href="mailto:support@tamannah.website" title="ایمیل">
