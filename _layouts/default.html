@@ -8,7 +8,7 @@
 </head>
 <body>
     {% include header.html %}
-
+    
     <main>
         {{ content }}
     </main>
@@ -16,9 +16,14 @@
     {% include footer.html %}
     
     <script>
-        const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
+        const poemsUrl = "poems.json";
         fetch(poemsUrl)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 const randomIndex = Math.floor(Math.random() * data.length);
                 const poem = data[randomIndex];
