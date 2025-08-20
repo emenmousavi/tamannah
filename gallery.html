@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گالری - تمنا</title>
+    <title>گالری واژه ها و نقش ها</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
         /* Custom Font for Nastaliq text */
@@ -166,44 +166,72 @@
         }
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
+            justify-content: center;
             padding: 0 20px;
         }
         .gallery-item {
-            position: relative;
             overflow: hidden;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 0.8s ease-in-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            cursor: pointer;
         }
-        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
-        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
-        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
-        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
-        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
-        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
-        .gallery-image {
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            cursor: zoom-in;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        /* Styles for the lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .lightbox-content {
+            margin: auto;
             display: block;
-        }
-        .thankyou-container {
+            width: 80%;
             max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 40px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            animation-name: zoom;
+            animation-duration: 0.6s;
         }
-        .thankyou-container p {
-            font-size: 1.1rem;
-            line-height: 2;
+        .lightbox-content, .caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        @keyframes zoom {
+            from {transform: scale(0.1)} 
+            to {transform: scale(1)}
         }
         footer {
             background-color: var(--footer-bg-color);
@@ -275,16 +303,6 @@
                 transform: translateY(0);
             }
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
@@ -319,9 +337,6 @@
             }
             .gallery-grid {
                 grid-template-columns: 1fr;
-            }
-            .thankyou-container {
-                padding: 20px;
             }
             .footer-nav ul {
                 flex-direction: column;
@@ -359,31 +374,53 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>گالری</h1>
-                <h2>منتخبی از عکس‌های به یادماندنی</h2>
+                <h1>گالری تصاویر</h1>
+                <h2>لحظاتی از زندگی لیلا رضاوند زایری</h2>
             </div>
         </section>
         <section class="section">
             <div class="container">
-                <h2>آلبوم تصاویر</h2>
+                <h2>تصاویر شخصی</h2>
+                <div class="gallery-grid">
+                    </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <h2>گالری واژه‌ها و نقش‌ها</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-15_15-12-20.jpg?raw=true" alt="عکس ۱" class="gallery-image">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1196%4023-05-2018_17-11-21.jpg?raw=true" alt="واژه‌ها و نقش‌ها ۱">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-16_16-43-12.jpg?raw=true" alt="عکس ۲" class="gallery-image">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1608%4004-08-2019_18-02-53.jpg?raw=true" alt="واژه‌ها و نقش‌ها ۲">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-16_16-43-16.jpg?raw=true" alt="عکس ۳" class="gallery-image">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1813%4016-04-2021_15-32-59.jpg?raw=true" alt="واژه‌ها و نقش‌ها ۳">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-16_17-13-48.jpg?raw=true" alt="عکس ۴" class="gallery-image">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1909%4003-11-2021_16-09-43.jpg?raw=true" alt="واژه‌ها و نقش‌ها ۴">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-16_17-13-48_(3).jpg?raw=true" alt="عکس ۵" class="gallery-image">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1925%4016-11-2021_07-43-53.jpg?raw=true" alt="واژه‌ها و نقش‌ها ۵">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-16_17-13-48_(4).jpg?raw=true" alt="عکس ۶" class="gallery-image">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2053%4009-10-2022_15-54-20_thumb.jpg?raw=true" alt="واژه‌ها و نقش‌ها ۶">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2101%4009-04-2024_08-57-20_thumb.jpg?raw=true" alt="واژه‌ها و نقش‌ها ۷">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2106%4007-05-2024_13-32-22_thumb.jpg?raw=true" alt="واژه‌ها و نقش‌ها ۸">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2115%4027-08-2024_09-37-19_thumb.jpg?raw=true" alt="واژه‌ها و نقش‌ها ۹">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_458%4005-07-2017_10-26-29.jpg?raw=true" alt="واژه‌ها و نقش‌ها ۱۰">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_946%4006-12-2017_18-48-36_thumb.jpg?raw=true" alt="واژه‌ها و نقش‌ها ۱۱">
                     </div>
                 </div>
             </div>
@@ -416,6 +453,10 @@
             <p>&copy; 2025 تمنا. تمامی حقوق محفوظ است.</p>
         </div>
     </footer>
+    <div id="imageLightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightboxImage">
+    </div>
     <script>
         const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
         fetch(poemsUrl)
@@ -471,6 +512,29 @@
                 audio.currentTime = newTime;
             });
         }
+        // Lightbox script
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        const lightbox = document.getElementById('imageLightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const closeBtn = document.querySelector('.close');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                lightbox.style.display = "block";
+                lightboxImage.src = item.src;
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = "none";
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target.classList.contains('lightbox')) {
+                lightbox.style.display = "none";
+            }
+        });
+
     </script>
 </body>
 </html>
