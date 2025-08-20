@@ -1,125 +1,65 @@
 ---
 layout: default
+title: تمنا - وبسایت رسمی
 ---
-<main>
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="poet-image-container">
-                <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-15_15-12-20.jpg?raw=true" alt="عکس لیلا رضاوند زایری" class="poet-image">
-            </div>
-            <div class="poet-info">
-                <h1>لیلا رضاوند زایری</h1>
-            </div>
-            <h2>متخلص به تمنا - شاعر اهل تبریز</h2>
-            <div class="telegram-section">
-                <p>برای مشاهدهٔ تمامی اشعار به همراه دکلمه‌ها و تصاویر به کانال تلگرامی زیر بپیوندید.</p>
-                <a href="https://t.me/ashkeghalb" target="_blank" class="telegram-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.3 8.3L9.6 15.6c-.3.3-.8.1-1-.2l-2.4-3.5c-.3-.4-.2-.9.2-1.1l8.7-3.2c.4-.2.9.2.7.7z"/></svg>
-                    <span>کانال تلگرام</span>
-                </a>
-            </div>
+<section class="hero">
+    <div class="container hero-content">
+        <div class="poet-image-container">
+            <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-15_15-12-20.jpg?raw=true" alt="عکس لیلا رضاوند زایری" class="poet-image">
         </div>
-    </section>
-    <section class="about-section">   
-        <div class="container">
-            <h2>درباره تمنا</h2>
-            <div class="about-section-content">
-                <p>لیلا رضاوند زایری با تخلص «تمنا»، دختر سرزمین شعر و ادب، متولد سال ۱۳۵۲ در دیار فرهنگی تبریز؛ زنی از تبار معلمان دلسوز که با قلبی پر از عشق و مهر، گنجینهٔ زبان فارسی را چون گوهری گران‌بها به جان دانش‌آموزانش سپرد. در راه تعلیم و تربیت، سختی‌ها را به دوش کشید، رنج‌ها دید و از نامردمی‌ها دل شکست اما هرگز از پای ننشست.</p>
-                <p>مرداد ۱۴۰۴، ستاره‌ای در آسمان خانواده خاموش شد و غمی سنگین، جان و دل عزیزانش را دربر گرفت. یاد و نامش همچون نسیمی آرام بر دل‌های ما جاری است، صدایی نرم از زبان شعر که هرگز خاموش نخواهد شد.</p>
-                <p>تمنا، مادری دلسوز و شوخ‌طبع بود که با پسرش، امین و دخترش، زهرا، لحظه‌ها را با مهر و مهربانی پر می‌کرد؛ او در هر نگاه و خنده، درس صبر، عشق و معرفت می‌آموخت و خانه‌اش همواره مملو از گرما، شادی و صمیمیت بود. همسرش، نورالدین، شاهد فداکاری، مهربانی و ایثار او بود؛ زنی ایده‌آل که در زندگی خانوادگی هرگز کم نمی‌گذاشت و بهترین رفتار را با خانواده و عزیزانش داشت.</p>
-                <p>در محیط کار، تمنا نمونه‌ای از ادب، عدالت و دلسوزی بود. معلمی که نه‌تنها علم می‌آموخت، بلکه اخلاق و انسانیت را در دل‌های دانش‌آموزانش می‌نشاند؛ او در برابر ناعدالتی‌ها می‌ایستاد و برای شاگردانش مادری واقعی بود، پناه و راهنمایی که همواره در کنارشان بود؛روح او در خاطره‌ها و واژه‌هایی که بر دل‌ها حک شد، جاودانه باقی خواهد ماند.</p>
-            </div>
+        <div class="poet-info">
+            <h1>لیلا رضاوند زایری</h1>
         </div>
-    </section>
-    <section class="section declamation-section">
-        <div class="container">
-            <h2>دکلمهٔ منتخب</h2>
-            <div class="declamation-container">
-                <h3 class="declamation-title">اندکی انتظار</h3>
-                <div class="declamation-player">
-                    <audio id="declamationAudio" src="https://github.com/emenmousavi/tamannah/blob/main/media/01%20leila%20rezavand%20-%20andaki%20ensantar%20.mp3?raw=true"></audio>
-                    <div class="controls">
-                        <button id="playPauseButton" class="play-button">
-                            <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            <svg id="pauseIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-                        </button>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar"></div>
-                        </div>
-                        <div class="time-display">
-                            <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
-                        </div>
+        <h2>متخلص به تمنا - شاعر اهل تبریز</h2>
+        <div class="telegram-section">
+            <p>برای مشاهدهٔ تمامی اشعار به همراه دکلمه‌ها و تصاویر به کانال تلگرامی زیر بپیوندید.</p>
+            <a href="https://t.me/ashkeghalb" target="_blank" class="telegram-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.3 8.3L9.6 15.6c-.3.3-.8.1-1-.2l-2.4-3.5c-.3-.4-.2-.9.2-1.1l8.7-3.2c.4-.2.9.2.7.7z"/></svg>
+                <span>کانال تلگرام</span>
+            </a>
+        </div>
+    </div>
+</section>
+<section class="about-section">   
+    <div class="container">
+        <h2>درباره تمنا</h2>
+        <div class="about-section-content">
+            <p>لیلا رضاوند زایری با تخلص «تمنا»، دختر سرزمین شعر و ادب، متولد سال ۱۳۵۲ در دیار فرهنگی تبریز؛ زنی از تبار معلمان دلسوز که با قلبی پر از عشق و مهر، گنجینهٔ زبان فارسی را چون گوهری گران‌بها به جان دانش‌آموزانش سپرد. در راه تعلیم و تربیت، سختی‌ها را به دوش کشید، رنج‌ها دید و از نامردمی‌ها دل شکست اما هرگز از پای ننشست.</p>
+            <p>مرداد ۱۴۰۴، ستاره‌ای در آسمان خانواده خاموش شد و غمی سنگین، جان و دل عزیزانش را دربر گرفت. یاد و نامش همچون نسیمی آرام بر دل‌های ما جاری است، صدایی نرم از زبان شعر که هرگز خاموش نخواهد شد.</p>
+            <p>تمنا، مادری دلسوز و شوخ‌طبع بود که با پسرش، امین و دخترش، زهرا، لحظه‌ها را با مهر و مهربانی پر می‌کرد؛ او در هر نگاه و خنده، درس صبر، عشق و معرفت می‌آموخت و خانه‌اش همواره مملو از گرما، شادی و صمیمیت بود. همسرش، نورالدین، شاهد فداکاری، مهربانی و ایثار او بود؛ زنی ایده‌آل که در زندگی خانوادگی هرگز کم نمی‌گذاشت و بهترین رفتار را با خانواده و عزیزانش داشت.</p>
+            <p>در محیط کار، تمنا نمونه‌ای از ادب، عدالت و دلسوزی بود. معلمی که نه‌تنها علم می‌آموخت، بلکه اخلاق و انسانیت را در دل‌های دانش‌آموزانش می‌نشاند؛ او در برابر ناعدالتی‌ها می‌ایستاد و برای شاگردانش مادری واقعی بود، پناه و راهنمایی که همواره در کنارشان بود؛روح او در خاطره‌ها و واژه‌هایی که بر دل‌ها حک شد، جاودانه باقی خواهد ماند.</p>
+        </div>
+    </div>
+</section>
+<section class="section declamation-section">
+    <div class="container">
+        <h2>دکلمهٔ منتخب</h2>
+        <div class="declamation-container">
+            <h3 class="declamation-title">اندکی انتظار</h3>
+            <div class="declamation-player">
+                <audio id="declamationAudio" src="https://github.com/emenmousavi/tamannah/blob/main/media/01%20leila%20rezavand%20-%20andaki%20ensantar%20.mp3?raw=true"></audio>
+                <div class="controls">
+                    <button id="playPauseButton" class="play-button">
+                        <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        <svg id="pauseIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </button>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <div class="time-display">
+                        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="section latest-poem">
-        <div class="container">
-            <h2>شعر منتخب</h2>
-            <div id="poem" class="poem-container">
-                <div id="poem-title"></div>
-                <div id="poem-text"></div>
-            </div>
+    </div>
+</section>
+<section class="section latest-poem">
+    <div class="container">
+        <h2>شعر منتخب</h2>
+        <div id="poem" class="poem-container">
+            <div id="poem-title"></div>
+            <div id="poem-text"></div>
         </div>
-    </section>
-</main>
-<script>
-    const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
-    fetch(poemsUrl)
-        .then(response => response.json())
-        .then(data => {
-            // انتخاب شعری به دلخواه
-            const randomIndex = Math.floor(Math.random() * data.length);
-            const poem = data[randomIndex];
-            // نمایش شعر
-            document.getElementById('poem-title').textContent = poem.title;
-            document.getElementById('poem-text').textContent = poem.text;
-        })
-        .catch(err => console.error("خطا در بارگذاری اشعار:", err));
-    // Declamation Player Logic
-    const audio = document.getElementById('declamationAudio');
-    const playPauseButton = document.getElementById('playPauseButton');
-    const playIcon = document.getElementById('playIcon');
-    const pauseIcon = document.getElementById('pauseIcon');
-    const progressBarContainer = document.querySelector('.progress-bar-container');
-    const progressBar = document.querySelector('.progress-bar');
-    const currentTimeEl = document.getElementById('currentTime');
-    const durationEl = document.getElementById('duration');
-    function formatTime(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = Math.floor(seconds % 60);
-        return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-    }
-    playPauseButton.addEventListener('click', () => {
-        if (audio.paused) {
-            audio.play();
-            playIcon.style.display = 'none';
-            pauseIcon.style.display = 'block';
-        } else {
-            audio.pause();
-            playIcon.style.display = 'block';
-            pauseIcon.style.display = 'none';
-        }
-    });
-    audio.addEventListener('timeupdate', () => {
-        const progress = (audio.currentTime / audio.duration) * 100;
-        progressBar.style.width = `${progress}%`;
-        currentTimeEl.textContent = formatTime(audio.currentTime);
-    });
-    audio.addEventListener('loadedmetadata', () => {
-        durationEl.textContent = formatTime(audio.duration);
-    });
-    audio.addEventListener('ended', () => {
-        playIcon.style.display = 'block';
-        pauseIcon.style.display = 'none';
-        audio.currentTime = 0;
-        progressBar.style.width = '0%';
-    });
-    progressBarContainer.addEventListener('click', (e) => {
-        const clickPosition = e.offsetX;
-        const containerWidth = progressBarContainer.clientWidth;
-        const newTime = (clickPosition / containerWidth) * audio.duration;
-        audio.currentTime = newTime;
-    });
-</script>
+    </div>
+</section>
