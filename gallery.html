@@ -14,10 +14,10 @@
             font-style: normal;
         }
         :root {
-            --primary-color: #9C27B0; /* Purple */
-            --secondary-color: rgba(248, 244, 248, 0.8); /* Semi-transparent light purple/grey */
+            --primary-color: #F44336; /* Red */
+            --secondary-color: rgba(255, 240, 240, 0.8); /* Semi-transparent light red/grey */
             --text-color: #333;
-            --accent-color: #BA68C8; /* Lighter purple accent */
+            --accent-color: #E57373; /* Lighter red accent */
             --link-color: var(--text-color);
             --link-hover-color: var(--primary-color);
             --header-bg-color: rgba(255, 255, 255, 0.85);
@@ -94,7 +94,7 @@
             text-decoration: none;
             color: var(--link-color);
             font-size: 1rem;
-            font-weight: 300;
+            font-weight: 700;
             position: relative;
             padding: 0.5rem 0;
         }
@@ -164,57 +164,46 @@
             height: 2px;
             background-color: var(--accent-color);
         }
-        .thumbnails-grid {
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 10px;
-            justify-content: center;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
         }
-        .thumbnail-item {
-            background-color: #fff;
-            border-radius: 5px;
+        .gallery-item {
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out;
-            opacity: 0;
-            animation: fadeIn 0.5s ease-in-out forwards;
-        }
-        .thumbnail-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-        }
-        .thumbnail-item img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
-        }
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1001;
-            opacity: 0;
-            visibility: hidden;
-        }
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .overlay-image {
-            max-width: 90%;
-            max-height: 90%;
             border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .thankyou-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .thankyou-container p {
+            font-size: 1.1rem;
+            line-height: 2;
         }
         footer {
             background-color: var(--footer-bg-color);
@@ -243,6 +232,7 @@
             text-decoration: none;
             color: var(--footer-text-color);
             font-size: 0.9rem;
+            font-weight: 700;
         }
         .footer-nav a:hover {
             color: var(--primary-color);
@@ -259,8 +249,16 @@
         }
         .social-links a:hover {
             opacity: 1;
-            color: var(--primary-color);
             transform: scale(1.1);
+        }
+        .social-links a[title="تلگرام"]:hover {
+            color: #0088cc; /* Telegram blue */
+        }
+        .social-links a[title="اینستاگرام"]:hover {
+            color: #C13584; /* Instagram purple */
+        }
+        .social-links a[title="ایمیل"]:hover {
+            color: #4CAF50; /* Green color for email */
         }
         footer p {
             font-size: 0.8rem;
@@ -280,9 +278,11 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
+                transform: translateY(0);
             }
         }
         /* Responsive Design */
@@ -317,8 +317,11 @@
             .section {
                 padding: 60px 0;
             }
-            .thumbnails-grid {
-                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .thankyou-container {
+                padding: 20px;
             }
             .footer-nav ul {
                 flex-direction: column;
@@ -342,8 +345,10 @@
             </div>
             <nav>
                 <ul>
+                    <li><a href="#">زندگینامه</a></li>
                     <li><a href="gallery.html">گالری</a></li>
                     <li><a href="poem.html">اشعار</a></li>
+                    <li><a href="#">دکلمه</a></li>
                     <li><a href="books.html">کتاب‌ها</a></li>
                     <li><a href="awards.html">افتخارات</a></li>
                     <li><a href="contact.html">تماس با ما</a></li>
@@ -355,55 +360,30 @@
         <section class="hero">
             <div class="container">
                 <h1>گالری</h1>
-                <h2>تصاویر و ویدئوهای منتخب</h2>
+                <h2>منتخبی از عکس‌های به یادماندنی</h2>
             </div>
         </section>
         <section class="section">
             <div class="container">
-                <h2>بخش عکاسی</h2>
-                <div class="thumbnails-grid">
-                </div>
-            </div>
-        </section>
-        <section class="section">
-            <div class="container">
-                <h2>بخش اشعار</h2>
-                <div class="thumbnails-grid">
-                    <div class="thumbnail-item" style="animation-delay: 0.1s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1196%4023-05-2018_17-11-21.jpg?raw=true')">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1196%4023-05-2018_17-11-21.jpg?raw=true" alt="شعر ۱">
+                <h2>آلبوم تصاویر</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-15_15-12-20.jpg?raw=true" alt="عکس ۱" class="gallery-image">
                     </div>
-                    <div class="thumbnail-item" style="animation-delay: 0.2s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1557%4013-02-2019_15-03-57.jpg?raw=true')">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1557%4013-02-2019_15-03-57.jpg?raw=true" alt="شعر ۲">
+                    <div class="gallery-item">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-16_16-43-12.jpg?raw=true" alt="عکس ۲" class="gallery-image">
                     </div>
-                    <div class="thumbnail-item" style="animation-delay: 0.3s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1594%4009-07-2019_17-38-48_thumb.jpg?raw=true')">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1594%4009-07-2019_17-38-48_thumb.jpg?raw=true" alt="شعر ۳">
+                    <div class="gallery-item">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-16_16-43-16.jpg?raw=true" alt="عکس ۳" class="gallery-image">
                     </div>
-                    <div class="thumbnail-item" style="animation-delay: 0.4s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1608%4004-08-2019_18-02-53.jpg?raw=true')">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1608%4004-08-2019_18-02-53.jpg?raw=true" alt="شعر ۴">
+                    <div class="gallery-item">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-16_17-13-48.jpg?raw=true" alt="عکس ۴" class="gallery-image">
                     </div>
-                    <div class="thumbnail-item" style="animation-delay: 0.5s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1813%4016-04-2021_15-32-59.jpg?raw=true')">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1813%4016-04-2021_15-32-59.jpg?raw=true" alt="شعر ۵">
+                    <div class="gallery-item">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-16_17-13-48_(3).jpg?raw=true" alt="عکس ۵" class="gallery-image">
                     </div>
-                    <div class="thumbnail-item" style="animation-delay: 0.6s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1909%4003-11-2021_16-09-43.jpg?raw=true')">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1909%4003-11-2021_16-09-43.jpg?raw=true" alt="شعر ۶">
-                    </div>
-                    <div class="thumbnail-item" style="animation-delay: 0.7s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1925%4016-11-2021_07-43-53.jpg?raw=true')">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_1925%4016-11-2021_07-43-53.jpg?raw=true" alt="شعر ۷">
-                    </div>
-                    <div class="thumbnail-item" style="animation-delay: 0.8s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2053%4009-10-2022_15-54-20_thumb.jpg?raw=true')">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2053%4009-10-2022_15-54-20_thumb.jpg?raw=true" alt="شعر ۸">
-                    </div>
-                    <div class="thumbnail-item" style="animation-delay: 0.9s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2101%4009-04-2024_08-57-20_thumb.jpg?raw=true')">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2101%4009-04-2024_08-57-20_thumb.jpg?raw=true" alt="شعر ۹">
-                    </div>
-                    <div class="thumbnail-item" style="animation-delay: 1s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2106%4007-05-2024_13-32-22_thumb.jpg?raw=true')">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2106%4007-05-2024_13-32-22_thumb.jpg?raw=true" alt="شعر ۱۰">
-                    </div>
-                    <div class="thumbnail-item" style="animation-delay: 1.1s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2115%4027-08-2024_09-37-19_thumb.jpg?raw=true')">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_2115%4027-08-2024_09-37-19_thumb.jpg?raw=true" alt="شعر ۱۱">
-                    </div>
-                    <div class="thumbnail-item" style="animation-delay: 1.2s;" onclick="showOverlay('https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_458%4005-07-2017_10-26-29.jpg?raw=true')">
-                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/gallery/photo_458%4005-07-2017_10-26-29.jpg?raw=true" alt="شعر ۱۲">
+                    <div class="gallery-item">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-16_17-13-48_(4).jpg?raw=true" alt="عکس ۶" class="gallery-image">
                     </div>
                 </div>
             </div>
@@ -413,8 +393,10 @@
         <div class="container footer-content">
             <nav class="footer-nav">
                 <ul>
+                    <li><a href="#">زندگینامه</a></li>
                     <li><a href="gallery.html">گالری</a></li>
                     <li><a href="poem.html">اشعار</a></li>
+                    <li><a href="#">دکلمه</a></li>
                     <li><a href="books.html">کتاب‌ها</a></li>
                     <li><a href="awards.html">افتخارات</a></li>
                     <li><a href="contact.html">تماس با ما</a></li>
@@ -424,7 +406,7 @@
                 <a href="https://t.me/ashkeghalb" target="_blank" title="تلگرام">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </a>
-                <a href="https://www.instagram.com/leylarezavandtamanna/" target="_blank" title="اینستاگرام">
+                <a href="https://www.instagram.com/tamanna_poem/" target="_blank" title="اینستاگرام">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
                 </a>
                 <a href="mailto:support@tamannah.website" title="ایمیل">
@@ -434,21 +416,60 @@
             <p>&copy; 2025 تمنا. تمامی حقوق محفوظ است.</p>
         </div>
     </footer>
-    <div id="image-overlay" class="overlay" onclick="closeOverlay()">
-        <img id="overlay-image-content" class="overlay-image" src="" alt="Full-size image">
-    </div>
     <script>
-        function showOverlay(imageUrl) {
-            const overlay = document.getElementById('image-overlay');
-            const overlayImage = document.getElementById('overlay-image-content');
-            overlayImage.src = imageUrl;
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevents scrolling when modal is open
+        const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
+        fetch(poemsUrl)
+            .then(response => response.json())
+            .then(data => {
+                const randomIndex = Math.floor(Math.random() * data.length);
+                const poem = data[randomIndex];
+            })
+            .catch(err => console.error("خطا در بارگذاری اشعار:", err));
+        const audio = document.getElementById('declamationAudio');
+        const playPauseButton = document.getElementById('playPauseButton');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        const progressBarContainer = document.querySelector('.progress-bar-container');
+        const progressBar = document.querySelector('.progress-bar');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
         }
-        function closeOverlay() {
-            const overlay = document.getElementById('image-overlay');
-            overlay.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Re-enables scrolling
+        if (playPauseButton) {
+            playPauseButton.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'block';
+                } else {
+                    audio.pause();
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                }
+            });
+            audio.addEventListener('timeupdate', () => {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+                currentTimeEl.textContent = formatTime(audio.currentTime);
+            });
+            audio.addEventListener('loadedmetadata', () => {
+                durationEl.textContent = formatTime(audio.duration);
+            });
+            audio.addEventListener('ended', () => {
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+                audio.currentTime = 0;
+                progressBar.style.width = '0%';
+            });
+            progressBarContainer.addEventListener('click', (e) => {
+                const clickPosition = e.offsetX;
+                const containerWidth = progressBarContainer.clientWidth;
+                const newTime = (clickPosition / containerWidth) * audio.duration;
+                audio.currentTime = newTime;
+            });
         }
     </script>
 </body>
