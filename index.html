@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تمنا - لیلا رضاوند زایری</title>
+    <title>اشعار - تمنا</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
+
         /* Custom Font for Nastaliq text */
         @font-face {
             font-family: 'IranNastaliq';
@@ -13,23 +14,26 @@
             font-weight: normal;
             font-style: normal;
         }
+
         :root {
-            --primary-color: #4CAF50; /* Green */
-            --secondary-color: rgba(244, 248, 244, 0.8); /* Semi-transparent light green/grey */
+            --primary-color: #009688; /* Teal */
+            --secondary-color: rgba(230, 248, 248, 0.8); /* Semi-transparent light teal/grey */
             --text-color: #333;
-            --accent-color: #8BC34A; /* Lighter green accent */
+            --accent-color: #4DB6AC; /* Lighter teal accent */
             --link-color: var(--text-color);
             --link-hover-color: var(--primary-color);
             --header-bg-color: rgba(255, 255, 255, 0.85);
             --footer-bg-color: rgba(51, 51, 51, 0.85);
             --footer-text-color: #eee;
         }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             transition: all 0.3s ease-in-out;
         }
+
         body {
             font-family: 'Vazirmatn', sans-serif;
             color: var(--text-color);
@@ -44,6 +48,7 @@
             background-attachment: fixed;
             position: relative;
         }
+
         body::before {
             content: '';
             position: absolute;
@@ -55,11 +60,13 @@
             backdrop-filter: blur(3px); /* Subtle blur effect */
             z-index: -1;
         }
+
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 30px;
         }
+
         header {
             background-color: var(--header-bg-color);
             backdrop-filter: blur(10px);
@@ -71,11 +78,13 @@
             padding: 1rem 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
+
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .logo a {
             font-family: 'IranNastaliq', serif; /* Apply the custom font */
             font-size: 2.5rem;
@@ -83,21 +92,25 @@
             text-decoration: none;
             line-height: 1; /* Adjust line height for better alignment */
         }
+
         nav ul {
             list-style: none;
             display: flex;
         }
+
         nav li {
             margin-right: 20px;
         }
+
         nav a {
             text-decoration: none;
             color: var(--link-color);
             font-size: 1rem;
-            font-weight: 300;
+            font-weight: 700; /* Made header links bold */
             position: relative;
             padding: 0.5rem 0;
         }
+
         nav a::before {
             content: '';
             position: absolute;
@@ -108,17 +121,21 @@
             background-color: var(--primary-color);
             transition: width 0.3s ease-in-out;
         }
+
         nav a:hover {
             color: var(--link-hover-color);
         }
+
         nav a:hover::before {
             width: 100%;
         }
+
         main {
             padding-top: 80px;
             background-color: var(--secondary-color);
             padding-bottom: 40px;
         }
+
         .hero {
             text-align: center;
             padding: 120px 0;
@@ -129,81 +146,26 @@
             backdrop-filter: blur(5px);
             margin-bottom: 20px;
         }
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .poet-image-container {
-            width: 150px;
-            height: 150px;
-            overflow: hidden;
-            border-radius: 50%; /* Circular image */
-            margin-bottom: 20px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        .poet-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .poet-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .poet-info h1 {
+
+        .hero h1 {
             font-size: 2.8rem;
             color: var(--primary-color);
             margin-bottom: 10px;
         }
+
         .hero h2 {
             font-size: 1.4rem;
             color: var(--text-color);
             font-weight: 300;
-            margin-bottom: 40px;
         }
-        .telegram-section {
-            animation: fadeUp 0.8s ease-out 0.5s forwards;
-            opacity: 0;
-            text-align: center;
-        }
-        .telegram-section p {
-            font-size: 1rem;
-            color: var(--text-color);
-            margin-bottom: 15px;
-        }
-        .telegram-link {
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 1.1rem;
-            border: 2px solid var(--primary-color);
-            border-radius: 5px;
-            padding: 10px 20px;
-        }
-        .telegram-link:hover {
-            background-color: var(--primary-color);
-            color: #fff;
-        }
-        .telegram-link svg {
-            width: 24px;
-            height: 24px;
-            margin-left: 10px;
-            fill: currentColor;
-        }
+
         .section {
             padding: 80px 0;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 0.8s ease-out 0.4s forwards;
         }
+
         .section h2 {
             font-size: 2rem;
             text-align: center;
@@ -213,6 +175,7 @@
             padding-bottom: 10px;
             display: inline-block;
         }
+
         .section h2::after {
             content: '';
             position: absolute;
@@ -223,126 +186,70 @@
             height: 2px;
             background-color: var(--accent-color);
         }
-        .about-section {
-            text-align: center;
-            padding: 40px 0;
-            animation: fadeUp 0.8s ease-out 0.6s forwards;
-            opacity: 0;
-        }
-        .about-section-content {
+
+        .poem-list-container {
             max-width: 800px;
             margin: 0 auto;
             background-color: #fff;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        .about-section p {
-            font-size: 1.1rem;
-            line-height: 2;
-        }
-        .declamation-container {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.1rem;
-            line-height: 2;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 8px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
         }
-        .declamation-container .declamation-title {
-            font-size: 1.2rem;
-            font-weight: bold;
+
+        .poem-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .poem-list-item {
+            font-size: 1.4rem;
+            font-weight: 700;
             color: var(--text-color);
-            margin-bottom: 20px;
-        }
-        .declamation-player {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .declamation-player .controls {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-grow: 1;
-        }
-        .declamation-player .play-button {
-            background-color: var(--primary-color);
-            border: none;
-            color: white;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
         }
-        .declamation-player .play-button:hover {
-            background-color: var(--accent-color);
-            transform: scale(1.05);
+
+        .poem-list-item:last-child {
+            border-bottom: none;
         }
-        .declamation-player .play-button svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-        .declamation-player .progress-bar-container {
-            flex-grow: 1;
-            height: 6px;
-            background-color: #e0e0e0;
-            border-radius: 3px;
-            cursor: pointer;
-            position: relative;
-            min-width: 150px;
-        }
-        .declamation-player .progress-bar {
-            height: 100%;
-            width: 0%;
-            background-color: var(--primary-color);
-            border-radius: 3px;
-        }
-        .declamation-player .time-display {
-            font-size: 0.9rem;
-            color: #666;
-            flex-shrink: 0;
-            min-width: 80px;
-            text-align: left;
-        }
-        #poem {
-            white-space: pre-wrap;
-        }
-        #poem-title {
-            font-weight: bold;
-            margin-bottom: 15px;
-            font-size: 1.5em;
+
+        .poem-list-item:hover,
+        .poem-list-item.active {
+            background-color: var(--secondary-color);
             color: var(--primary-color);
         }
-        .poem-container {
+        
+        .poem-display-container {
             max-width: 700px;
             margin: 0 auto;
             text-align: center;
             font-size: 1.1rem;
-            line-height: 2;
+            line-height: 2.2;
             padding: 30px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(0, 0, 0, 0.05);
+            display: none; /* Initially hidden */
         }
-        .poem-line {
-            margin-bottom: 12px;
+
+        .poem-display-container.active {
+            display: block;
         }
+
+        .poem-display-container h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .poem-display-container p {
+            white-space: pre-line;
+        }
+
         footer {
             background-color: var(--footer-bg-color);
             backdrop-filter: blur(5px);
@@ -353,30 +260,41 @@
             transform: translateY(20px);
             animation: fadeUp 0.8s ease-out 0.5s forwards;
         }
+
         .footer-content {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+
         .footer-nav ul {
             list-style: none;
             display: flex;
             margin-bottom: 20px;
         }
+
         .footer-nav li {
             margin: 0 15px;
         }
+
         .footer-nav a {
             text-decoration: none;
             color: var(--footer-text-color);
             font-size: 0.9rem;
+            font-weight: 700; /* Made footer links bold */
         }
+
         .footer-nav a:hover {
             color: var(--primary-color);
         }
+
         .social-links {
             margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
         .social-links a {
             color: var(--footer-text-color);
             font-size: 1.3rem;
@@ -384,15 +302,28 @@
             text-decoration: none;
             opacity: 0.8;
         }
+
         .social-links a:hover {
             opacity: 1;
             color: var(--primary-color);
             transform: scale(1.1);
         }
+
+        .social-links .instagram-icon {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
         footer p {
             font-size: 0.8rem;
             opacity: 0.7;
         }
+
         /* Animations */
         @keyframes fadeUp {
             from {
@@ -404,17 +335,7 @@
                 transform: translateY(0);
             }
         }
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
@@ -438,24 +359,20 @@
             .hero {
                 padding: 100px 0;
             }
-            .poet-image-container {
-                width: 100px;
-                height: 100px;
-            }
-            .poet-info h1 {
+            .hero h1 {
                 font-size: 2.2rem;
-                margin-top: 15px;
             }
             .hero h2 {
                 font-size: 1.1rem;
-                margin-bottom: 20px;
             }
             .section {
                 padding: 60px 0;
             }
-            .poem-container {
-                font-size: 1rem;
+            .poem-list-container {
                 padding: 20px;
+            }
+            .poem-list-item {
+                font-size: 1.2rem;
             }
             .footer-nav ul {
                 flex-direction: column;
@@ -468,17 +385,11 @@
                 margin: 0 8px;
                 font-size: 1.2rem;
             }
-            .declamation-player .controls {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .declamation-player .progress-bar-container {
-                width: 100%;
-            }
         }
     </style>
 </head>
 <body>
+
     <header>
         <div class="container header-content">
             <div class="logo">
@@ -489,92 +400,51 @@
                     <li><a href="gallery.html">گالری</a></li>
                     <li><a href="poem.html">اشعار</a></li>
                     <li><a href="books.html">کتاب‌ها</a></li>
-                    <li><a href="awards.html">افتخارات</a></li>
+                    <li><a href="awards.html">جوایز</a></li>
                     <li><a href="contact.html">تماس با ما</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
     <main>
         <section class="hero">
-            <div class="container hero-content">
-                <div class="poet-image-container">
-                    <img src="https://github.com/emenmousavi/tamannah/blob/main/images/photo_2025-08-15_15-12-20.jpg?raw=true" alt="عکس لیلا رضاوند زایری" class="poet-image">
-                </div>
-                <div class="poet-info">
-                    <h1>لیلا رضاوند زایری</h1>
-                </div>
-                <h2>متخلص به تمنا - شاعر اهل تبریز</h2>
-                <div class="telegram-section">
-                    <p>برای مشاهدهٔ تمامی اشعار به همراه دکلمه‌ها و تصاویر به کانال تلگرامی زیر بپیوندید.</p>
-                    <a href="https://t.me/ashkeghalb" target="_blank" class="telegram-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.3 8.3L9.6 15.6c-.3.3-.8.1-1-.2l-2.4-3.5c-.3-.4-.2-.9.2-1.1l8.7-3.2c.4-.2.9.2.7.7z"/></svg>
-                        <span>کانال تلگرام</span>
-                    </a>
-                </div>
+            <div class="container">
+                <h1>اشعار</h1>
+                <h2>گزیده‌ای از آثار تمنا</h2>
             </div>
         </section>
-        <section class="about-section">     
+
+        <section class="section">
             <div class="container">
-                <h2>درباره تمنا</h2>
-                <div class="about-section-content">
-                    <p>لیلا رضاوند زایری با تخلص «تمنا»، دختر سرزمین شعر و ادب، متولد سال ۱۳۵۲ در دیار فرهنگی تبریز؛ زنی از تبار معلمان دلسوز که با قلبی پر از عشق و مهر، گنجینهٔ زبان فارسی را چون گوهری گران‌بها به جان دانش‌آموزانش سپرد. در راه تعلیم و تربیت، سختی‌ها را به دوش کشید، رنج‌ها دید و از نامردمی‌ها دل شکست اما هرگز از پای ننشست.</p>
-                    <p>مرداد ۱۴۰۴، ستاره‌ای در آسمان خانواده خاموش شد و غمی سنگین، جان و دل عزیزانش را دربر گرفت. یاد و نامش همچون نسیمی آرام بر دل‌های ما جاری است، صدایی نرم از زبان شعر که هرگز خاموش نخواهد شد.</p>
-                    <p>تمنا، مادری دلسوز و شوخ‌طبع بود که با پسرش، امین و دخترش، زهرا، لحظه‌ها را با مهر و مهربانی پر می‌کرد؛ او در هر نگاه و خنده، درس صبر، عشق و معرفت می‌آموخت و خانه‌اش همواره مملو از گرما، شادی و صمیمیت بود. همسرش، نورالدین، شاهد فداکاری، مهربانی و ایثار او بود؛ زنی ایده‌آل که در زندگی خانوادگی هرگز کم نمی‌گذاشت و بهترین رفتار را با خانواده و عزیزانش داشت.</p>
-                    <p>در محیط کار، تمنا نمونه‌ای از ادب، عدالت و دلسوزی بود. معلمی که نه‌تنها علم می‌آموخت، بلکه اخلاق و انسانیت را در دل‌های دانش‌آموزانش می‌نشاند؛ او در برابر ناعدالتی‌ها می‌ایستاد و برای شاگردانش مادری واقعی بود، پناه و راهنمایی که همواره در کنارشان بود؛روح او در خاطره‌ها و واژه‌هایی که بر دل‌ها حک شد، جاودانه باقی خواهد ماند.</p>
+                <h2>مجموعه اشعار</h2>
+                <div class="poem-list-container">
+                    <ul class="poem-list">
+                        </ul>
                 </div>
-            </div>
-        </section>
-        <section class="section declamation-section">
-            <div class="container">
-                <h2>دکلمهٔ منتخب</h2>
-                <div class="declamation-container">
-                    <h3 class="declamation-title">اندکی انتظار</h3>
-                    <div class="declamation-player">
-                        <audio id="declamationAudio" src="https://github.com/emenmousavi/tamannah/blob/main/media/01%20leila%20rezavand%20-%20andaki%20ensantar%20.mp3?raw=true"></audio>
-                        <div class="controls">
-                            <button id="playPauseButton" class="play-button">
-                                <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                                <svg id="pauseIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-                            </button>
-                            <div class="progress-bar-container">
-                                <div class="progress-bar"></div>
-                            </div>
-                            <div class="time-display">
-                                <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
-                            </div>
-                        </div>
+                <div id="poem-display" class="poem-display-container">
                     </div>
-                </div>
-            </div>
-        </section>
-        <section class="section latest-poem">
-            <div class="container">
-                <h2>شعر منتخب</h2>
-                <div id="poem" class="poem-container">
-                    <div id="poem-title"></div>
-                    <div id="poem-text"></div>
-                </div>
             </div>
         </section>
     </main>
+
     <footer>
         <div class="container footer-content">
             <nav class="footer-nav">
                 <ul>
                     <li><a href="gallery.html">گالری</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
                     <li><a href="poem.html">اشعار</a></li>
                     <li><a href="books.html">کتاب‌ها</a></li>
-                    <li><a href="awards.html">افتخارات</a></li>
-                    <li><a href="contact.html">تماس با ما</a></li>
+                    <li><a href="awards.html">جوایز</a></li>
                 </ul>
             </nav>
             <div class="social-links">
+                <a href="https://www.instagram.com/leylarezavandtamanna/" target="_blank" title="اینستاگرام">
+                    <svg class="instagram-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37a4 4 0 1 1-7.23-2.92L16 11.37zM17.5 6.5h.01"></path></svg>
+                </a>
                 <a href="https://t.me/ashkeghalb" target="_blank" title="تلگرام">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                </a>
-                <a href="https://www.instagram.com/leylarezavandtamanna/" target="_blank" title="اینستاگرام">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
                 </a>
                 <a href="mailto:support@tamannah.website" title="ایمیل">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -583,64 +453,54 @@
             <p>&copy; 2025 تمنا. تمامی حقوق محفوظ است.</p>
         </div>
     </footer>
+
     <script>
-        const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
-        fetch(poemsUrl)
-            .then(response => response.json())
-            .then(data => {
-                // انتخاب شعری به دلخواه
-                const randomIndex = Math.floor(Math.random() * data.length);
-                const poem = data[randomIndex];
-                // نمایش شعر
-                document.getElementById('poem-title').textContent = poem.title;
-                document.getElementById('poem-text').textContent = poem.text;
-            })
-            .catch(err => console.error("خطا در بارگذاری اشعار:", err));
-        // Declamation Player Logic
-        const audio = document.getElementById('declamationAudio');
-        const playPauseButton = document.getElementById('playPauseButton');
-        const playIcon = document.getElementById('playIcon');
-        const pauseIcon = document.getElementById('pauseIcon');
-        const progressBarContainer = document.querySelector('.progress-bar-container');
-        const progressBar = document.querySelector('.progress-bar');
-        const currentTimeEl = document.getElementById('currentTime');
-        const durationEl = document.getElementById('duration');
-        function formatTime(seconds) {
-            const minutes = Math.floor(seconds / 60);
-            const remainingSeconds = Math.floor(seconds % 60);
-            return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-        }
-        playPauseButton.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                playIcon.style.display = 'none';
-                pauseIcon.style.display = 'block';
-            } else {
-                audio.pause();
-                playIcon.style.display = 'block';
-                pauseIcon.style.display = 'none';
+        const poems = [
+            {
+                title: "وطن",
+                text: `وطن يعني حماسه، عشق، ايمان \nوطن يعني سراسر عهد و پيمان \nوطن مصداق زيباي شكفتن \nبه هر كس غير او آري نگفتن \nوطن آغوش گرم و شور و همت \nوطن مشتي براي خصم و ذلت \nوطن خاكي كه عزت آفرين است \nسرايي خالي از نفس لعين است \nوطن طومار مهر و مهرباني \nبهشتي ماندگار و جاوداني \nوطن رنگين كماني از صداقت \nبود همواره بر پا از شهادت \nوطن يعني سرود عاشقانه \nترنم‌هاي بي عذر و بهانه \nوطن يعني سفيد و سبز و قرمز \nرفيق دشمنان باشی تو هرگز \nوطن سرخ از شهيد لاله گونش \nگلستاني زمين و آسمونش \nشهيدان تاخدا پرواز كردند \nدر آزادگي را باز كردند \nوطن گنجي كه پاياني ندارد \nكتابي كه سرانجامي ندارد \nوطن ميراث ياراني كه رفته \nهمان عهدي كه با معشوق بسته \nوطن يعني بهاري كه بماند \nبه دل آهنگ هستي را بخواند \nوطن يعني چراغي در شبستان \nوطن يعني گلي در شوره زاران \nوطن اشك و وطن يك مشت لبخند \nعزيز و يادگار يار دلبند \nنبايد صيد اين صياد گردد \nبه خون آري وطن آباد گردد \nوطن يعني كه دشمن خواب بيند \nتن ايراني‌اش بي تاب بيند \nبه لطف حق جهان بايد بداند \nكه ايران تا ابد آزاد ماند \nوطن لطفي ز رب العالمين است \nنگين سبز در قلب زمين است \nوطن يعني من و تو ما و آنها \nهمه يكرنگ زير پرچم لا \nوطن نوري كه خاموشي ندارد \nوطن هوشي كه بيهوشي ندارد.`
+            },
+            {
+                title: "روز دریا",
+                text: `آسمان و زمين از تو روشن \nاز تو پيدا شده دشت و گلشن \nنام تو آتش خصم دون شد \nآمدي و ستم سرنگون شد \nهديه كردي به وقت نمازت \nتو شدي بر پدر ام بابا \nيك طلوعي تو از جانمازت \nدر كنار علي گنج طاها \nاختران از وجودت درخشان \nسايه‌اي بر سرما يتميان \nباغبان گل مصطفايي \nبهترين همدم مرتضايي \nكرده‌اي بر خلايق عنايت \nروشن از تو چراغ امامت \nآمدي تا كه ظالم بميرد \nآمدي تا جهان جان بگيرد \nاز تو ممكن شده غير ممكن \nكافر از عشق تو گشته مؤمن \nهر كجا بسته ديدي گشودي \nدل تو از صاحب دل ربودي \nسمبل مادر و همسري تو \nمركز ثقل پيغمبري تو \nروز گل، روز زن، روز زهرا \nصد مبارك به دلسوز زهرا \nبا ملائك تو خلوت نمودي \nاي نشان خدايي چه بودي؟ \nبيت الأحزان تو كعبه‌ي من \nشيوه‌ي بودنت قبله‌ي من \nبين در قامتت را شكستند \nآيه‌ها را سرنيزه بستند \nخطبه‌ات لرزه بر اهرمن زد \nدست آمالشان را رسن زد \nتو صدايت صداي علي بود \nرفتنت هم براي علي بود \nفاطمه فا طمه پاره‌ي تن \nراه تو بهترين راه يك زن \nآب دريا ز اشك تو جوشيد \nآسمان با صدايت خروشيد \nتو مكرم محدث، مطهر \nبر ولايت شدي ام اطهر \nمنشأ خير و لطف و صفايي \nبر همه زخم دوران دوايي \nروز ميلاد زهرا مبارك \nروز زن روز دريا مبارك`
             }
-        });
-        audio.addEventListener('timeupdate', () => {
-            const progress = (audio.currentTime / audio.duration) * 100;
-            progressBar.style.width = `${progress}%`;
-            currentTimeEl.textContent = formatTime(audio.currentTime);
-        });
-        audio.addEventListener('loadedmetadata', () => {
-            durationEl.textContent = formatTime(audio.duration);
-        });
-        audio.addEventListener('ended', () => {
-            playIcon.style.display = 'block';
-            pauseIcon.style.display = 'none';
-            audio.currentTime = 0;
-            progressBar.style.width = '0%';
-        });
-        progressBarContainer.addEventListener('click', (e) => {
-            const clickPosition = e.offsetX;
-            const containerWidth = progressBarContainer.clientWidth;
-            const newTime = (clickPosition / containerWidth) * audio.duration;
-            audio.currentTime = newTime;
-        });
+        ];
+
+        const poemList = document.querySelector('.poem-list');
+        const poemDisplay = document.getElementById('poem-display');
+
+        function displayPoem(poem) {
+            poemDisplay.innerHTML = `
+                <h3>${poem.title}</h3>
+                <p>${poem.text}</p>
+            `;
+            poemDisplay.classList.add('active');
+        }
+
+        function createPoemList() {
+            // FIX: Clear existing list items before creating new ones
+            poemList.innerHTML = '';
+            
+            poems.forEach((poem, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'poem-list-item';
+                listItem.textContent = poem.title;
+                listItem.dataset.poemId = index;
+                poemList.appendChild(listItem);
+                
+                listItem.addEventListener('click', () => {
+                    document.querySelectorAll('.poem-list-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    listItem.classList.add('active');
+                    
+                    displayPoem(poem);
+                });
+            });
+        }
+
+        createPoemList();
+
     </script>
 </body>
 </html>
