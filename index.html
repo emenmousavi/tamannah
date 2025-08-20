@@ -38,7 +38,7 @@
             text-align: right;
             overflow-x: hidden;
             background-color: #333; /* Fallback color */
-            background-image: url('https://github.com/emenmousavi/tamannah/blob/main/images/1280px-Beautiful_view_of_Tabriz_in_Iran.jpg?raw=true');
+            background-image: url('https://github.com/emenmousavi/tamannah/blob/main/images/Screenshot_2025-08-20_182627_upscaled.png?raw=true');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -531,7 +531,7 @@
                 <div class="about-section-content">
                     <p>لیلا رضاوند زایری با تخلص «تمنا»، دختر سرزمین شعر و ادب، متولد سال ۱۳۵۲ در دیار فرهنگی تبریز؛ زنی از تبار معلمان دلسوز که با قلبی پر از عشق و مهر، گنجینهٔ زبان فارسی را چون گوهری گران‌بها به جان دانش‌آموزانش سپرد. در راه تعلیم و تربیت، سختی‌ها را به دوش کشید، رنج‌ها دید و از نامردمی‌ها دل شکست اما هرگز از پای ننشست.</p>
                     <p>مرداد ۱۴۰۴، ستاره‌ای در آسمان خانواده خاموش شد و غمی سنگین، جان و دل عزیزانش را دربر گرفت. یاد و نامش همچون نسیمی آرام بر دل‌های ما جاری است، صدایی نرم از زبان شعر که هرگز خاموش نخواهد شد.</p>
-                    <p>تمنا، مادری دلسوز و شوخ‌طبع بود که با پسرش، امین و دخترش، زهرا، لحظه‌ها را با مهر و مهربانی پر می‌کرد؛ او در هر نگاه و خنده، درس صبر، عشق و معرفت می‌آموخت و خانه‌اش همواره مملو از گرما، شادی و صمیمیت بود. همسرش، نورالدین، شاهد فداکاری، مهربانی و ایثار او بود؛ زنی ایده‌آل که در زندگی خانوادگی هرگز کم نمی‌گذاشت و بهترین رفتار را با خانواده و عزیزانش داشت.</p>
+                    <p>تمنا، مادری دلسوز و شوخ‌طبع بود که با پسرش، امین و دخترش، زهرا، لحظه‌ها را با مهر و مهربانی پر می‌کرد؛ او در هر نگاه و خنده، درس صبر، عشق و معرفت می‌آموخت و خانه‌اش همواره مملو از گرما، شادی و صمیمیت بود. همسرش، نورالدین، شاهد فداکاری، مهربانی و ایثار او بود؛ زنی ایده‌آل که در زندگی خانوادگی هرگز کم نمی‌گذاخت و بهترین رفتار را با خانواده و عزیزانش داشت.</p>
                     <p>در محیط کار، تمنا نمونه‌ای از ادب، عدالت و دلسوزی بود. معلمی که نه‌تنها علم می‌آموخت، بلکه اخلاق و انسانیت را در دل‌های دانش‌آموزانش می‌نشاند؛ او در برابر ناعدالتی‌ها می‌ایستاد و برای شاگردانش مادری واقعی بود، پناه و راهنمایی که همواره در کنارشان بود؛روح او در خاطره‌ها و واژه‌هایی که بر دل‌ها حک شد، جاودانه باقی خواهد ماند.</p>
                 </div>
             </div>
@@ -623,37 +623,39 @@
             const remainingSeconds = Math.floor(seconds % 60);
             return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
         }
-        playPauseButton.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                playIcon.style.display = 'none';
-                pauseIcon.style.display = 'block';
-            } else {
-                audio.pause();
+        if (playPauseButton) {
+            playPauseButton.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'block';
+                } else {
+                    audio.pause();
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                }
+            });
+            audio.addEventListener('timeupdate', () => {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+                currentTimeEl.textContent = formatTime(audio.currentTime);
+            });
+            audio.addEventListener('loadedmetadata', () => {
+                durationEl.textContent = formatTime(audio.duration);
+            });
+            audio.addEventListener('ended', () => {
                 playIcon.style.display = 'block';
                 pauseIcon.style.display = 'none';
-            }
-        });
-        audio.addEventListener('timeupdate', () => {
-            const progress = (audio.currentTime / audio.duration) * 100;
-            progressBar.style.width = `${progress}%`;
-            currentTimeEl.textContent = formatTime(audio.currentTime);
-        });
-        audio.addEventListener('loadedmetadata', () => {
-            durationEl.textContent = formatTime(audio.duration);
-        });
-        audio.addEventListener('ended', () => {
-            playIcon.style.display = 'block';
-            pauseIcon.style.display = 'none';
-            audio.currentTime = 0;
-            progressBar.style.width = '0%';
-        });
-        progressBarContainer.addEventListener('click', (e) => {
-            const clickPosition = e.offsetX;
-            const containerWidth = progressBarContainer.clientWidth;
-            const newTime = (clickPosition / containerWidth) * audio.duration;
-            audio.currentTime = newTime;
-        });
+                audio.currentTime = 0;
+                progressBar.style.width = '0%';
+            });
+            progressBarContainer.addEventListener('click', (e) => {
+                const clickPosition = e.offsetX;
+                const containerWidth = progressBarContainer.clientWidth;
+                const newTime = (clickPosition / containerWidth) * audio.duration;
+                audio.currentTime = newTime;
+            });
+        }
     </script>
 </body>
 </html>
