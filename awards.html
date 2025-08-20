@@ -6,7 +6,6 @@
     <title>افتخارات - تمنا</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
-
         /* Custom Font for Nastaliq text */
         @font-face {
             font-family: 'IranNastaliq';
@@ -14,26 +13,23 @@
             font-weight: normal;
             font-style: normal;
         }
-
         :root {
-            --primary-color: #FFC107; /* Amber/Gold */
+            --primary-color: #dd944a; /* Golden Orange */
             --secondary-color: rgba(255, 250, 230, 0.8); /* Semi-transparent light gold/grey */
             --text-color: #333;
-            --accent-color: #FFD54F; /* Lighter gold accent */
+            --accent-color: #e6b074; /* Lighter golden orange accent */
             --link-color: var(--text-color);
             --link-hover-color: var(--primary-color);
             --header-bg-color: rgba(255, 255, 255, 0.85);
             --footer-bg-color: rgba(51, 51, 51, 0.85);
             --footer-text-color: #eee;
         }
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             transition: all 0.3s ease-in-out;
         }
-
         body {
             font-family: 'Vazirmatn', sans-serif;
             color: var(--text-color);
@@ -48,7 +44,6 @@
             background-attachment: fixed;
             position: relative;
         }
-
         body::before {
             content: '';
             position: absolute;
@@ -60,13 +55,11 @@
             backdrop-filter: blur(3px); /* Subtle blur effect */
             z-index: -1;
         }
-
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 30px;
         }
-
         header {
             background-color: var(--header-bg-color);
             backdrop-filter: blur(10px);
@@ -78,13 +71,11 @@
             padding: 1rem 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
-
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .logo a {
             font-family: 'IranNastaliq', serif; /* Apply the custom font */
             font-size: 2.5rem;
@@ -92,25 +83,21 @@
             text-decoration: none;
             line-height: 1; /* Adjust line height for better alignment */
         }
-
         nav ul {
             list-style: none;
             display: flex;
         }
-
         nav li {
             margin-right: 20px;
         }
-
         nav a {
             text-decoration: none;
             color: var(--link-color);
             font-size: 1rem;
-            font-weight: 300;
+            font-weight: 700; /* Made bold */
             position: relative;
             padding: 0.5rem 0;
         }
-
         nav a::before {
             content: '';
             position: absolute;
@@ -121,21 +108,17 @@
             background-color: var(--primary-color);
             transition: width 0.3s ease-in-out;
         }
-
         nav a:hover {
             color: var(--link-hover-color);
         }
-
         nav a:hover::before {
             width: 100%;
         }
-
         main {
             padding-top: 80px;
             background-color: var(--secondary-color);
             padding-bottom: 40px;
         }
-
         .hero {
             text-align: center;
             padding: 120px 0;
@@ -146,26 +129,22 @@
             backdrop-filter: blur(5px);
             margin-bottom: 20px;
         }
-
         .hero h1 {
             font-size: 2.8rem;
             color: var(--primary-color);
             margin-bottom: 10px;
         }
-
         .hero h2 {
             font-size: 1.4rem;
             color: var(--text-color);
             font-weight: 300;
         }
-
         .section {
             padding: 80px 0;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 0.8s ease-out 0.4s forwards;
         }
-
         .section h2 {
             font-size: 2rem;
             text-align: center;
@@ -175,7 +154,6 @@
             padding-bottom: 10px;
             display: inline-block;
         }
-
         .section h2::after {
             content: '';
             position: absolute;
@@ -186,7 +164,6 @@
             height: 2px;
             background-color: var(--accent-color);
         }
-
         .awards-list-container,
         .experience-list-container,
         .research-list-container {
@@ -197,13 +174,11 @@
             border-radius: 8px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
         }
-
         .awards-list-container ul,
         .experience-list-container ul,
         .research-list-container ul {
             list-style: none;
         }
-
         .awards-list-container li,
         .experience-list-container li,
         .research-list-container li {
@@ -214,13 +189,11 @@
             position: relative;
             padding-right: 40px;
         }
-
         .awards-list-container li:last-child,
         .experience-list-container li:last-child,
         .research-list-container li:last-child {
             border-bottom: none;
         }
-
         .awards-list-container li::before,
         .experience-list-container li::before,
         .research-list-container li::before {
@@ -232,15 +205,12 @@
             font-size: 1.5rem;
             color: var(--primary-color);
         }
-
         .experience-list-container li::before {
             content: "💼";
         }
-        
         .research-list-container li::before {
             content: "🔬";
         }
-        
         footer {
             background-color: var(--footer-bg-color);
             backdrop-filter: blur(5px);
@@ -251,40 +221,31 @@
             transform: translateY(20px);
             animation: fadeUp 0.8s ease-out 0.5s forwards;
         }
-
         .footer-content {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
         .footer-nav ul {
             list-style: none;
             display: flex;
             margin-bottom: 20px;
         }
-
         .footer-nav li {
             margin: 0 15px;
         }
-
         .footer-nav a {
             text-decoration: none;
             color: var(--footer-text-color);
             font-size: 0.9rem;
+            font-weight: 700; /* Made bold */
         }
-
         .footer-nav a:hover {
             color: var(--primary-color);
         }
-
         .social-links {
             margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
-
         .social-links a {
             color: var(--footer-text-color);
             font-size: 1.3rem;
@@ -292,29 +253,23 @@
             text-decoration: none;
             opacity: 0.8;
         }
-
         .social-links a:hover {
             opacity: 1;
-            color: var(--primary-color);
             transform: scale(1.1);
         }
-
-        /* Instagram icon styling */
-        .social-links .instagram-icon {
-            width: 24px;
-            height: 24px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+        .social-links a[title="تلگرام"]:hover {
+            color: #0088cc; /* Telegram blue */
         }
-
+        .social-links a[title="اینستاگرام"]:hover {
+            color: #C13584; /* Instagram purple */
+        }
+        .social-links a[title="ایمیل"]:hover {
+            color: #4CAF50; /* Green color for email */
+        }
         footer p {
             font-size: 0.8rem;
             opacity: 0.7;
         }
-
         /* Animations */
         @keyframes fadeUp {
             from {
@@ -326,7 +281,17 @@
                 transform: translateY(0);
             }
         }
-        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
@@ -380,7 +345,6 @@
     </style>
 </head>
 <body>
-
     <header>
         <div class="container header-content">
             <div class="logo">
@@ -388,8 +352,10 @@
             </div>
             <nav>
                 <ul>
+                    <li><a href="#">زندگینامه</a></li>
                     <li><a href="gallery.html">گالری</a></li>
                     <li><a href="poem.html">اشعار</a></li>
+                    <li><a href="#">دکلمه</a></li>
                     <li><a href="books.html">کتاب‌ها</a></li>
                     <li><a href="awards.html">افتخارات</a></li>
                     <li><a href="contact.html">تماس با ما</a></li>
@@ -447,19 +413,21 @@
         <div class="container footer-content">
             <nav class="footer-nav">
                 <ul>
+                    <li><a href="#">زندگینامه</a></li>
                     <li><a href="gallery.html">گالری</a></li>
                     <li><a href="poem.html">اشعار</a></li>
+                    <li><a href="#">دکلمه</a></li>
                     <li><a href="books.html">کتاب‌ها</a></li>
                     <li><a href="awards.html">افتخارات</a></li>
                     <li><a href="contact.html">تماس با ما</a></li>
                 </ul>
             </nav>
             <div class="social-links">
-                <a href="https://www.instagram.com/leylarezavandtamanna/" target="_blank" title="اینستاگرام">
-                    <svg class="instagram-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37a4 4 0 1 1-7.23-2.92L16 11.37zM17.5 6.5h.01"></path></svg>
-                </a>
                 <a href="https://t.me/ashkeghalb" target="_blank" title="تلگرام">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </a>
+                <a href="https://www.instagram.com/tamanna_poem/" target="_blank" title="اینستاگرام">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
                 </a>
                 <a href="mailto:support@tamannah.website" title="ایمیل">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -468,6 +436,61 @@
             <p>&copy; 2025 تمنا. تمامی حقوق محفوظ است.</p>
         </div>
     </footer>
-
+    <script>
+        const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
+        fetch(poemsUrl)
+            .then(response => response.json())
+            .then(data => {
+                const randomIndex = Math.floor(Math.random() * data.length);
+                const poem = data[randomIndex];
+            })
+            .catch(err => console.error("خطا در بارگذاری اشعار:", err));
+        const audio = document.getElementById('declamationAudio');
+        const playPauseButton = document.getElementById('playPauseButton');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        const progressBarContainer = document.querySelector('.progress-bar-container');
+        const progressBar = document.querySelector('.progress-bar');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+        }
+        if (playPauseButton) {
+            playPauseButton.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'block';
+                } else {
+                    audio.pause();
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                }
+            });
+            audio.addEventListener('timeupdate', () => {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+                currentTimeEl.textContent = formatTime(audio.currentTime);
+            });
+            audio.addEventListener('loadedmetadata', () => {
+                durationEl.textContent = formatTime(audio.duration);
+            });
+            audio.addEventListener('ended', () => {
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+                audio.currentTime = 0;
+                progressBar.style.width = '0%';
+            });
+            progressBarContainer.addEventListener('click', (e) => {
+                const clickPosition = e.offsetX;
+                const containerWidth = progressBarContainer.clientWidth;
+                const newTime = (clickPosition / containerWidth) * audio.duration;
+                audio.currentTime = newTime;
+            });
+        }
+    </script>
 </body>
 </html>
