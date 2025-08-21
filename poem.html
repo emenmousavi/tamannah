@@ -164,14 +164,24 @@
             height: 2px;
             background-color: var(--accent-color);
         }
+        .poem-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* Space between poem list sections */
+        }
         .poem-list-container {
-            max-width: 800px;
-            margin: 0 auto;
+            width: 48%; /* Adjust width to fit two lists */
             background-color: #fff;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            margin-bottom: 40px;
+        }
+        .poem-list-container h3 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
         }
         .poem-list {
             list-style: none;
@@ -196,7 +206,7 @@
         }
         .poem-display-container {
             max-width: 700px;
-            margin: 0 auto;
+            margin: 20px auto; /* Adjust margin to center it below the lists */
             text-align: center;
             font-size: 1.1rem;
             line-height: 2.2;
@@ -320,8 +330,12 @@
             .section {
                 padding: 60px 0;
             }
+            .poem-container {
+                flex-direction: column;
+            }
             .poem-list-container {
-                padding: 20px;
+                width: 100%;
+                margin-bottom: 20px;
             }
             .poem-list-item {
                 font-size: 1.2rem;
@@ -369,9 +383,17 @@
         <section class="section">
             <div class="container">
                 <h2>مجموعه اشعار</h2>
-                <div class="poem-list-container">
-                    <ul class="poem-list">
-                    </ul>
+                <div class="poem-container">
+                    <div class="poem-list-container">
+                        <h3>شعرهای سپید</h3>
+                        <ul class="poem-list" id="blank-verse-list">
+                        </ul>
+                    </div>
+                    <div class="poem-list-container">
+                        <h3>شعرهای کلاسیک</h3>
+                        <ul class="poem-list" id="classical-list">
+                        </ul>
+                    </div>
                 </div>
                 <div id="poem-display" class="poem-display-container">
                 </div>
@@ -406,7 +428,7 @@
         </div>
     </footer>
     <script>
-        const poems = [
+        const classicalPoems = [
             {
                 title: "وطن",
                 text: `وطن يعني حماسه، عشق، ايمان \nوطن يعني سراسر عهد و پيمان \nوطن مصداق زيباي شكفتن \nبه هر كس غير او آري نگفتن \nوطن آغوش گرم و شور و همت \nوطن مشتي براي خصم و ذلت \nوطن خاكي كه عزت آفرين است \nسرايي خالي از نفس لعين است \nوطن طومار مهر و مهرباني \nبهشتي ماندگار و جاوداني \nوطن رنگين كماني از صداقت \nبود همواره بر پا از شهادت \nوطن يعني سرود عاشقانه \nترنم‌هاي بي عذر و بهانه \nوطن يعني سفيد و سبز و قرمز \nرفيق دشمنان باشی تو هرگز \nوطن سرخ از شهيد لاله گونش \nگلستاني زمين و آسمونش \nشهيدان تاخدا پرواز كردند \nدر آزادگي را باز كردند \nوطن گنجي كه پاياني ندارد \nكتابي كه سرانجامي ندارد \nوطن ميراث ياراني كه رفته \nهمان عهدي كه با معشوق بسته \nوطن يعني بهاري كه بماند \nبه دل آهنگ هستي را بخواند \nوطن يعني چراغي در شبستان \nوطن يعني گلي در شوره زاران \nوطن اشك و وطن يك مشت لبخند \nعزيز و يادگار يار دلبند \nنبايد صيد اين صياد گردد \nبه خون آري وطن آباد گردد \nوطن يعني كه دشمن خواب بيند \nتن ايراني‌اش بي تاب بيند \nبه لطف حق جهان بايد بداند \nكه ايران تا ابد آزاد ماند \nوطن لطفي ز رب العالمين است \nنگين سبز در قلب زمين است \nوطن يعني من و تو ما و آنها \nهمه يكرنگ زير پرچم لا \nوطن نوري كه خاموشي ندارد \nوطن هوشي كه بيهوشي ندارد.`
@@ -414,10 +436,34 @@
             {
                 title: "روز دریا (روز زن)",
                 text: `آسمان و زمين از تو روشن \nاز تو پيدا شده دشت و گلشن \nنام تو آتش خصم دون شد \nآمدي و ستم سرنگون شد \nهديه كردي به وقت نمازت \nتو شدي بر پدر ام بابا \nيك طلوعي تو از جانمازت \nدر كنار علي گنج طاها \nاختران از وجودت درخشان \nسايه‌اي بر سرما يتميان \nباغبان گل مصطفايي \nبهترين همدم مرتضايي \nكرده‌اي بر خلايق عنايت \nروشن از تو چراغ امامت \nآمدي تا كه ظالم بميرد \nآمدي تا جهان جان بگيرد \nاز تو ممكن شده غير ممكن \nكافر از عشق تو گشته مؤمن \nهر كجا بسته ديدي گشودي \nدل تو از صاحب دل ربودي \nسمبل مادر و همسري تو \nمركز ثقل پيغمبري تو \nروز گل، روز زن، روز زهرا \nصد مبارك به دلسوز زهرا \nبا ملائك تو خلوت نمودي \nاي نشان خدايي چه بودي؟ \nبيت الأحزان تو كعبه‌ي من \nشيوه‌ي بودنت قبله‌ي من \nبين در قامتت را شكستند \nآيه‌ها را سرنيزه بستند \nخطبه‌ات لرزه بر اهرمن زد \nدست آمالشان را رسن زد \nتو صدايت صداي علي بود \nرفتنت هم براي علي بود \nفاطمه فا طمه پاره‌ي تن \nراه تو بهترين راه يك زن \nآب دريا ز اشك تو جوشيد \nآسمان با صدايت خروشيد \nتو مكرم محدث، مطهر \nبر ولايت شدي ام اطهر \nمنشأ خير و لطف و صفايي \nبر همه زخم دوران دوايي \nروز ميلاد زهرا مبارك \nروز زن روز دريا مبارك`
+            },
+            {
+                title: "در حسرت چشم خمار",
+                text: "اي نگاهت منتظر در انتظارت مانده‌ام \nبار ديگر كاش مي‌ديدم كنارت مانده‌ام \nدست در دست صداقت شعرتر مي‌خواني‌ام\nگر خزان گيرد مرا در بر بهارت مانده‌ام\nرونق بازار مستي از ترنم‌هاي توست\nزهره‌ي شهر مني همواره يارت مانده‌ام \nاز تو من آموختم هرگز نباشم ناتوان \nدل زمن بردي و من اندر شرارت مانده‌ام \nتو همان آرامشي بودي كه مي‌جستم همي\nروز و شب ديوانه آسا بيقرارت مانده‌ام \nآمدي تا سبز ماند بهار خاطرش\nدور را ز تو خسته از شهر و ديارت مانده‌ام \nكوچه‌ها بعد از تو بوي ياس را گم كرده‌اند\nهمچو صيدم ليك در فكر شكارت مانده‌ام\nهديه‌ام كردي شكفتن را كه چون گل واشدم\nدر تعجب از يد پروردگارت مانده‌ام \nشاد باشي تا ابد دور از غم و رنج و خيال \nباز هم در حسرت چشم خمارت مانده‌ام"
+            },
+            {
+                title: "تو را تنها پرستيدن خوش است",
+                text: "با نگاه مست تو مستانه رقصيدن خوش است \nبي تكلم عشق را اينگونه فهميدن خوش است \nاز سر مهر و وفا تا قله‌ي قاف خدا \nدور از مردم\u00a0 تور را تنها پرستيدن خوش است \nعشق را اول تو دادي عاشقي پيغام تو \nمصطفي سيرت علي آسا تو را ديدن خوش است \nپرده بر رخ داده‌ا ي ديوانه تر كردي مرا \nاي تو مهرت مهرجان بي پرده خنديدن خوش است \nچون نمودم خاك دل را آشنا با نور تو \nبذر عشقت را به آب ديده پاشيدن خوش است \nزيور باقي براي خلق اگر دا ند تويي \nدر غم فقري چنين چون چوب خشكيدن خوش است \nمعني نازي، نيازي، محرم هر گونه رازي \nدر نماز عاشقي نام تو بشنيدن خوش است"
             }
         ];
-        const poemList = document.querySelector('.poem-list');
+        
+        const blankVersePoems = [
+            // Add your blank verse poems here in the same format
+            // Example:
+            // {
+            //     title: "عنوان شعر سپید ۱",
+            //     text: "متن شعر سپید ۱"
+            // },
+            // {
+            //     title: "عنوان شعر سپید ۲",
+            //     text: "متن شعر سپید ۲"
+            // }
+        ];
+
+        const classicalList = document.getElementById('classical-list');
+        const blankVerseList = document.getElementById('blank-verse-list');
         const poemDisplay = document.getElementById('poem-display');
+
         function displayPoem(poem) {
             poemDisplay.innerHTML = `
                 <h3>${poem.title}</h3>
@@ -425,24 +471,33 @@
             `;
             poemDisplay.classList.add('active');
         }
-        function createPoemList() {
-            poemList.innerHTML = '';
-            poems.forEach((poem, index) => {
+
+        function createPoemList(listElement, poemsArray) {
+            listElement.innerHTML = '';
+            poemsArray.forEach((poem, index) => {
                 const listItem = document.createElement('li');
                 listItem.className = 'poem-list-item';
                 listItem.textContent = poem.title;
                 listItem.dataset.poemId = index;
-                poemList.appendChild(listItem);
+                listItem.dataset.poemType = listElement.id;
+                listElement.appendChild(listItem);
+
                 listItem.addEventListener('click', () => {
+                    // Remove 'active' class from all list items
                     document.querySelectorAll('.poem-list-item').forEach(item => {
                         item.classList.remove('active');
                     });
+                    // Add 'active' class to the clicked item
                     listItem.classList.add('active');
                     displayPoem(poem);
                 });
             });
         }
-        createPoemList();
+        
+        // Populate the lists
+        createPoemList(classicalList, classicalPoems);
+        createPoemList(blankVerseList, blankVersePoems);
+
     </script>
 </body>
 </html>
