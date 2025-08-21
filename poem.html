@@ -164,24 +164,36 @@
             height: 2px;
             background-color: var(--accent-color);
         }
+        .poem-book-container {
+            margin-bottom: 50px;
+        }
+        .poem-book-container h3 {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
         .poem-container {
             display: flex;
             justify-content: space-between;
             gap: 20px; /* Space between poem list sections */
         }
         .poem-list-container {
-            width: 48%; /* Adjust width to fit two lists */
+            width: 33%; /* Adjust width to fit three lists */
             background-color: #fff;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
         }
-        .poem-list-container h3 {
+        .poem-list-container h4 {
             text-align: center;
             color: var(--primary-color);
             margin-bottom: 20px;
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 10px;
+            font-size: 1.3rem;
         }
         .poem-list {
             list-style: none;
@@ -189,7 +201,7 @@
             margin: 0;
         }
         .poem-list-item {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--text-color);
             cursor: pointer;
@@ -383,20 +395,52 @@
         <section class="section">
             <div class="container">
                 <h2>مجموعه اشعار</h2>
-                <div class="poem-container">
-                    <div class="poem-list-container">
-                        <h3>شعرهای سپید</h3>
-                        <ul class="poem-list" id="blank-verse-list">
-                        </ul>
-                    </div>
-                    <div class="poem-list-container">
-                        <h3>شعرهای کلاسیک</h3>
-                        <ul class="poem-list" id="classical-list">
-                        </ul>
+
+                <!-- First Book Section -->
+                <div class="poem-book-container">
+                    <h3>مجموعه اشعار بانو تمنا - دفتر اول</h3>
+                    <div class="poem-container">
+                        <!-- Blank Verse Poems List -->
+                        <div class="poem-list-container">
+                            <h4>شعرهای سپید</h4>
+                            <ul class="poem-list" id="first-book-blank-verse-list"></ul>
+                        </div>
+                        <!-- Classical Poems List -->
+                        <div class="poem-list-container">
+                            <h4>شعرهای کلاسیک</h4>
+                            <ul class="poem-list" id="first-book-classical-list"></ul>
+                        </div>
+                        <!-- Azeri Poems List -->
+                        <div class="poem-list-container">
+                            <h4>شعرهای آذری</h4>
+                            <ul class="poem-list" id="first-book-azeri-list"></ul>
+                        </div>
                     </div>
                 </div>
-                <div id="poem-display" class="poem-display-container">
+
+                <!-- Second Book Section -->
+                <div class="poem-book-container">
+                    <h3>مجموعه اشعار بانو تمنا - دفتر دوم</h3>
+                    <div class="poem-container">
+                        <!-- Blank Verse Poems List -->
+                        <div class="poem-list-container">
+                            <h4>شعرهای سپید</h4>
+                            <ul class="poem-list" id="second-book-blank-verse-list"></ul>
+                        </div>
+                        <!-- Classical Poems List -->
+                        <div class="poem-list-container">
+                            <h4>شعرهای کلاسیک</h4>
+                            <ul class="poem-list" id="second-book-classical-list"></ul>
+                        </div>
+                        <!-- Azeri Poems List -->
+                        <div class="poem-list-container">
+                            <h4>شعرهای آذری</h4>
+                            <ul class="poem-list" id="second-book-azeri-list"></ul>
+                        </div>
+                    </div>
                 </div>
+
+                <div id="poem-display" class="poem-display-container"></div>
             </div>
         </section>
     </main>
@@ -428,7 +472,7 @@
         </div>
     </footer>
     <script>
-        const classicalPoems = [
+        const firstBookClassicalPoems = [
             {
                 title: "وطن",
                 text: `وطن يعني حماسه، عشق، ايمان \nوطن يعني سراسر عهد و پيمان \nوطن مصداق زيباي شكفتن \nبه هر كس غير او آري نگفتن \nوطن آغوش گرم و شور و همت \nوطن مشتي براي خصم و ذلت \nوطن خاكي كه عزت آفرين است \nسرايي خالي از نفس لعين است \nوطن طومار مهر و مهرباني \nبهشتي ماندگار و جاوداني \nوطن رنگين كماني از صداقت \nبود همواره بر پا از شهادت \nوطن يعني سرود عاشقانه \nترنم‌هاي بي عذر و بهانه \nوطن يعني سفيد و سبز و قرمز \nرفيق دشمنان باشی تو هرگز \nوطن سرخ از شهيد لاله گونش \nگلستاني زمين و آسمونش \nشهيدان تاخدا پرواز كردند \nدر آزادگي را باز كردند \nوطن گنجي كه پاياني ندارد \nكتابي كه سرانجامي ندارد \nوطن ميراث ياراني كه رفته \nهمان عهدي كه با معشوق بسته \nوطن يعني بهاري كه بماند \nبه دل آهنگ هستي را بخواند \nوطن يعني چراغي در شبستان \nوطن يعني گلي در شوره زاران \nوطن اشك و وطن يك مشت لبخند \nعزيز و يادگار يار دلبند \nنبايد صيد اين صياد گردد \nبه خون آري وطن آباد گردد \nوطن يعني كه دشمن خواب بيند \nتن ايراني‌اش بي تاب بيند \nبه لطف حق جهان بايد بداند \nكه ايران تا ابد آزاد ماند \nوطن لطفي ز رب العالمين است \nنگين سبز در قلب زمين است \nوطن يعني من و تو ما و آنها \nهمه يكرنگ زير پرچم لا \nوطن نوري كه خاموشي ندارد \nوطن هوشي كه بيهوشي ندارد.`
@@ -447,21 +491,38 @@
             }
         ];
         
-        const blankVersePoems = [
-            // Add your blank verse poems here in the same format
-            // Example:
-            // {
-            //     title: "عنوان شعر سپید ۱",
-            //     text: "متن شعر سپید ۱"
-            // },
-            // {
-            //     title: "عنوان شعر سپید ۲",
-            //     text: "متن شعر سپید ۲"
-            // }
+        // اشعار سپید به دفتر اول اضافه شدند
+        const firstBookBlankVersePoems = [
+            {
+                title: "اي جماعت برويد",
+                text: "اي جماعت! برويد \nدست از سر من برداريد \nپر پرواز ندارم ديگر!\nكار من نيست ملون صفتي \nقدرت پرده دري درمن نيست \nگويي اينجا همه در فكر خوداند \nهمه درگير مداند!\nديدم و فهميدم \nخبري نيست دگر از لبخند \nهمه تركم بكنيد \nرفت و ديگر نرسيد آن لحظه \nآسماني آ‌بي- با شبي مهتابي!\nمردمان در پس انبوه جفا گم شده‌اند \nلفظ ايثار دگر بي معني است \nفاش مي‌گويم و تصوير درونم اين است: \nدشت‌ها طوفاني \nباغ‌ها زرد و خزان \nفصل باران و نه باران بهار \nكه بروياند و از نو همه جا پاك شود \nقلب من ويران است \nاز همان ضربه‌ي ناپيدايي كه خلايق زده‌اند!\nاشك هم مي‌ترسد \nغم دل واگويد \nكاش امروز بتابد خورشيد \nو جهان غرق در آرامش و شوق \nزير مواج ترين ثانيه‌ها \nبه خدا خيره شود \nتابدان وقت \nجماعت برويد \nو باز چشم من تهي ز اشك شد نيامدي \nجهان پر از خيانت و ز رشك شد نيامدي \nتمام انتظار را سپيد كرده‌ام ولي \nتمام قلب من زغم چو مشك شد نيامدي"
+            },
+            {
+                title: "پرستوي مهاجر",
+                text: "و سكوت سنگينم را \nكدام حنجره خواهد شكست \nجز فرياد خدايي تو ؟!\nو نگاهم را \nكدامين پنجره معنا مي‌دهد \nجز دست رهايي تو \nمگر چون تويي مي‌توانم يافت؟ \nكه پرواز را ارزانيم كند؟!\nدر كدام سمت آسماني/ \nكه سجاده‌ي عشق را \nبر آن سو بگسترم \nمن پاييزي‌ترين لحظه‌هايم را به ياد بهار آمدنت \nمي‌سپرم \nتا همه را به ميهماني شكوفه‌ها دعوت كني \nتا بدان هنگام \nمي‌دانم \nجهان جان از تو مي‌گيرد \nو درختان زنده از نام توأند \nبياو در هم بشكن \nاين فاصله را \nكه ياراي دوباره نشستنمان ما را نيست \nاي \nپرستوي مهاجر!\nبه خانه‌ات برگرد \n!!! \n\n\nسوگند به امشب كه شب سوز و گداز است \nيك لحظه رها گشتن و هنگام نياز است \nوقت است كه محراب شود چشم و نگاهت \nپرواز كن از خاك كه درها همه باز ا ست"
+            },
         ];
 
-        const classicalList = document.getElementById('classical-list');
-        const blankVerseList = document.getElementById('blank-verse-list');
+        // شعر آذری به دفتر اول اضافه شد
+        const firstBookAzeriPoems = [
+            {
+                title: "معليم درديم ده چوخ سوزوم ده",
+                text: "سلام مندن هر كيمه كي بولندي \nمعليمين گوز ياشيني سيلندي \nبيز قالميشوخ مين بير مشكل ا يچينده \nچاره ده يوخ نه مين نه بيربيرينده\nسيز الله رحم ادين معليم لره\nبيرذره حق ورين معليم لره \nديل دوداغيم بيربيرينه پاپيشدي \nدرديميزجانيلابتر قاريشدي \nساعات ياريم بيزوخ بير ده ديينماخ\nبش ديقه وقت ايندي بيز و چاي اشماخ \nدوز ديللر درتدي ديينگل اولار\nاونا گوره دردي اولان تئز سولار \nدانينماخ قويون درديمي دييم \nسن قولاخ ورقاري كيمي ديينيم\nبوجاندار بيل نه تاب قالوپ نه توان\nهم گو جا پيس بيليربيزي هم جوان \nگونلريمين گئچماغينا سونيديم \nدابيلمديم بو قوجالان منيديم \nاوتوز نفرجوربجور انسان لاري \nآدام ائدن رنگي اولورساپ ساري \nمنيم ايشيم اولوپ فقط دريينماخ\nائوده ده بيرباليش قويوپ دييم باخ\nاوتوز درصد سهم مصرف صد اولدي\nحقي ديين هامي بولور بد اولدي \nايشيم يوخدي شعريم دوزدي ايريدي \nدييدن آغاش، دوزسوزبودي، ايريدي\nآهن قوره‌ي دانيلير بيزلره\nتيرآهن ده آزدي بيزيم ديزلره \nسن اورداقال من ده بيردا نوولسون\nال اله وئربنا دوزجه قويولسون \nهم روحوموز هم جانيميز خسته دور \nشاهيدلره گؤردوغوموزايش نه دور؟\nقان ورييلربيردا فقط قيشقيراخ؟\nورتلرنين بوجاج لاردا قيوريلاخ؟ \nگلين بولاخ كيمي جو شاخ سس وراخ \nحق يولدندا اياخ دالا قويموياخ \nهرنه اولا آيريلما روخ شهيدن \nآلميشوخ بوعزت چوخ شهيددن \nهريئرده هامي وار معلم هاني؟ \nداسن ده سايماسان جماعت ساني؟\nمن اولموشام نمره ورن دس دين\nدؤره اولوپ اعتراضا بس دين \nقاشماخ‌لارين هامي‌سي ظاهر ده دور \nشهيدلرين حرمتي خاطرده دور \nمعليم درديم ده چوخ سوزوم ده\nحاليم ده يوخ جانيم ده يوخ دوزوم ده \nمنتيله پولووروپ آليل لار\nگؤره گؤره خسته ليغي دانيل لار \nگورسن اگر نئچه نفر جمع گلير \nبوردا اولان قاش قاباغي يئركسير\nكيم نه بولور من كلاسدا نيليرم\nحرصي پيلپ جوشي وروپ قينيرم \nگولماخ بيزدن اوزگوتوروپ قاچيپدي \nايثار مطلق بيزي ته تاپيپدي!\nسن ده اگر درديمي درك ايلسن \nتهجه قويوپ خسته و زارگئتمسن\nآمادياخ حق سيزينه ياراولسون\nشهيدلرين دشمن لري خواراولسون \nكاشكي اولا هامي برابر اولا \nداقويموياخ رنگ معلم سولا \nهردن ده بير وقتي وراخ يئسين‌لر\nسونرا گئديپ دوزاولماغي دسين‌لر \nگلين بولاخ ندن بوردا قالميشوخ\nشهيدلرين قانينا بيز باتميشوخ \nغذاي روح ياددان چيخيپ گئديپدي \nجوانليق عالمي چوخدان گئچيپدي\nروحوموزي قبره قويوپ گلميشوخ\nغنچه كيمي آما سولوپ گلميشوخ \nبس كي نفس چكميشم يورقونام \nهرنه گوروپ دينميشم يورقونام \nكاش بيرگورم من يوخودا دونياني \nصاف و صفا، مهدوفا، دونياني\nاوندا باخام گوزلريمين ياشينا\nاوزگه‌لرين پيشيرديغي آشينا \nال گوتورم حقه سازي آغليام \nخوارم اگر دونيايه بل باغليام \nباخ يولاشايد آقاميز تئزگله\nچشم و چراغ آناميز تئزگله \nهريئره دوزغنچه‌لري گول لري\nباغچادا آزاد اله بولبول لري \nحقينن اول حق ده سندن بيراولسون \nبويولدا هر كيمسه ده وار پيراولسون"
+            }
+        ];
+
+        const secondBookClassicalPoems = [];
+        const secondBookBlankVersePoems = [];
+        const secondBookAzeriPoems = [];
+
+        const firstBookClassicalList = document.getElementById('first-book-classical-list');
+        const firstBookBlankVerseList = document.getElementById('first-book-blank-verse-list');
+        const firstBookAzeriList = document.getElementById('first-book-azeri-list');
+
+        const secondBookClassicalList = document.getElementById('second-book-classical-list');
+        const secondBookBlankVerseList = document.getElementById('second-book-blank-verse-list');
+        const secondBookAzeriList = document.getElementById('second-book-azeri-list');
+
         const poemDisplay = document.getElementById('poem-display');
 
         function displayPoem(poem) {
@@ -479,11 +540,10 @@
                 listItem.className = 'poem-list-item';
                 listItem.textContent = poem.title;
                 listItem.dataset.poemId = index;
-                listItem.dataset.poemType = listElement.id;
                 listElement.appendChild(listItem);
 
                 listItem.addEventListener('click', () => {
-                    // Remove 'active' class from all list items
+                    // Remove 'active' class from all list items in all lists
                     document.querySelectorAll('.poem-list-item').forEach(item => {
                         item.classList.remove('active');
                     });
@@ -494,9 +554,14 @@
             });
         }
         
-        // Populate the lists
-        createPoemList(classicalList, classicalPoems);
-        createPoemList(blankVerseList, blankVersePoems);
+        // Populate all lists based on the new structure
+        createPoemList(firstBookClassicalList, firstBookClassicalPoems);
+        createPoemList(firstBookBlankVerseList, firstBookBlankVersePoems);
+        createPoemList(firstBookAzeriList, firstBookAzeriPoems);
+
+        createPoemList(secondBookClassicalList, secondBookClassicalPoems);
+        createPoemList(secondBookBlankVerseList, secondBookBlankVersePoems);
+        createPoemList(secondBookAzeriList, secondBookAzeriPoems);
 
     </script>
 </body>
