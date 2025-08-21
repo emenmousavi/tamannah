@@ -216,29 +216,73 @@
             background-color: var(--secondary-color);
             color: var(--primary-color);
         }
-        .poem-display-container {
-            max-width: 700px;
-            margin: 20px auto; /* Adjust margin to center it below the lists */
-            text-align: center;
-            font-size: 1.1rem;
-            line-height: 2.2;
-            padding: 30px;
+        /* Full-page overlay for poems */
+        #full-page-poem-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+            padding: 20px;
+        }
+        #full-page-poem-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .full-page-poem-content {
             background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            display: none; /* Initially hidden */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            max-height: 90vh; /* Limits height to prevent content overflow */
+            overflow-y: auto; /* Adds scrollbar for long poems */
+            text-align: center;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
-        .poem-display-container.active {
-            display: block;
+        #full-page-poem-overlay.active .full-page-poem-content {
+            transform: scale(1);
         }
-        .poem-display-container h3 {
-            font-size: 1.5rem;
+        #full-page-poem-overlay h3 {
+            font-size: 2rem;
             color: var(--primary-color);
             margin-bottom: 20px;
         }
-        .poem-display-container p {
+        #full-page-poem-overlay p {
+            font-size: 1.2rem;
+            line-height: 2.5;
             white-space: pre-line;
+            text-align: right;
+        }
+        #close-poem-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        #close-poem-btn:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.1);
         }
         footer {
             background-color: var(--footer-bg-color);
@@ -363,6 +407,9 @@
                 margin: 0 8px;
                 font-size: 1.2rem;
             }
+            #full-page-poem-overlay p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -440,10 +487,20 @@
                     </div>
                 </div>
 
-                <div id="poem-display" class="poem-display-container"></div>
+                <!-- The old poem-display-container is removed -->
             </div>
         </section>
     </main>
+
+    <!-- New Full-page Poem Overlay -->
+    <div id="full-page-poem-overlay">
+        <div class="full-page-poem-content">
+            <button id="close-poem-btn">✖</button>
+            <h3 id="overlay-poem-title"></h3>
+            <p id="overlay-poem-text"></p>
+        </div>
+    </div>
+    
     <footer>
         <div class="container footer-content">
             <nav class="footer-nav">
@@ -491,7 +548,6 @@
             }
         ];
         
-        // اشعار سپید به دفتر اول اضافه شدند
         const firstBookBlankVersePoems = [
             {
                 title: "اي جماعت برويد",
@@ -503,7 +559,6 @@
             },
         ];
 
-        // شعر آذری به دفتر اول اضافه شد
         const firstBookAzeriPoems = [
             {
                 title: "معليم درديم ده چوخ سوزوم ده",
@@ -523,14 +578,23 @@
         const secondBookBlankVerseList = document.getElementById('second-book-blank-verse-list');
         const secondBookAzeriList = document.getElementById('second-book-azeri-list');
 
-        const poemDisplay = document.getElementById('poem-display');
+        const overlay = document.getElementById('full-page-poem-overlay');
+        const overlayTitle = document.getElementById('overlay-poem-title');
+        const overlayText = document.getElementById('overlay-poem-text');
+        const closeBtn = document.getElementById('close-poem-btn');
 
-        function displayPoem(poem) {
-            poemDisplay.innerHTML = `
-                <h3>${poem.title}</h3>
-                <p>${poem.text}</p>
-            `;
-            poemDisplay.classList.add('active');
+        function openPoem(poem) {
+            overlayTitle.textContent = poem.title;
+            overlayText.textContent = poem.text;
+            overlay.classList.add('active');
+            // Prevent scrolling on the main page
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePoem() {
+            overlay.classList.remove('active');
+            // Re-enable scrolling on the main page
+            document.body.style.overflow = 'auto';
         }
 
         function createPoemList(listElement, poemsArray) {
@@ -543,16 +607,20 @@
                 listElement.appendChild(listItem);
 
                 listItem.addEventListener('click', () => {
-                    // Remove 'active' class from all list items in all lists
-                    document.querySelectorAll('.poem-list-item').forEach(item => {
-                        item.classList.remove('active');
-                    });
-                    // Add 'active' class to the clicked item
-                    listItem.classList.add('active');
-                    displayPoem(poem);
+                    openPoem(poem);
                 });
             });
         }
+        
+        // Event listener for the close button
+        closeBtn.addEventListener('click', closePoem);
+
+        // Event listener to close the overlay with the Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                closePoem();
+            }
+        });
         
         // Populate all lists based on the new structure
         createPoemList(firstBookClassicalList, firstBookClassicalPoems);
