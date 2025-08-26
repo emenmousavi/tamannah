@@ -43,6 +43,7 @@
             background-position: center;
             background-attachment: fixed;
             position: relative;
+            user-select: none;
         }
         body::before {
             content: '';
@@ -671,5 +672,17 @@
         createPoemList(secondBookAzeriList, secondBookAzeriPoems);
 
     </script>
+    <script>
+    // Block right-click context menu
+    document.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+    });
+
+    // Block copy action
+    document.addEventListener("copy", function(e) {
+        e.preventDefault();
+        alert("کپی کردن این متن مجاز نیست.");
+    });
+</script>
 </body>
 </html>
