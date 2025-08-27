@@ -164,6 +164,116 @@
             height: 2px;
             background-color: var(--accent-color);
         }
+        
+        .recitation-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .recitation-content {
+            width: 75%;
+            padding-right: 30px;
+            border-left: 1px solid var(--accent-color);
+        }
+        
+        .recitation-section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .recitation-section h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .recitation-meta {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        
+        .recitation-meta p {
+            margin: 5px 0;
+        }
+        
+        .recitation-meta strong {
+            color: var(--primary-color);
+        }
+        
+        .soundcloud-player {
+            max-width: 100%;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Styles to remove the hover effect for specific text */
+        .recitation-meta p a {
+            text-decoration: none;
+            color: var(--text-color); /* Initial text color */
+        }
+
+        .recitation-meta p a:hover {
+            color: var(--text-color); /* Keep the same text color on hover */
+            background-color: transparent; /* No background change on hover */
+        }
+        
+        .vocalist-menu {
+            width: 25%;
+            height: fit-content;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 100px;
+        }
+
+        .vocalist-menu h4 {
+            font-size: 1.5rem;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .vocalist-menu ul {
+            list-style: none;
+        }
+
+        .vocalist-menu li {
+            padding: 15px 10px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--text-color);
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .vocalist-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .vocalist-menu li:hover,
+        .vocalist-menu li.active {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border-radius: 8px;
+        }
+
+        .hidden {
+            display: none;
+        }
+        
         footer {
             background-color: var(--footer-bg-color);
             backdrop-filter: blur(5px);
@@ -266,6 +376,19 @@
             .section {
                 padding: 60px 0;
             }
+            .recitation-container {
+                flex-direction: column;
+            }
+            .recitation-content {
+                width: 100%;
+                padding-right: 0;
+                border-left: none;
+            }
+            .vocalist-menu {
+                width: 100%;
+                position: static;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
@@ -296,9 +419,47 @@
             </div>
         </section>
         <section class="section">
-            <div class="container">
-                <h2>دکلمه‌ها</h2>
-                <!-- Your recitation content will go here. You can add audio players and text descriptions here. -->
+            <div class="container recitation-container">
+                
+                <div class="recitation-content">
+                    <h2>دکلمه‌ها</h2>
+                    
+                    <!-- Section for the Dream Friendship Performance Group -->
+                    <div class="recitation-section" id="roya-dosti-group">
+                        <h3>گروه اجرای رویای دوستی</h3>
+                        <div class="recitation-meta">
+                            <p><strong>نام دکلمه:</strong> سوگند</p>
+                            <p><strong>اجرا:</strong> مریم عسگری، مجتبی برفره، رویا خانلو، حمیدرضا یگانه، هلن جواهردشتی، حسین مشرف، و افسون غفایی</p>
+                            <p><strong>تنظیم و میکس:</strong> آدمک (میثم قهرمانی)</p>
+                            <p><strong>پاییز ۱۴۰۳</strong> 🍂</p>
+                        </div>
+                        <div class="soundcloud-player">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/wzl2xrt8dto6&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Section for Negar Nasrollahzadeh -->
+                    <div class="recitation-section hidden" id="negar-nasrollahzadeh">
+                        <h3>بانو نگار نصرالله زاده</h3>
+                        <div class="recitation-meta">
+                            <p><strong>نام دکلمه:</strong> با توام</p>
+                            <p><strong>آوا:</strong> بانو نگار نصرالله زاده</p>
+                            <p><strong>تاریخ:</strong> </p>
+                        </div>
+                        <div class="soundcloud-player">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/62947d26-5403-4b5d-8118-49bab7b4e23f&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vocalist-menu">
+                    <h4>اجراکنندگان</h4>
+                    <ul>
+                        <li class="active" data-target="roya-dosti-group">گروه اجرای رویای دوستی</li>
+                        <li data-target="negar-nasrollahzadeh">نگار نصرالله زاده</li>
+                    </ul>
+                </div>
+                
             </div>
         </section>
     </main>
@@ -329,5 +490,39 @@
             <p>&copy; 2025 تمنا. تمامی حقوق محفوظ است.</p>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuItems = document.querySelectorAll('.vocalist-menu li');
+            const recitationSections = document.querySelectorAll('.recitation-section');
+
+            // Set the first menu item and recitation section to active by default
+            if (menuItems.length > 0) {
+                menuItems[0].classList.add('active');
+            }
+            if (recitationSections.length > 0) {
+                recitationSections[0].classList.remove('hidden');
+            }
+
+            menuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const targetId = item.dataset.target;
+
+                    // Remove active class from all menu items
+                    menuItems.forEach(menuItem => menuItem.classList.remove('active'));
+                    // Add active class to the clicked item
+                    item.classList.add('active');
+
+                    // Hide all recitation sections
+                    recitationSections.forEach(section => section.classList.add('hidden'));
+
+                    // Show the target recitation section
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
