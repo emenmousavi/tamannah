@@ -395,26 +395,32 @@
                 color: #cfa487;
                 font-size: 1.2rem;
                 position: relative;
-              }
+            }
 
-              .fancy-divider::before,
-              .fancy-divider::after {
+            .fancy-divider::before,
+            .fancy-divider::after {
                 content: "";
                 position: absolute;
                 top: 50%;
                 width: 40%;
                 height: 1px;
                 background: #cfa487;
-              }
+            }
 
-              .fancy-divider::before {
+            .fancy-divider::before {
                 left: 0;
-              }
+            }
 
-              .fancy-divider::after {
+            .fancy-divider::after {
                 right: 0;
-              }
-        }
+            }
+
+            /* Optional: adjust for smaller screens */
+            @media (max-width: 768px) {
+                .fancy-divider {
+                    font-size: 1rem;
+                }
+            }
     </style>
 </head>
 <body>
