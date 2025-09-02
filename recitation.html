@@ -274,6 +274,33 @@
             display: none;
         }
         
+        /* Fixed fancy-divider CSS, moved outside the media query */
+        .fancy-divider {
+            text-align: center;
+            margin: 30px 0;
+            color: #cfa487;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .fancy-divider::before,
+        .fancy-divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 40%; /* Adjusted width for better look on larger screens */
+            height: 1px;
+            background: #cfa487;
+        }
+
+        .fancy-divider::before {
+            left: 0;
+        }
+
+        .fancy-divider::after {
+            right: 0;
+        }
+        
         footer {
             background-color: var(--footer-bg-color);
             backdrop-filter: blur(5px);
@@ -321,13 +348,13 @@
             transform: scale(1.1);
         }
         .social-links a[title="تلگرام"]:hover {
-            color: #0088cc; 
+            color: #0088cc;
         }
         .social-links a[title="اینستاگرام"]:hover {
-            color: #C13584; 
+            color: #C13584;
         }
         .social-links a[title="ایمیل"]:hover {
-            color: #4CAF50; 
+            color: #4CAF50;
         }
         footer p {
             font-size: 0.8rem;
@@ -389,38 +416,13 @@
                 position: static;
                 margin-bottom: 20px;
             }
-            .fancy-divider {
-                text-align: center;
-                margin: 30px 0;
-                color: #cfa487;
-                font-size: 1.2rem;
-                position: relative;
-            }
 
+            /* Adjust fancy-divider for smaller screens */
             .fancy-divider::before,
             .fancy-divider::after {
-                content: "";
-                position: absolute;
-                top: 50%;
-                width: 40%;
-                height: 1px;
-                background: #cfa487;
+                width: 30%; /* Shorter lines on mobile */
             }
-
-            .fancy-divider::before {
-                left: 0;
-            }
-
-            .fancy-divider::after {
-                right: 0;
-            }
-
-            /* Optional: adjust for smaller screens */
-            @media (max-width: 768px) {
-                .fancy-divider {
-                    font-size: 1rem;
-                }
-            }
+        }
     </style>
 </head>
 <body>
@@ -473,7 +475,6 @@
             <div class="recitation-section hidden" id="negar-nasrollahzadeh">
                 <h3>بانو نگار نصرالله زاده</h3>
 
-                <!-- دکلمه اول -->
                 <div class="recitation-meta">
                     <p><strong>نام دکلمه:</strong> با توام</p>
                     <p><strong>آوا:</strong> بانو نگار نصرالله زاده</p>
@@ -487,7 +488,6 @@
                 
                 <div class="fancy-divider">✦✦✦</div>
 
-                <!-- دکلمه دوم -->
                 <div class="recitation-meta">
                     <p><strong>نام دکلمه:</strong> چه کنم</p>
                     <p><strong>آوا:</strong> مجتبی</p>
