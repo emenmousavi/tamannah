@@ -389,6 +389,31 @@
                 position: static;
                 margin-bottom: 20px;
             }
+            .fancy-divider {
+                text-align: center;
+                margin: 30px 0;
+                color: #cfa487;
+                font-size: 1.2rem;
+                position: relative;
+              }
+
+              .fancy-divider::before,
+              .fancy-divider::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                width: 40%;
+                height: 1px;
+                background: #cfa487;
+              }
+
+              .fancy-divider::before {
+                left: 0;
+              }
+
+              .fancy-divider::after {
+                right: 0;
+              }
         }
     </style>
 </head>
@@ -441,13 +466,29 @@
 
             <div class="recitation-section hidden" id="negar-nasrollahzadeh">
                 <h3>بانو نگار نصرالله زاده</h3>
+
+                <!-- دکلمه اول -->
                 <div class="recitation-meta">
                     <p><strong>نام دکلمه:</strong> با توام</p>
                     <p><strong>آوا:</strong> بانو نگار نصرالله زاده</p>
                     <p><strong>تاریخ:</strong> ۱۴۰۳/۱/۱۴</p>
                 </div>
                 <div class="soundcloud-player">
-                    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/62947d26-5403-4b5d-8118-49bab7b4e23f&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/62947d26-5403-4b5d-8118-49bab7b4e23f&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                    </iframe>
+                </div>
+                
+                <div class="fancy-divider">✦✦✦</div>
+
+                <!-- دکلمه دوم -->
+                <div class="recitation-meta">
+                    <p><strong>نام دکلمه:</strong> چه کنم</p>
+                    <p><strong>آوا:</strong> مجتبی</p>
+                </div>
+                <div class="soundcloud-player">
+                    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/d382e8ac-dcc8-4afe-b0d4-41fff6a7e0e7&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
                     </iframe>
                 </div>
             </div>
