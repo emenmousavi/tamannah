@@ -12,8 +12,13 @@
             <div class="logo">
                 <a href="index.html">تمنا</a>
             </div>
+            <div class="hamburger" id="hamburger-btn">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
             <nav>
-                <ul>
+                <ul id="nav-menu">
                     <li><a href="bio.html">زندگینامه</a></li>
                     <li><a href="gallery.html">گالری</a></li>
                     <li><a href="poem.html">اشعار</a></li>
@@ -81,8 +86,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- The old poem-display-container is removed -->
             </div>
         </section>
     </main>
@@ -274,6 +277,13 @@
         e.preventDefault();
         alert("کپی کردن این متن مجاز نیست.");
     });
+</script>
+    <script>
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const navMenu = document.getElementById('nav-menu');
+  hamburgerBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+  });
 </script>
 </body>
 </html>
