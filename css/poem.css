@@ -184,20 +184,23 @@ nav a:hover::before {
         padding: 1rem;
     }
     .full-page-poem-content {
-            width: 90%;
-            min-width: unset;
-            max-width: 90%;
-            max-height: 90vh; /* keep vertical fit */
-            overflow-y: auto;
-        }
-        #close-poem-btn {
-            left: auto;
-            right: 10px;
-            top: 10px; /* optional: slightly closer to edge */
-            width: 36px;
-            height: 36px;
-            font-size: 1.3rem;
-        }
+        min-width: 0 !important;
+        width: 95vw !important;
+        max-width: 95vw !important;
+        padding: 20px !important;
+        box-sizing: border-box;
+        border-radius: 8px;
+        max-height: 90vh !important;
+        overflow-y: auto !important;
+    }
+    #close-poem-btn {
+        left: auto !important;
+        right: 10px !important;
+        top: 10px !important;
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 1.3rem !important;
+    }
 }
 
 main {
