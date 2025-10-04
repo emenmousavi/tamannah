@@ -97,6 +97,7 @@
             font-weight: 700;
             position: relative;
             padding: 0.5rem 0;
+            white-space: nowrap;
         }
         nav a::before {
             content: '';
@@ -115,13 +116,13 @@
             width: 100%;
         }
         main {
-            padding-top: 80px;
+            padding-top: 120px;
             background-color: var(--secondary-color);
             padding-bottom: 40px;
         }
         .hero {
             text-align: center;
-            padding: 120px 0;
+            padding: 80px 0 120px 0;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 0.8s ease-out 0.3s forwards;
@@ -374,53 +375,210 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
-                padding: 0 20px;
+                padding: 0 15px;
             }
+            
+            /* Fixed header */
+            header {
+                padding: 0.75rem 0;
+            }
+            
             .header-content {
                 flex-direction: column;
                 text-align: center;
-                padding: 1rem;
+                padding: 0.5rem;
+                gap: 0.75rem;
             }
-            .logo {
-                margin-bottom: 1rem;
+            
+            .logo a {
+                font-size: 2rem;
             }
+            
+            /* Better navigation */
+            nav {
+                width: 100%;
+                overflow-x: auto;
+            }
+            
             nav ul {
-                justify-content: center;
-                margin-bottom: 1rem;
+                display: flex;
+                justify-content: flex-start;
+                gap: 0;
+                padding: 0 10px;
+                min-width: max-content;
             }
+            
             nav li {
-                margin: 0 10px;
+                margin: 0 8px;
+                flex-shrink: 0;
             }
+            
+            nav a {
+                font-size: 0.85rem;
+                padding: 0.4rem 0;
+            }
+            
+            /* Main content */
+            main {
+                padding-top: 140px;
+            }
+            
             .hero {
-                padding: 100px 0;
+                padding: 60px 0 80px 0;
             }
+            
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
+                line-height: 1.2;
             }
+            
             .hero h2 {
-                font-size: 1.1rem;
+                font-size: 1rem;
+                line-height: 1.4;
+                padding: 0 10px;
             }
+            
             .section {
-                padding: 60px 0;
+                padding: 50px 0;
             }
+            
+            .section h2 {
+                font-size: 1.6rem;
+            }
+            
+            /* Mobile layout changes */
             .recitation-container {
                 flex-direction: column;
+                gap: 20px;
             }
+            
             .recitation-content {
                 width: 100%;
                 padding-right: 0;
                 border-left: none;
+                order: 2; /* This will place it after the vocalist menu */
             }
+            
             .vocalist-menu {
                 width: 100%;
                 position: static;
+                padding: 15px;
+                order: 1; /* This will place it before the recitation content */
+            }
+            
+            .vocalist-menu h4 {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+            
+            .vocalist-menu li {
+                padding: 12px 8px;
+                font-size: 0.9rem;
+                text-align: center;
+            }
+            
+            /* Recitation sections */
+            .recitation-section {
+                padding: 20px 15px;
                 margin-bottom: 20px;
             }
-
-            /* Adjust fancy-divider for smaller screens */
+            
+            .recitation-section h3 {
+                font-size: 1.4rem;
+                line-height: 1.3;
+                margin-bottom: 12px;
+            }
+            
+            .recitation-meta {
+                margin-bottom: 15px;
+            }
+            
+            .recitation-meta p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+                margin: 3px 0;
+            }
+            
+            /* SoundCloud player */
+            .soundcloud-player {
+                margin-top: 15px;
+            }
+            
+            .soundcloud-player iframe {
+                width: 100%;
+                min-height: 166px;
+            }
+            
+            /* Fancy divider adjustments */
+            .fancy-divider {
+                margin: 20px 0;
+                font-size: 1rem;
+            }
+            
             .fancy-divider::before,
             .fancy-divider::after {
-                width: 30%; /* Shorter lines on mobile */
+                width: 30%;
+            }
+            
+            /* Footer adjustments */
+            .footer-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .footer-nav li {
+                margin: 5px 8px;
+            }
+            
+            .footer-nav a {
+                font-size: 0.85rem;
+            }
+            
+            .social-links a {
+                margin: 0 8px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .logo a {
+                font-size: 1.8rem;
+            }
+            
+            nav a {
+                font-size: 0.8rem;
+                margin: 0 6px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h2 {
+                font-size: 0.9rem;
+            }
+            
+            .recitation-section {
+                padding: 15px 10px;
+            }
+            
+            .recitation-section h3 {
+                font-size: 1.2rem;
+            }
+            
+            .vocalist-menu {
+                padding: 12px;
+            }
+            
+            .vocalist-menu li {
+                padding: 10px 6px;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -452,146 +610,148 @@
             </div>
         </section>
         <section class="section">
-    <div class="container recitation-container">
+            <div class="container recitation-container">
 
-        <div class="recitation-content">
-            <h2>دکلمه‌ها</h2>
-
-        <div class="recitation-section" id="roya-dosti-group">
-            <h3>گروه اجرای رویای دوستی</h3>
-            
-            <div class="recitation-meta">
-                <p><strong>نام دکلمه:</strong> سوگند</p>
-                <p><strong>آوا:</strong> مریم عسگری، مجتبی برفره، رویا خانلو، حمیدرضا یگانه، هلن جواهردشتی، حسین مشرف، و افسون غفایی</p>
-                <p><strong>تنظیم و میکس:</strong> آدمک (میثم قهرمانی)</p>
-                <p><strong>پاییز ۱۴۰۳</strong></p>
-            </div>
-            
-            <div class="soundcloud-player">
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-                    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/wzl2xrt8dto6&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-                </iframe>
-            </div>
-        
-            <div class="fancy-divider">✦✦✦</div>
-        
-            <div class="recitation-meta">
-                <p><strong>نام دکلمه:</strong> بوی بهار (به مناسبت نوروز 1403)</p>
-                <p><strong>با اجرا:</strong> افسون غفایی، مجتبی برفره، هلن جواهردشتی، حسین مشرف، رویا خانلو، حمیدرضا یگانه</p>
-                <p><strong>تنظیم:</strong> آدمک (میثم قهرمانی)</p>
-                <p><strong>میکس:</strong> حمیدرضا یگانه</p>
-            </div>
-            
-            <div class="soundcloud-player">
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-                    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/4550faa7-1a49-4c44-9a5f-870a546e50af&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-                </iframe>
-            </div>
-
-            <div class="fancy-divider">✦✦✦</div>
-
-            <div class="recitation-meta">
-                <p><strong>نام دکلمه:</strong>به یاد لیلا</p>
-                <p><strong>با اجرا:</strong> افسون غفایی، مجتبی برفره، فاطمه صالح، هلن جواهردشتی، حسین مشرف، دیبا بابایی، حمیدرضا یگانه</p>
-                <p><strong>همخوانی آواز:</strong>سجاد نظری، رویا خانلو</p>
-                <p><strong> میکس و میکس:</strong>رویا خانلو</p>
-            </div>
-            
-            <div class="soundcloud-player">
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-                    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/65457532-e892-4a1b-b333-5da8587e9578&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-                </iframe>
-            </div>
-
-        </div>
-
-            <div class="recitation-section hidden" id="negar-nasrollahzadeh">
-                <h3>بانو نگار نصرالله زاده</h3>
-
-                <div class="recitation-meta">
-                    <p><strong>نام دکلمه:</strong> با توام</p>
-                    <p><strong>تاریخ:</strong> ۱۴۰۳/۱/۱۴</p>
-                </div>
-                <div class="soundcloud-player">
-                    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-                        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/62947d26-5403-4b5d-8118-49bab7b4e23f&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-                    </iframe>
-                </div>
-                
-                <div class="fancy-divider">✦✦✦</div>
-
-                <div class="recitation-meta">
-                    <p><strong>نام دکلمه:</strong> چه کنم</p>
-                </div>
-                <div class="soundcloud-player">
-                    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-                        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/d382e8ac-dcc8-4afe-b0d4-41fff6a7e0e7&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-                    </iframe>
-                </div>
-            </div>
-            
-            <!-- Mojtaba section -->
-            <div class="recitation-section hidden" id="mojtaba">
-                <h3>مجتبی</h3>
-                <div class="recitation-meta">
-                    <p><strong>نام دکلمه:</strong> گرچه یخ بسته زمین</p>
-                    <p><strong>تاریخ:</strong> ۱۴۰۳/۵/۲۴</p>
-                </div>
-                <div class="soundcloud-player">
-                    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/e0a1f044-e86d-4d39-8bd0-8b9a5eddcd09&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-                    </iframe>
-                </div>
-            </div>
-
-            <!-- Saz Del section -->
-            <div class="recitation-section hidden" id="saz-del-group">
-                <h3>گروه هنری ساز دل</h3>
-
-                <div class="recitation-meta">
-                    <p><strong>نام دکلمه:</strong> منتظر می‌مانیم</p>
-                    <p><strong>اجراکنندگان:</strong> مهدی وحدانی، رویا نعیم‌نژاد، شیوا صالحی، علیرضا اطلاع‌وری، بهار افشار، هادی مهاجر</p>
-                    <p><strong>نوازنده گیتار:</strong> استاد هادی زندیه</p>
-                    <p><strong>تدوین و میکس:</strong> میثم قهرمانی (آدمک)</p>
-                    <p><strong>زمستان ۱۴۰۲</strong> ❄️</p>
+                <!-- Vocalist menu now comes first on mobile due to CSS order -->
+                <div class="vocalist-menu">
+                    <h4>اجراکنندگان</h4>
+                    <ul>
+                        <li class="active" data-target="roya-dosti-group">گروه اجرای رویای دوستی</li>
+                        <li data-target="negar-nasrollahzadeh">نگار نصرالله زاده</li>
+                        <li data-target="mojtaba">مجتبی</li>
+                        <li data-target="saz-del-group">گروه هنری ساز دل</li>
+                        <li data-target="ali-izadkhah">علی ایزدخواه</li>
+                    </ul>
                 </div>
 
-                <div class="soundcloud-player">
-                    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-                        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/iykorkc1t6bg&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-                    </iframe>
+                <!-- Recitation content comes after vocalist menu on mobile -->
+                <div class="recitation-content">
+                    <h2>دکلمه‌ها</h2>
+
+                    <div class="recitation-section" id="roya-dosti-group">
+                        <h3>گروه اجرای رویای دوستی</h3>
+                        
+                        <div class="recitation-meta">
+                            <p><strong>نام دکلمه:</strong> سوگند</p>
+                            <p><strong>آوا:</strong> مریم عسگری، مجتبی برفره، رویا خانلو، حمیدرضا یگانه، هلن جواهردشتی، حسین مشرف، و افسون غفایی</p>
+                            <p><strong>تنظیم و میکس:</strong> آدمک (میثم قهرمانی)</p>
+                            <p><strong>پاییز ۱۴۰۳</strong></p>
+                        </div>
+                        
+                        <div class="soundcloud-player">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/wzl2xrt8dto6&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                            </iframe>
+                        </div>
+                    
+                        <div class="fancy-divider">✦✦✦</div>
+                    
+                        <div class="recitation-meta">
+                            <p><strong>نام دکلمه:</strong> بوی بهار (به مناسبت نوروز 1403)</p>
+                            <p><strong>با اجرا:</strong> افسون غفایی، مجتبی برفره، هلن جواهردشتی، حسین مشرف، رویا خانلو، حمیدرضا یگانه</p>
+                            <p><strong>تنظیم:</strong> آدمک (میثم قهرمانی)</p>
+                            <p><strong>میکس:</strong> حمیدرضا یگانه</p>
+                        </div>
+                        
+                        <div class="soundcloud-player">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/4550faa7-1a49-4c44-9a5f-870a546e50af&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                            </iframe>
+                        </div>
+
+                        <div class="fancy-divider">✦✦✦</div>
+
+                        <div class="recitation-meta">
+                            <p><strong>نام دکلمه:</strong>به یاد لیلا</p>
+                            <p><strong>با اجرا:</strong> افسون غفایی، مجتبی برفره، فاطمه صالح، هلن جواهردشتی، حسین مشرف، دیبا بابایی، حمیدرضا یگانه</p>
+                            <p><strong>همخوانی آواز:</strong>سجاد نظری، رویا خانلو</p>
+                            <p><strong> میکس و میکس:</strong>رویا خانلو</p>
+                        </div>
+                        
+                        <div class="soundcloud-player">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/65457532-e892-4a1b-b333-5da8587e9578&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                            </iframe>
+                        </div>
+
+                    </div>
+
+                    <div class="recitation-section hidden" id="negar-nasrollahzadeh">
+                        <h3>بانو نگار نصرالله زاده</h3>
+
+                        <div class="recitation-meta">
+                            <p><strong>نام دکلمه:</strong> با توام</p>
+                            <p><strong>تاریخ:</strong> ۱۴۰۳/۱/۱۴</p>
+                        </div>
+                        <div class="soundcloud-player">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/62947d26-5403-4b5d-8118-49bab7b4e23f&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                            </iframe>
+                        </div>
+                        
+                        <div class="fancy-divider">✦✦✦</div>
+
+                        <div class="recitation-meta">
+                            <p><strong>نام دکلمه:</strong> چه کنم</p>
+                        </div>
+                        <div class="soundcloud-player">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/d382e8ac-dcc8-4afe-b0d4-41fff6a7e0e7&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                            </iframe>
+                        </div>
+                    </div>
+                    
+                    <!-- Mojtaba section -->
+                    <div class="recitation-section hidden" id="mojtaba">
+                        <h3>مجتبی</h3>
+                        <div class="recitation-meta">
+                            <p><strong>نام دکلمه:</strong> گرچه یخ بسته زمین</p>
+                            <p><strong>تاریخ:</strong> ۱۴۰۳/۵/۲۴</p>
+                        </div>
+                        <div class="soundcloud-player">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/e0a1f044-e86d-4d39-8bd0-8b9a5eddcd09&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Saz Del section -->
+                    <div class="recitation-section hidden" id="saz-del-group">
+                        <h3>گروه هنری ساز دل</h3>
+
+                        <div class="recitation-meta">
+                            <p><strong>نام دکلمه:</strong> منتظر می‌مانیم</p>
+                            <p><strong>اجراکنندگان:</strong> مهدی وحدانی، رویا نعیم‌نژاد، شیوا صالحی، علیرضا اطلاع‌وری، بهار افشار، هادی مهاجر</p>
+                            <p><strong>نوازنده گیتار:</strong> استاد هادی زندیه</p>
+                            <p><strong>تدوین و میکس:</strong> میثم قهرمانی (آدمک)</p>
+                            <p><strong>زمستان ۱۴۰۲</strong> ❄️</p>
+                        </div>
+
+                        <div class="soundcloud-player">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/iykorkc1t6bg&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- ali izadkhah section -->
+                    <div class="recitation-section hidden" id="ali-izadkhah">
+                        <h3>علی ایزدخواه</h3>
+                        <div class="recitation-meta">
+                            <p><strong>نام دکلمه:</strong> مهدی</p>
+                            <p><strong>آوا:</strong> علی ایزدخواه</p>
+                            <p><strong>تدوین و میکس:</strong> علی ایزدخواه</p>
+                        </div>
+                        <div class="soundcloud-player">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/944359fa-c244-4959-a3f3-1eca530d52ac&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                            </iframe>
+                        </div>
+                    </div>
+                    
                 </div>
-            </div>
 
-          <!-- ali izadkhah section -->
-          <div class="recitation-section hidden" id="ali-izadkhah">
-            <h3>علی ایزدخواه</h3>
-            <div class="recitation-meta">
-              <p><strong>نام دکلمه:</strong> مهدی</p>
-              <p><strong>آوا:</strong> علی ایزدخواه</p>
-              <p><strong>تدوین و میکس:</strong> علی ایزدخواه</p>
             </div>
-            <div class="soundcloud-player">
-              <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/tamannah-leila-rezavand/944359fa-c244-4959-a3f3-1eca530d52ac&color=%23cfa487&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-              </iframe>
-            </div>
-          </div>
-            
-        </div>
-
-        <div class="vocalist-menu">
-            <h4>اجراکنندگان</h4>
-            <ul>
-                <li class="active" data-target="roya-dosti-group">گروه اجرای رویای دوستی</li>
-                <li data-target="negar-nasrollahzadeh">نگار نصرالله زاده</li>
-                <li data-target="mojtaba">مجتبی</li>
-                <li data-target="saz-del-group">گروه هنری ساز دل</li>
-                <li data-target="ali-izadkhah">علی ایزدخواه</li>
-            </ul>
-        </div>
-
-    </div>
-</section>
+        </section>
     </main>
     <footer>
         <div class="container footer-content">
