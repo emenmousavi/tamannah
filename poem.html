@@ -285,5 +285,12 @@
     navMenu.classList.toggle('open');
   });
 </script>
+<script>
+    overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) {
+        closePoem();
+    }
+});
+</script>
 </body>
 </html>
