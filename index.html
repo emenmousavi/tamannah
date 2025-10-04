@@ -252,6 +252,71 @@
             font-size: 1.1rem;
             line-height: 2;
         }
+        .books-section {
+            text-align: center;
+            padding: 40px 0;
+            animation: fadeUp 0.8s ease-out 0.7s forwards;
+            opacity: 0;
+        }
+        .books-section-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .books-image-container {
+            margin-bottom: 25px;
+        }
+        .books-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .books-text p {
+            font-size: 1.1rem;
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+        .books-link-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        .books-link-section p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        .books-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            padding: 12px 25px;
+            transition: all 0.3s ease-in-out;
+        }
+        .books-link:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+        .books-link svg {
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+            fill: none;
+            stroke: currentColor;
+        }
         .declamation-container {
             max-width: 700px;
             margin: 0 auto;
@@ -484,7 +549,6 @@
                 transform: scale(1);
             }
         }
-        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 padding: 0 20px;
@@ -521,6 +585,19 @@
             }
             .section {
                 padding: 60px 0;
+            }
+            .books-section-content {
+                padding: 20px;
+            }
+            .books-image {
+                max-width: 100%;
+            }
+            .books-text p {
+                font-size: 1rem;
+            }
+            .books-link {
+                font-size: 1rem;
+                padding: 10px 20px;
             }
             .poem-container {
                 font-size: 1rem;
@@ -607,6 +684,27 @@
                 </div>
             </div>
         </section>
+        <section class="section books-section">
+            <div class="container">
+                <h2>کتاب‌های تمنا</h2>
+                <div class="books-section-content">
+                    <div class="books-image-container">
+                        <img src="https://github.com/emenmousavi/tamannah/blob/main/images/MixCollage-04-Oct-2025-05-19-PM-101.jpg?raw=true" alt="مجموعه کتاب‌های تمنا" class="books-image">
+                    </div>
+                    <div class="books-text">
+                        <p>مجموعه‌ای از آثار ماندگار تمنا که در قالب کتاب منتشر شده است. این کتاب‌ها حاصل سال‌ها تجربه و عشق به شعر و ادبیات فارسی هستند و هر یک گنجینه‌ای از احساسات و اندیشه‌های عمیق شاعر را در خود جای داده‌اند.</p>
+                        <p>از شعرهای عاشقانه گرفته تا مضامین اجتماعی و فرهنگی، این آثار طیف وسیعی از موضوعات را پوشش می‌دهند و نمایانگر استعداد بی‌نظیر و نگاه ویژه تمنا به زندگی و جهان پیرامون هستند.</p>
+                        <div class="books-link-section">
+                            <p>برای مشاهده کامل کتاب‌ها و اطلاعات بیشتر:</p>
+                            <a href="https://tamannah.website/books" target="_blank" class="books-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                                <span>مشاهده همه کتاب‌ها</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="section declamation-section">
             <div class="container">
                 <h2>دکلمهٔ منتخب</h2>
@@ -618,7 +716,7 @@
                     <div class="declamation-player">
                         <audio id="declamationAudio" src="https://github.com/emenmousavi/tamannah/blob/main/media/01%20leila%20rezavand%20-%20andaki%20ensantar%20.mp3?raw=true"></audio>
                         <div class="controls-container">
-						<button id="forwardButton" class="control-button">
+                            <button id="forwardButton" class="control-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-fast-forward"><polygon points="13 19 22 12 13 5 13 19"></polygon><polygon points="2 19 11 12 2 5 2 19"></polygon></svg>
                             </button>
                             <button id="playPauseButton" class="play-button">
