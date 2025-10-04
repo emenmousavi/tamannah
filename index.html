@@ -32,6 +32,60 @@
             --player-bg: rgba(255, 255, 255, 0.9);
             --player-border: rgba(255, 255, 255, 0.2);
         }
+
+        /* Dark mode variables */
+        [data-theme="dark"] {
+            --primary-color: #66BB6A; /* Lighter green for dark mode */
+            --secondary-color: rgba(30, 30, 30, 0.9); /* Dark background */
+            --text-color: #e0e0e0; /* Light text */
+            --accent-color: #81C784; /* Lighter green accent */
+            --link-color: #e0e0e0;
+            --link-hover-color: #66BB6A;
+            --header-bg-color: rgba(20, 20, 20, 0.95);
+            --footer-bg-color: rgba(15, 15, 15, 0.95);
+            --footer-text-color: #e0e0e0;
+            --player-bg: rgba(40, 40, 40, 0.9);
+            --player-border: rgba(80, 80, 80, 0.3);
+        }
+
+        [data-theme="dark"] body {
+            background-color: #121212;
+            color: var(--text-color);
+        }
+
+        [data-theme="dark"] main {
+            background-color: #121212;
+        }
+
+        [data-theme="dark"] .hero {
+            background-color: rgba(30, 30, 30, 0.8);
+        }
+
+        [data-theme="dark"] .about-section-content,
+        [data-theme="dark"] .books-section-content,
+        [data-theme="dark"] .declamation-container,
+        [data-theme="dark"] .poem-container {
+            background-color: #1e1e1e;
+            border: 1px solid rgba(80, 80, 80, 0.3);
+            color: var(--text-color);
+        }
+
+        [data-theme="dark"] .section h2 {
+            color: var(--primary-color);
+        }
+
+        [data-theme="dark"] .poet-info h1 {
+            color: var(--primary-color);
+        }
+
+        [data-theme="dark"] #poem-title {
+            color: var(--primary-color);
+        }
+
+        [data-theme="dark"] .player-info h3 {
+            color: var(--primary-color);
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -84,12 +138,43 @@
             justify-content: space-between;
             align-items: center;
         }
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
         .logo a {
             font-family: 'IranNastaliq', serif; /* Apply the custom font */
             font-size: 2.5rem;
             color: var(--primary-color);
             text-decoration: none;
             line-height: 1; /* Adjust line height for better alignment */
+        }
+        /* Theme toggle button */
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--primary-color);
+            margin-left: 30px;
+        }
+        .theme-toggle:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
         }
         nav ul {
             list-style: none;
@@ -274,8 +359,9 @@
             width: 100%;
             max-width: 600px;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 0; /* Removed border-radius */
+            box-shadow: none; /* Removed box-shadow completely */
+            border: none; /* Removed any potential border */
         }
         .books-text p {
             font-size: 1.1rem;
@@ -549,6 +635,7 @@
                 transform: scale(1);
             }
         }
+        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 padding: 0 20px;
@@ -558,8 +645,22 @@
                 text-align: center;
                 padding: 1rem;
             }
-            .logo {
+            .logo-section {
+                display: flex;
+                align-items: center;
                 margin-bottom: 1rem;
+            }
+            .logo {
+                margin-left: 25px;
+            }
+            .theme-toggle {
+                width: 35px;
+                height: 35px;
+                margin-left: 15px;
+            }
+            .theme-toggle svg {
+                width: 16px;
+                height: 16px;
             }
             nav ul {
                 justify-content: center;
@@ -638,8 +739,19 @@
 <body>
     <header>
         <div class="container header-content">
-            <div class="logo">
-                <a href="index.html">تمنا</a>
+            <div class="logo-section">
+                <div class="logo">
+                    <a href="index.html">تمنا</a>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="تغییر حالت">
+                    <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="m12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg id="moonIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
             </div>
             <nav>
                 <ul>
@@ -801,6 +913,43 @@
 
         // Call the function when the page loads
         document.addEventListener('DOMContentLoaded', fetchAndDisplayRandomPoem);
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', currentTheme);
+
+        // Update icon based on current theme
+        if (currentTheme === 'dark') {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        } else {
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
+        }
+
+        // Theme toggle event listener
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icons
+            if (newTheme === 'dark') {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+        });
 
         // Declamation Player Logic
         const audio = document.getElementById('declamationAudio');
