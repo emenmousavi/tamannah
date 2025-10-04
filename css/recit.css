@@ -1,0 +1,636 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
+        /* Custom Font for Nastaliq text */
+        @font-face {
+            font-family: 'IranNastaliq';
+            src: url('https://github.com/emenmousavi/tamannah/blob/main/fonts/IranNastaliq.ttf?raw=true') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        :root {
+            --primary-color: #cfa487;
+            --secondary-color: rgba(207, 164, 135, 0.6);
+            --text-color: #2e2e2e;
+            --accent-color: #e2c9b9;
+            --link-color: var(--text-color);
+            --link-hover-color: var(--primary-color);
+            --header-bg-color: rgba(255, 255, 255, 0.9);
+            --footer-bg-color: rgba(47, 35, 28, 0.9);
+            --footer-text-color: #f5f5f5;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease-in-out;
+        }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+            direction: rtl;
+            text-align: right;
+            overflow-x: hidden;
+            background-color: #333; /* Fallback color */
+            background-image: url('https://github.com/emenmousavi/tamannah/blob/main/images/Gemini_Generated_Image_76ka9076ka9076ka.png?raw=true');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); /* Dark overlay */
+            backdrop-filter: blur(1px); /* A little blur effect */
+            z-index: -1;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        header {
+            background-color: var(--header-bg-color);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo a {
+            font-family: 'IranNastaliq', serif; /* Apply the custom font */
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            line-height: 1; /* Adjust line height for better alignment */
+        }
+        
+        /* Hamburger Menu Button - Hidden on Desktop */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        
+        /* Desktop Navigation */
+        nav {
+            display: block;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav li {
+            margin-right: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-size: 1rem;
+            font-weight: 700;
+            position: relative;
+            padding: 0.5rem 0;
+            white-space: nowrap;
+        }
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease-in-out;
+        }
+        nav a:hover {
+            color: var(--link-hover-color);
+        }
+        nav a:hover::before {
+            width: 100%;
+        }
+        
+        /* Mobile Navigation Menu */
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--header-bg-color);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .mobile-nav li {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-nav li:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-nav a {
+            display: block;
+            padding: 15px 30px;
+            text-decoration: none;
+            color: var(--link-color);
+            font-size: 1rem;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+        
+        .mobile-nav a:hover {
+            background-color: rgba(207, 164, 135, 0.1);
+            color: var(--primary-color);
+        }
+        
+        main {
+            padding-top: 120px;
+            background-color: var(--secondary-color);
+            padding-bottom: 40px;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 0 120px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease-out 0.3s forwards;
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .hero h2 {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 300;
+        }
+        .section {
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease-out 0.4s forwards;
+        }
+        .section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .recitation-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .recitation-content {
+            width: 75%;
+            padding-right: 30px;
+            border-left: 1px solid var(--accent-color);
+        }
+        
+        .recitation-section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .recitation-section h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .recitation-meta {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        
+        .recitation-meta p {
+            margin: 5px 0;
+        }
+        
+        .recitation-meta strong {
+            color: var(--primary-color);
+        }
+        
+        .soundcloud-player {
+            max-width: 100%;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Styles to remove the hover effect for specific text */
+        .recitation-meta p a {
+            text-decoration: none;
+            color: var(--text-color); /* Initial text color */
+        }
+
+        .recitation-meta p a:hover {
+            color: var(--text-color); /* Keep the same text color on hover */
+            background-color: transparent; /* No background change on hover */
+        }
+        
+        .vocalist-menu {
+            width: 25%;
+            height: fit-content;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 100px;
+        }
+
+        .vocalist-menu h4 {
+            font-size: 1.5rem;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .vocalist-menu ul {
+            list-style: none;
+        }
+
+        .vocalist-menu li {
+            padding: 15px 10px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--text-color);
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .vocalist-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .vocalist-menu li:hover,
+        .vocalist-menu li.active {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border-radius: 8px;
+        }
+
+        .hidden {
+            display: none;
+        }
+        
+        /* Fixed fancy-divider CSS, moved outside the media query */
+        .fancy-divider {
+            text-align: center;
+            margin: 30px 0;
+            color: #cfa487;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .fancy-divider::before,
+        .fancy-divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 40%; /* Adjusted width for better look on larger screens */
+            height: 1px;
+            background: #cfa487;
+        }
+
+        .fancy-divider::before {
+            left: 0;
+        }
+
+        .fancy-divider::after {
+            right: 0;
+        }
+        
+        footer {
+            background-color: var(--footer-bg-color);
+            backdrop-filter: blur(5px);
+            color: var(--footer-text-color);
+            padding: 40px 0;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease-out 0.5s forwards;
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer-nav ul {
+            list-style: none;
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .footer-nav li {
+            margin: 0 15px;
+        }
+        .footer-nav a {
+            text-decoration: none;
+            color: var(--footer-text-color);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+        .footer-nav a:hover {
+            color: var(--primary-color);
+        }
+        .social-links {
+            margin-bottom: 20px;
+        }
+        .social-links a {
+            color: var(--footer-text-color);
+            font-size: 1.3rem;
+            margin: 0 10px;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+        .social-links a:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .social-links a[title="تلگرام"]:hover {
+            color: #0088cc;
+        }
+        .social-links a[title="اینستاگرام"]:hover {
+            color: #C13584;
+        }
+        .social-links a[title="ایمیل"]:hover {
+            color: #4CAF50;
+        }
+        footer p {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            /* Show hamburger menu on mobile */
+            .hamburger {
+                display: flex;
+            }
+            
+            /* Hide desktop navigation on mobile */
+            nav {
+                display: none;
+            }
+            
+            /* Fixed header */
+            header {
+                padding: 0.75rem 0;
+            }
+            
+            .header-content {
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem;
+            }
+            
+            .logo a {
+                font-size: 2rem;
+            }
+            
+            /* Main content */
+            main {
+                padding-top: 140px;
+            }
+            
+            .hero {
+                padding: 60px 0 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .hero h2 {
+                font-size: 1rem;
+                line-height: 1.4;
+                padding: 0 10px;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .section h2 {
+                font-size: 1.6rem;
+            }
+            
+            /* Mobile layout changes */
+            .recitation-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .recitation-content {
+                width: 100%;
+                padding-right: 0;
+                border-left: none;
+                order: 2; /* This will place it after the vocalist menu */
+            }
+            
+            .vocalist-menu {
+                width: 100%;
+                position: static;
+                padding: 15px;
+                order: 1; /* This will place it before the recitation content */
+            }
+            
+            .vocalist-menu h4 {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+            
+            .vocalist-menu li {
+                padding: 12px 8px;
+                font-size: 0.9rem;
+                text-align: center;
+            }
+            
+            /* Recitation sections */
+            .recitation-section {
+                padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+            
+            .recitation-section h3 {
+                font-size: 1.4rem;
+                line-height: 1.3;
+                margin-bottom: 12px;
+            }
+            
+            .recitation-meta {
+                margin-bottom: 15px;
+            }
+            
+            .recitation-meta p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+                margin: 3px 0;
+            }
+            
+            /* SoundCloud player */
+            .soundcloud-player {
+                margin-top: 15px;
+            }
+            
+            .soundcloud-player iframe {
+                width: 100%;
+                min-height: 166px;
+            }
+            
+            /* Fancy divider adjustments */
+            .fancy-divider {
+                margin: 20px 0;
+                font-size: 1rem;
+            }
+            
+            .fancy-divider::before,
+            .fancy-divider::after {
+                width: 30%;
+            }
+            
+            /* Footer adjustments */
+            .footer-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .footer-nav li {
+                margin: 5px 8px;
+            }
+            
+            .footer-nav a {
+                font-size: 0.85rem;
+            }
+            
+            .social-links a {
+                margin: 0 8px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .logo a {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h2 {
+                font-size: 0.9rem;
+            }
+            
+            .recitation-section {
+                padding: 15px 10px;
+            }
+            
+            .recitation-section h3 {
+                font-size: 1.2rem;
+            }
+            
+            .vocalist-menu {
+                padding: 12px;
+            }
+            
+            .vocalist-menu li {
+                padding: 10px 6px;
+                font-size: 0.85rem;
+            }
+        }
