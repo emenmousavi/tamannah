@@ -26,7 +26,7 @@
             --accent-color: #8BC34A; /* Lighter green accent */
             --link-color: var(--text-color);
             --link-hover-color: var(--primary-color);
-            --header-bg-color: rgba(255, 255, 255, 0.85);
+            --header-bg-color: rgba(255, 255, 255, 0.95);
             --footer-bg-color: rgba(51, 51, 51, 0.85);
             --footer-text-color: #eee;
             --player-bg: rgba(255, 255, 255, 0.9);
@@ -41,7 +41,7 @@
             --accent-color: #81C784; /* Lighter green accent */
             --link-color: #e0e0e0;
             --link-hover-color: #66BB6A;
-            --header-bg-color: rgba(20, 20, 20, 0.95);
+            --header-bg-color: rgba(20, 20, 20, 0.98);
             --footer-bg-color: rgba(15, 15, 15, 0.95);
             --footer-text-color: #e0e0e0;
             --player-bg: rgba(40, 40, 40, 0.9);
@@ -179,6 +179,7 @@
         nav ul {
             list-style: none;
             display: flex;
+            flex-wrap: wrap;
         }
         nav li {
             margin-right: 20px;
@@ -190,6 +191,7 @@
             font-weight: 700; /* Made bold */
             position: relative;
             padding: 0.5rem 0;
+            white-space: nowrap;
         }
         nav a::before {
             content: '';
@@ -208,13 +210,13 @@
             width: 100%;
         }
         main {
-            padding-top: 80px;
+            padding-top: 120px; /* Increased for mobile header fix */
             background-color: var(--secondary-color);
             padding-bottom: 40px;
         }
         .hero {
             text-align: center;
-            padding: 120px 0;
+            padding: 80px 0 120px 0; /* Adjusted padding */
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 0.8s ease-out 0.3s forwards;
@@ -638,100 +640,223 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
-                padding: 0 20px;
+                padding: 0 15px; /* Reduced padding */
             }
+            
+            /* Fixed header for mobile */
+            header {
+                padding: 0.75rem 0;
+                background-color: var(--header-bg-color);
+            }
+            
             .header-content {
                 flex-direction: column;
                 text-align: center;
-                padding: 1rem;
+                padding: 0.5rem;
+                gap: 0.75rem;
             }
+            
             .logo-section {
                 display: flex;
                 align-items: center;
-                margin-bottom: 1rem;
+                justify-content: center;
+                width: 100%;
             }
-            .logo {
-                margin-left: 25px;
+            
+            .logo a {
+                font-size: 2rem; /* Smaller logo on mobile */
             }
+            
             .theme-toggle {
                 width: 35px;
                 height: 35px;
                 margin-left: 15px;
             }
+            
             .theme-toggle svg {
                 width: 16px;
                 height: 16px;
             }
-            nav ul {
-                justify-content: center;
-                margin-bottom: 1rem;
+            
+            /* Better navigation for mobile */
+            nav {
+                width: 100%;
+                overflow-x: auto;
             }
+            
+            nav ul {
+                display: flex;
+                justify-content: flex-start;
+                gap: 0;
+                padding: 0 10px;
+                min-width: max-content;
+            }
+            
             nav li {
+                margin: 0 8px;
+                flex-shrink: 0;
+            }
+            
+            nav a {
+                font-size: 0.85rem;
+                padding: 0.4rem 0;
+                white-space: nowrap;
+            }
+            
+            /* Main content adjustments */
+            main {
+                padding-top: 140px; /* More space for taller mobile header */
+            }
+            
+            .hero {
+                padding: 60px 0 80px 0;
+            }
+            
+            .poet-image-container {
+                width: 120px; /* Larger on mobile */
+                height: 120px;
+                margin-bottom: 15px;
+            }
+            
+            .poet-info h1 {
+                font-size: 1.8rem; /* Smaller but readable */
+                margin-top: 10px;
+                line-height: 1.2;
+            }
+            
+            .hero h2 {
+                font-size: 1rem;
+                margin-bottom: 25px;
+                line-height: 1.4;
+                padding: 0 10px;
+            }
+            
+            .telegram-section p {
+                font-size: 0.9rem;
+                padding: 0 10px;
+            }
+            
+            .telegram-link {
+                font-size: 0.95rem;
+                padding: 8px 16px;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .section h2 {
+                font-size: 1.6rem;
+            }
+            
+            /* Content sections */
+            .about-section-content,
+            .books-section-content,
+            .declamation-container,
+            .poem-container {
+                padding: 20px;
                 margin: 0 10px;
             }
-            .hero {
-                padding: 100px 0;
-            }
-            .poet-image-container {
-                width: 100px;
-                height: 100px;
-            }
-            .poet-info h1 {
-                font-size: 2.2rem;
-                margin-top: 15px;
-            }
-            .hero h2 {
-                font-size: 1.1rem;
-                margin-bottom: 20px;
-            }
-            .section {
-                padding: 60px 0;
-            }
-            .books-section-content {
-                padding: 20px;
-            }
+            
             .books-image {
                 max-width: 100%;
+                height: auto;
             }
+            
             .books-text p {
-                font-size: 1rem;
+                font-size: 0.95rem;
+                line-height: 1.8;
             }
+            
             .books-link {
-                font-size: 1rem;
-                padding: 10px 20px;
+                font-size: 0.9rem;
+                padding: 8px 16px;
             }
-            .poem-container {
-                font-size: 1rem;
-                padding: 20px;
-            }
-            .footer-nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            .footer-nav li {
-                margin: 10px 0;
-            }
-            .social-links a {
-                margin: 0 8px;
+            
+            /* Player adjustments */
+            .player-info h3 {
                 font-size: 1.2rem;
             }
+            
             .controls-container {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
+                gap: 15px;
             }
+            
+            .control-button svg {
+                width: 24px;
+                height: 24px;
+            }
+            
+            .play-button {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .play-button svg {
+                width: 28px;
+                height: 28px;
+            }
+            
             .progress-container {
-                width: 100%;
                 flex-direction: column;
-                gap: 10px;
+                gap: 8px;
             }
+            
             .time-display {
                 min-width: unset;
-                order: -1;
+                font-size: 0.8rem;
             }
-            .declamation-player .controls {
-                flex-direction: column;
+            
+            /* Footer adjustments */
+            .footer-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
                 gap: 10px;
+            }
+            
+            .footer-nav li {
+                margin: 5px 8px;
+            }
+            
+            .footer-nav a {
+                font-size: 0.85rem;
+            }
+            
+            .social-links a {
+                margin: 0 8px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .logo a {
+                font-size: 1.8rem;
+            }
+            
+            nav a {
+                font-size: 0.8rem;
+                margin: 0 6px;
+            }
+            
+            .poet-info h1 {
+                font-size: 1.6rem;
+            }
+            
+            .hero h2 {
+                font-size: 0.9rem;
+            }
+            
+            .about-section-content,
+            .books-section-content,
+            .declamation-container,
+            .poem-container {
+                padding: 15px;
+                margin: 0 5px;
             }
         }
     </style>
