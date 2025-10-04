@@ -83,6 +83,40 @@
             text-decoration: none;
             line-height: 1; /* Adjust line height for better alignment */
         }
+        
+        /* Hamburger Menu Button - Hidden on Desktop */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        
+        /* Desktop Navigation */
+        nav {
+            display: block;
+        }
+        
         nav ul {
             list-style: none;
             display: flex;
@@ -115,6 +149,52 @@
         nav a:hover::before {
             width: 100%;
         }
+        
+        /* Mobile Navigation Menu */
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--header-bg-color);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .mobile-nav li {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-nav li:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-nav a {
+            display: block;
+            padding: 15px 30px;
+            text-decoration: none;
+            color: var(--link-color);
+            font-size: 1rem;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+        
+        .mobile-nav a:hover {
+            background-color: rgba(207, 164, 135, 0.1);
+            color: var(--primary-color);
+        }
+        
         main {
             padding-top: 120px;
             background-color: var(--secondary-color);
@@ -378,44 +458,29 @@
                 padding: 0 15px;
             }
             
+            /* Show hamburger menu on mobile */
+            .hamburger {
+                display: flex;
+            }
+            
+            /* Hide desktop navigation on mobile */
+            nav {
+                display: none;
+            }
+            
             /* Fixed header */
             header {
                 padding: 0.75rem 0;
             }
             
             .header-content {
-                flex-direction: column;
-                text-align: center;
+                justify-content: space-between;
+                align-items: center;
                 padding: 0.5rem;
-                gap: 0.75rem;
             }
             
             .logo a {
                 font-size: 2rem;
-            }
-            
-            /* Better navigation */
-            nav {
-                width: 100%;
-                overflow-x: auto;
-            }
-            
-            nav ul {
-                display: flex;
-                justify-content: flex-start;
-                gap: 0;
-                padding: 0 10px;
-                min-width: max-content;
-            }
-            
-            nav li {
-                margin: 0 8px;
-                flex-shrink: 0;
-            }
-            
-            nav a {
-                font-size: 0.85rem;
-                padding: 0.4rem 0;
             }
             
             /* Main content */
@@ -551,11 +616,6 @@
                 font-size: 1.8rem;
             }
             
-            nav a {
-                font-size: 0.8rem;
-                margin: 0 6px;
-            }
-            
             .hero h1 {
                 font-size: 1.8rem;
             }
@@ -589,6 +649,8 @@
             <div class="logo">
                 <a href="index.html">تمنا</a>
             </div>
+            
+            <!-- Desktop Navigation -->
             <nav>
                 <ul>
                     <li><a href="bio.html">زندگینامه</a></li>
@@ -600,6 +662,26 @@
                     <li><a href="contact.html">تماس با ما</a></li>
                 </ul>
             </nav>
+            
+            <!-- Hamburger Menu Button (Mobile Only) -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-nav" id="mobileNav">
+                <ul>
+                    <li><a href="bio.html">زندگینامه</a></li>
+                    <li><a href="gallery.html">گالری</a></li>
+                    <li><a href="poem.html">اشعار</a></li>
+                    <li><a href="recitation.html">دکلمه</a></li>
+                    <li><a href="books.html">کتاب‌ها</a></li>
+                    <li><a href="awards.html">افتخارات</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </div>
         </div>
     </header>
     <main>
@@ -781,6 +863,32 @@
         </div>
     </footer>
     <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            }
+        });
+        
         document.addEventListener('DOMContentLoaded', () => {
             const menuItems = document.querySelectorAll('.vocalist-menu li');
             const recitationSections = document.querySelectorAll('.recitation-section');
