@@ -183,6 +183,21 @@ nav a:hover::before {
         display: block;
         padding: 1rem;
     }
+    .full-page-poem-content {
+            width: 90%;
+            min-width: unset;
+            max-width: 90%;
+            max-height: 90vh; /* keep vertical fit */
+            overflow-y: auto;
+        }
+        #close-poem-btn {
+            left: auto;
+            right: 10px;
+            top: 10px; /* optional: slightly closer to edge */
+            width: 36px;
+            height: 36px;
+            font-size: 1.3rem;
+        }
 }
 
 main {
