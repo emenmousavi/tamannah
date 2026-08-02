@@ -9,15 +9,15 @@
 }
 
 :root {
-    --primary-color: #009688; /* Teal */
-    --secondary-color: rgba(230, 248, 248, 0.8); /* Semi-transparent light teal/grey */
-    --text-color: #333;
-    --accent-color: #4DB6AC; /* Lighter teal accent */
+    --primary-color: #cfa487;
+    --secondary-color: rgba(207, 164, 135, 0.6);
+    --text-color: #2e2e2e;
+    --accent-color: #e2c9b9;
     --link-color: var(--text-color);
     --link-hover-color: var(--primary-color);
-    --header-bg-color: rgba(255, 255, 255, 0.85);
-    --footer-bg-color: rgba(51, 51, 51, 0.85);
-    --footer-text-color: #eee;
+    --header-bg-color: rgba(255, 255, 255, 0.9);
+    --footer-bg-color: rgba(47, 35, 28, 0.9);
+    --footer-text-color: #f5f5f5;
 }
 
 * {
@@ -35,12 +35,11 @@ body {
     text-align: right;
     overflow-x: hidden;
     background-color: #333;
-    background-image: url('https://github.com/emenmousavi/tamannah/blob/main/images/1280px-Beautiful_view_of_Tabriz_in_Iran.jpg?raw=true');
+    background-image: url('https://github.com/emenmousavi/tamannah/blob/main/images/Gemini_Generated_Image_76ka9076ka9076ka.png?raw=true');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     position: relative;
-    user-select: none;
 }
 
 body::before {
@@ -51,7 +50,7 @@ body::before {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(1px);
     z-index: -1;
 }
 
@@ -132,14 +131,14 @@ nav a:hover::before {
 }
 
 main {
-    padding-top: 80px;
+    padding-top: 120px;
     background-color: var(--secondary-color);
     padding-bottom: 40px;
 }
 
 .hero {
     text-align: center;
-    padding: 120px 0;
+    padding: 80px 0 120px 0;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeUp 0.8s ease-out 0.3s forwards;
@@ -188,143 +187,134 @@ main {
     background-color: var(--accent-color);
 }
 
-.poem-book-container {
-    margin-bottom: 50px;
-}
-
-.poem-book-container h3 {
-    font-size: 1.8rem;
-    text-align: center;
-    margin-bottom: 30px;
-    color: var(--primary-color);
-}
-
-.poem-container {
+.recitation-container {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-.poem-list-container {
-    width: 33%;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: column;
+.recitation-content {
+    width: 75%;
+    padding-right: 30px;
+    border-left: 1px solid var(--accent-color);
 }
 
-.poem-list-container h4 {
-    text-align: center;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 10px;
-    font-size: 1.3rem;
-}
-
-.poem-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.poem-list-item {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--text-color);
-    cursor: pointer;
-    padding: 15px 20px;
-    border-bottom: 1px solid #eee;
-}
-
-.poem-list-item:last-child {
-    border-bottom: none;
-}
-
-.poem-list-item:hover,
-.poem-list-item.active {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-}
-
-/* Full-page overlay for poems */
-#full-page-poem-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(8px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-    padding: 20px;
-}
-
-#full-page-poem-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.full-page-poem-content {
+.recitation-section {
     background-color: #fff;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    max-width: 900px;
-    min-width: 600px;
-    max-height: 90vh;
-    overflow-y: auto;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
     text-align: center;
-    position: relative;
-    transform: scale(0.9);
-    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
-#full-page-poem-overlay.active .full-page-poem-content {
-    transform: scale(1);
+.recitation-section h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    display: inline-block;
 }
 
-#full-page-poem-overlay h3 {
-    font-size: 2rem;
+.recitation-meta {
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.recitation-meta p {
+    margin: 5px 0;
+}
+
+.recitation-meta strong {
+    color: var(--primary-color);
+}
+
+.soundcloud-player {
+    max-width: 100%;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.recitation-meta p a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.recitation-meta p a:hover {
+    color: var(--text-color);
+    background-color: transparent;
+}
+
+.vocalist-menu {
+    width: 25%;
+    height: fit-content;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 100px;
+}
+
+.vocalist-menu h4 {
+    font-size: 1.5rem;
+    text-align: center;
     color: var(--primary-color);
     margin-bottom: 20px;
 }
 
-#full-page-poem-overlay p {
-    font-size: 1.2rem;
-    line-height: 2.5;
-    white-space: pre-line;
-    text-align: right;
+.vocalist-menu ul {
+    list-style: none;
 }
 
-#close-poem-btn {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
+.vocalist-menu li {
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.2s, transform 0.2s;
+    font-weight: 700;
+    color: var(--text-color);
+    transition: background-color 0.2s, color 0.2s;
 }
 
-#close-poem-btn:hover {
-    background-color: var(--accent-color);
-    transform: scale(1.1);
+.vocalist-menu li:last-child {
+    border-bottom: none;
 }
+
+.vocalist-menu li:hover,
+.vocalist-menu li.active {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+.fancy-divider {
+    text-align: center;
+    margin: 30px 0;
+    color: #cfa487;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.fancy-divider::before,
+.fancy-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #cfa487;
+}
+
+.fancy-divider::before { left: 0; }
+.fancy-divider::after { right: 0; }
 
 footer {
     background-color: var(--footer-bg-color);
@@ -405,7 +395,7 @@ footer p {
 /* Responsive Design & Mobile Menu Fix */
 @media (max-width: 768px) {
     .container {
-        padding: 0 20px;
+        padding: 0 15px;
     }
 
     header nav {
@@ -489,7 +479,7 @@ footer p {
     }
 
     main {
-        padding-top: 90px;
+        padding-top: 140px;
     }
 
     .hero {
@@ -515,17 +505,66 @@ footer p {
         font-size: 1.6rem;
     }
 
-    .poem-container {
+    .recitation-container {
         flex-direction: column;
+        gap: 20px;
     }
 
-    .poem-list-container {
+    .recitation-content {
         width: 100%;
+        padding-right: 0;
+        border-left: none;
+        order: 2;
+    }
+
+    .vocalist-menu {
+        width: 100%;
+        position: static;
+        padding: 15px;
+        order: 1;
+    }
+
+    .vocalist-menu h4 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .vocalist-menu li {
+        padding: 12px 8px;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .recitation-section {
+        padding: 20px 15px;
         margin-bottom: 20px;
     }
 
-    .poem-list-item {
-        font-size: 1.2rem;
+    .recitation-section h3 {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        margin-bottom: 12px;
+    }
+
+    .recitation-meta p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin: 3px 0;
+    }
+
+    .soundcloud-player iframe {
+        width: 100%;
+        min-height: 166px;
+    }
+
+    .fancy-divider {
+        margin: 20px 0;
+        font-size: 1rem;
+    }
+
+    .fancy-divider::before,
+    .fancy-divider::after {
+        width: 30%;
     }
 
     .footer-nav ul {
@@ -546,26 +585,6 @@ footer p {
         margin: 0 8px;
         font-size: 1.1rem;
     }
-
-    .full-page-poem-content {
-        min-width: 0 !important;
-        width: 95vw !important;
-        max-width: 95vw !important;
-        padding: 20px !important;
-        box-sizing: border-box;
-        border-radius: 8px;
-        max-height: 90vh !important;
-        overflow-y: auto !important;
-    }
-
-    #close-poem-btn {
-        left: auto !important;
-        right: 10px !important;
-        top: 10px !important;
-        width: 36px !important;
-        height: 36px !important;
-        font-size: 1.3rem !important;
-    }
 }
 
 @media (max-width: 480px) {
@@ -583,5 +602,22 @@ footer p {
 
     .hero h2 {
         font-size: 0.9rem;
+    }
+
+    .recitation-section {
+        padding: 15px 10px;
+    }
+
+    .recitation-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .vocalist-menu {
+        padding: 12px;
+    }
+
+    .vocalist-menu li {
+        padding: 10px 6px;
+        font-size: 0.85rem;
     }
 }
