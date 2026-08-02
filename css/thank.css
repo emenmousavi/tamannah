@@ -9,10 +9,10 @@
 }
 
 :root {
-    --primary-color: #F44336; /* Red */
-    --secondary-color: rgba(255, 240, 240, 0.8); /* Semi-transparent light red/grey */
+    --primary-color: #009688; /* Teal اصلی */
+    --secondary-color: rgba(230, 248, 248, 0.8); /* پس‌زمینه ملایم فیروزه‌ای */
     --text-color: #333;
-    --accent-color: #E57373; /* Lighter red accent */
+    --accent-color: #4DB6AC; /* فیروزه‌ای روشن‌تر برای خطوط تزئینی */
     --link-color: var(--text-color);
     --link-hover-color: var(--primary-color);
     --header-bg-color: rgba(255, 255, 255, 0.85);
