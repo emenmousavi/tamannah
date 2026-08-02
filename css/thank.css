@@ -9,14 +9,14 @@
 }
 
 :root {
-    --primary-color: #009688; /* Teal اصلی */
-    --secondary-color: rgba(230, 248, 248, 0.8); /* پس‌زمینه ملایم فیروزه‌ای */
+    --primary-color: #E65100; /* نارنجی-طلایی عمیق برای خوانایی عالی متن‌ها و عناوین */
+    --secondary-color: rgba(254, 249, 231, 0.85); /* پس‌زمینه لایت و ملایم با تم زرد آفتابگردانی */
     --text-color: #333;
-    --accent-color: #4DB6AC; /* فیروزه‌ای روشن‌تر برای خطوط تزئینی */
+    --accent-color: #FBC02D; /* زرد آفتابگردانی درخشان برای خطوط تزئینی و جزییات */
     --link-color: var(--text-color);
     --link-hover-color: var(--primary-color);
-    --header-bg-color: rgba(255, 255, 255, 0.85);
-    --footer-bg-color: rgba(51, 51, 51, 0.85);
+    --header-bg-color: rgba(255, 255, 255, 0.9);
+    --footer-bg-color: rgba(45, 38, 20, 0.88); /* فوتر تیره هماهنگ با تم طلایی-گرم */
     --footer-text-color: #eee;
 }
 
