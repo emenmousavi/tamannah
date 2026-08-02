@@ -8,7 +8,6 @@
 </head>
 <body>
 
-    <!-- هدر دینامیک -->
     <div id="header"></div>
 
     <main>
@@ -57,54 +56,29 @@
         </section>
     </main>
 
-    <!-- فوتر دینامیک -->
     <div id="footer"></div>
 
-    <!-- اسکریپت بارگذاری هدر، فوتر و فعال‌سازی منوی همبرگری -->
     <script>
-      // ۱. بارگذاری هدر و راه اندازی منوی موبایل
+      // بارگذاری هدر و اجرای دقیق اسکریپت داخلی آن (دقیقاً مشابه روش index.html)
       fetch("/_includes/header.html")
-        .then(res => res.text())
+        .then(response => response.text())
         .then(data => {
-            document.getElementById("header").innerHTML = data;
-            initMobileMenu();
-        })
-        .catch(err => console.error("خطا در بارگذاری هدر:", err));
+          const headerDiv = document.getElementById("header");
+          headerDiv.innerHTML = data;
+          
+          // اجرای اسکریپت‌های داخل header.html پس از تزریق به صفحه
+          Array.from(headerDiv.querySelectorAll("script")).forEach(oldScript => {
+            const newScript = document.createElement("script");
+            Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+            newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+            oldScript.parentNode.replaceChild(newScript, oldScript);
+          });
+        });
 
-      // ۲. بارگذاری فوتر
+      // بارگذاری فوتر
       fetch("/_includes/footer.html")
         .then(res => res.text())
-        .then(data => document.getElementById("footer").innerHTML = data)
-        .catch(err => console.error("خطا در بارگذاری فوتر:", err));
-
-      // تابع راه‌اندازی منوی همبرگری موبایل
-      function initMobileMenu() {
-          const hamburger = document.getElementById('hamburger');
-          const mobileNav = document.getElementById('mobileNav');
-
-          if (hamburger && mobileNav) {
-              hamburger.addEventListener('click', function (e) {
-                  e.stopPropagation();
-                  hamburger.classList.toggle('open');
-                  mobileNav.classList.toggle('active');
-              });
-
-              const mobileLinks = mobileNav.querySelectorAll('a');
-              mobileLinks.forEach(link => {
-                  link.addEventListener('click', () => {
-                      hamburger.classList.remove('open');
-                      mobileNav.classList.remove('active');
-                  });
-              });
-
-              document.addEventListener('click', function (e) {
-                  if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
-                      hamburger.classList.remove('open');
-                      mobileNav.classList.remove('active');
-                  }
-              });
-          }
-      }
+        .then(data => document.getElementById("footer").innerHTML = data);
     </script>
 </body>
 </html>
