@@ -1,0 +1,91 @@
+---
+layout: default
+title: تماس با ما
+---
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <h1>تماس با ما</h1>
+            <h2>با افتخار پاسخگوی شما هستیم</h2>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>روش‌های ارتباط با ما</h2>
+
+            <div class="contact-info">
+                <p>
+                    برای دلنوشته‌ها، انتقادات سازنده یا پرسش‌های شاعرانه،
+                    از طریق این پل‌های ارتباطی با ما در ارتباط باشید.
+                    ما منتظر شنیدن صدای قلب و قلم شما هستیم.
+                    هر پیام شما، شعری است که به این دفتر اضافه می‌شود.
+                </p>
+            </div>
+
+            <div class="contact-details">
+                <p>ایمیل: <a href="mailto:support@tamannah.website">support@tamannah.website</a></p>
+                <p>اینستاگرام: <a href="https://www.instagram.com/tamanna_poem/" target="_blank">@tamanna_poem</a></p>
+                <p>تلگرام: <a href="https://t.me/ashkeghalb" target="_blank">@ashkeghalb</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>فرم تماس</h2>
+
+            <div class="form-container">
+                <form name="contact"
+                      method="POST"
+                      netlify
+                      netlify-honeypot="bot-field"
+                      accept-charset="UTF-8"
+                      action="/thankyou.html">
+
+                    <input type="hidden" name="form-name" value="contact">
+
+                    <p style="display:none;">
+                        <label>
+                            Don't fill this out:
+                            <input name="bot-field">
+                        </label>
+                    </p>
+
+                    <div class="form-group">
+                        <label for="full-name">نام کامل</label>
+                        <input type="text" id="full-name" name="full_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">ایمیل</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reason">دلیل تماس</label>
+
+                        <select id="reason" name="reason" required>
+                            <option value="" disabled selected>انتخاب کنید</option>
+                            <option value="poetry-question">پرسش درباره اشعار</option>
+                            <option value="collaboration">همکاری</option>
+                            <option value="feedback">انتقاد یا پیشنهاد</option>
+                            <option value="other">سایر</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">توضیحات کامل</label>
+                        <textarea id="description" name="description" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        ارسال
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
