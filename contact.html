@@ -1,6 +1,3 @@
----
-title: تماس با ما - تمنا
----
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -506,7 +503,47 @@ title: تماس با ما - تمنا
     </style>
 </head>
 <body>
-    {% include header.html %}
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="/index.html">تمنا</a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav>
+                <ul>
+                    <li><a href="/bio.html">زندگینامه</a></li>
+                    <li><a href="/gallery.html">گالری</a></li>
+                    <li><a href="/poem.html">اشعار</a></li>
+                    <li><a href="/recitation.html">دکلمه</a></li>
+                    <li><a href="/books.html">کتاب‌ها</a></li>
+                    <li><a href="/awards.html">افتخارات</a></li>
+                    <li><a href="/contact.html">تماس با ما</a></li>
+                </ul>
+            </nav>
+
+            <!-- Hamburger Menu Button (Mobile Only) -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-nav" id="mobileNav">
+                <ul>
+                    <li><a href="/bio.html">زندگینامه</a></li>
+                    <li><a href="/gallery.html">گالری</a></li>
+                    <li><a href="/poem.html">اشعار</a></li>
+                    <li><a href="/recitation.html">دکلمه</a></li>
+                    <li><a href="/books.html">کتاب‌ها</a></li>
+                    <li><a href="/awards.html">افتخارات</a></li>
+                    <li><a href="/contact.html">تماس با ما</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
     <main>
         <section class="hero">
             <div class="container">
@@ -573,7 +610,60 @@ title: تماس با ما - تمنا
             </div>
         </section>
     </main>
-    {% include footer.html %}
+<footer>
+        <div class="container footer-content">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="/bio.html">زندگینامه</a></li>
+                    <li><a href="/gallery.html">گالری</a></li>
+                    <li><a href="/poem.html">اشعار</a></li>
+                    <li><a href="/recitation.html">دکلمه</a></li>
+                    <li><a href="/books.html">کتاب‌ها</a></li>
+                    <li><a href="/awards.html">افتخارات</a></li>
+                    <li><a href="/contact.html">تماس با ما</a></li>
+                </ul>
+            </nav>
+            <div class="social-links">
+                <a href="https://t.me/ashkeghalb" target="_blank" rel="noopener noreferrer" title="تلگرام">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </a>
+                <a href="https://www.instagram.com/tamanna_poem/" target="_blank" rel="noopener noreferrer" title="اینستاگرام">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+                </a>
+                <a href="mailto:support@tamannah.website" title="ایمیل">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+            </div>
+            <p>&copy; 2025 تمنا. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality (مشترک بین همه صفحات)
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            }
+        });
+    </script>
+    
     <script>
         const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
         fetch(poemsUrl)
