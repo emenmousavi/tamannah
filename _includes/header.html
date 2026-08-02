@@ -35,37 +35,3 @@
         </div>
     </div>
 </header>
-
-<!-- اسکریپت منوی موبایل که همراه خود هدر لود و اجرا می‌شود -->
-<script>
-    (function setupMobileMenu() {
-        const hamburger = document.getElementById('hamburger');
-        const mobileNav = document.getElementById('mobileNav');
-
-        if (hamburger && mobileNav) {
-            // کلیک روی دکمه همبرگر
-            hamburger.addEventListener('click', function (e) {
-                e.stopPropagation();
-                hamburger.classList.toggle('open');
-                mobileNav.classList.toggle('active');
-            });
-
-            // بستن منو هنگام کلیک روی لینک‌ها
-            const mobileLinks = mobileNav.querySelectorAll('a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('open');
-                    mobileNav.classList.remove('active');
-                });
-            });
-
-            // بستن منو اگر کاربر بیرون از منو کلیک کرد
-            document.addEventListener('click', function (e) {
-                if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
-                    hamburger.classList.remove('open');
-                    mobileNav.classList.remove('active');
-                }
-            });
-        }
-    })();
-</script>
