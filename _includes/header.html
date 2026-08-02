@@ -36,8 +36,9 @@
     </div>
 </header>
 
+<!-- اسکریپت منوی موبایل که همراه خود هدر لود و اجرا می‌شود -->
 <script>
-    (function initMobileMenu() {
+    (function setupMobileMenu() {
         const hamburger = document.getElementById('hamburger');
         const mobileNav = document.getElementById('mobileNav');
 
@@ -65,9 +66,6 @@
                     mobileNav.classList.remove('active');
                 }
             });
-        } else {
-            // اگر هدر با Fetch یا AJAX بارگذاری می‌شود و هنوز عناصر ساخته نشده‌اند
-            setTimeout(initMobileMenu, 100);
         }
     })();
 </script>
