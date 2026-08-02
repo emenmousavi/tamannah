@@ -28,47 +28,6 @@
     --player-border: rgba(255, 255, 255, 0.2);
 }
 
-/* Dark mode variables */
-[data-theme="dark"] {
-    --primary-color: #66BB6A;
-    --secondary-color: rgba(30, 30, 30, 0.9);
-    --text-color: #e0e0e0;
-    --accent-color: #81C784;
-    --link-color: #e0e0e0;
-    --link-hover-color: #66BB6A;
-    --header-bg-color: rgba(20, 20, 20, 0.98);
-    --footer-bg-color: rgba(15, 15, 15, 0.95);
-    --footer-text-color: #e0e0e0;
-    --player-bg: rgba(40, 40, 40, 0.9);
-    --player-border: rgba(80, 80, 80, 0.3);
-}
-
-[data-theme="dark"] body,
-[data-theme="dark"] main {
-    background-color: #121212;
-    color: var(--text-color);
-}
-
-[data-theme="dark"] .hero {
-    background-color: rgba(30, 30, 30, 0.8);
-}
-
-[data-theme="dark"] .about-section-content,
-[data-theme="dark"] .books-section-content,
-[data-theme="dark"] .declamation-container,
-[data-theme="dark"] .poem-container {
-    background-color: #1e1e1e;
-    border: 1px solid rgba(80, 80, 80, 0.3);
-    color: var(--text-color);
-}
-
-[data-theme="dark"] .section h2,
-[data-theme="dark"] .poet-info h1,
-[data-theme="dark"] #poem-title,
-[data-theme="dark"] .player-info h3 {
-    color: var(--primary-color);
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -140,34 +99,6 @@ header {
     color: var(--primary-color);
     text-decoration: none;
     line-height: 1;
-}
-
-.theme-toggle {
-    background: none;
-    border: 2px solid var(--primary-color);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    color: var(--primary-color);
-}
-
-.theme-toggle:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: scale(1.05);
-}
-
-.theme-toggle svg {
-    width: 18px;
-    height: 18px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
 }
 
 /* Desktop Nav */
@@ -699,11 +630,6 @@ footer p {
 @media (max-width: 480px) {
     .logo a {
         font-size: 1.8rem;
-    }
-
-    .theme-toggle {
-        width: 35px;
-        height: 35px;
     }
 
     .poet-info h1 {
