@@ -718,3 +718,58 @@ footer p {
         font-size: 1.4rem;
     }
 }
+
+/* ==========================================
+   استایل‌های نمایش شعر دو مصراعی (کلاسیک)
+   ========================================== */
+
+.poem-container {
+    text-align: center;
+    padding: 30px;
+}
+
+#poem-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+/* هر بیت شعر */
+.poem-couplet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 650px;
+    margin: 0 auto 15px auto;
+    gap: 20px;
+}
+
+/* هر مصراع */
+.poem-hemistich {
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.poem-hemistich.first {
+    text-align: right;
+}
+
+.poem-hemistich.second {
+    text-align: left;
+}
+
+/* تنظیمات واکنش‌گرا برای موبایل */
+@media (max-width: 600px) {
+    .poem-couplet {
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 20px;
+    }
+    
+    .poem-hemistich.first,
+    .poem-hemistich.second {
+        text-align: center;
+    }
+}
