@@ -335,3 +335,61 @@
                 font-size: 1.2rem;
             }
         }
+
+        /* ==========================================
+           تنظیم رنگ‌های اختصاصی برای صفحات مختلف
+           ========================================== */
+        
+        /* ۱. صفحه اصلی (Index) - سبز پیش‌فرض */
+        .page-index, body {
+            --primary-color: #4CAF50;
+            --accent-color: #8BC34A;
+        }
+        
+        /* ۲. صفحه افتخارات (Awards) - زرد طلایی خوانا و شیک */
+        .page-awards {
+            --primary-color: #D48806; /* طلایی عمیق برای خوانایی عالی روی سفید */
+            --accent-color: #FAAD14;
+        }
+        
+        /* ۳. صفحه زندگینامه (Bio) - بنفش خوش‌رنگ */
+        .page-bio {
+            --primary-color: #8E24AA;
+            --accent-color: #BA68C8;
+        }
+        
+        /* ۴. صفحه کتاب‌ها (Books) - آبی پررنگِ متناسب */
+        .page-books {
+            --primary-color: #1565C0;
+            --accent-color: #42A5F5;
+        }
+        
+        /* ۵. صفحه تماس با ما (Contact) - نارنجی جذاب */
+        .page-contact {
+            --primary-color: #E65100;
+            --accent-color: #FF9800;
+        }
+        
+        /* ۶. صفحه گالری (Gallery) - قرمز متین */
+        .page-gallery {
+            --primary-color: #C62828;
+            --accent-color: #EF5350;
+        }
+        
+        /* ۷. صفحه اشعار (Poem) - سبز فیروزه‌ای خوش‌رنگ */
+        .page-poem {
+            --primary-color: #00897B;
+            --accent-color: #26A69A;
+        }
+        
+        /* ۸. صفحه دکلمه (Recitation) - قهوه‌ای گرم و شیک */
+        .page-recitation {
+            --primary-color: #6D4C41;
+            --accent-color: #8D6E63;
+        }
+        
+        /* ۹. صفحه تشکر (Thank You) - سبز فاخر (Royal Green) */
+        .page-thankyou {
+            --primary-color: #1B5E20;
+            --accent-color: #2E7D32;
+        }
