@@ -3,50 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/poem.css">
+    <link rel="stylesheet" href="/css/poem.css">
     <title>اشعار - تمنا</title>
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <a href="index.html">تمنا</a>
-            </div>
- 
-            <!-- Desktop Navigation -->
-            <nav>
-                <ul>
-                    <li><a href="bio.html">زندگینامه</a></li>
-                    <li><a href="gallery.html">گالری</a></li>
-                    <li><a href="poem.html">اشعار</a></li>
-                    <li><a href="recitation.html">دکلمه</a></li>
-                    <li><a href="books.html">کتاب‌ها</a></li>
-                    <li><a href="awards.html">افتخارات</a></li>
-                    <li><a href="contact.html">تماس با ما</a></li>
-                </ul>
-            </nav>
- 
-            <!-- Hamburger Menu Button (Mobile Only) -->
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
- 
-            <!-- Mobile Navigation Menu -->
-            <div class="mobile-nav" id="mobileNav">
-                <ul>
-                    <li><a href="bio.html">زندگینامه</a></li>
-                    <li><a href="gallery.html">گالری</a></li>
-                    <li><a href="poem.html">اشعار</a></li>
-                    <li><a href="recitation.html">دکلمه</a></li>
-                    <li><a href="books.html">کتاب‌ها</a></li>
-                    <li><a href="awards.html">افتخارات</a></li>
-                    <li><a href="contact.html">تماس با ما</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+
+    <!-- هدر دینامیک -->
+    <div id="header"></div>
     
     <main>
         <section class="hero">
@@ -108,7 +71,7 @@
         </section>
     </main>
 
-    <!-- New Full-page Poem Overlay -->
+    <!-- Full-page Poem Overlay -->
     <div id="full-page-poem-overlay">
         <div class="full-page-poem-content">
             <button id="close-poem-btn">✖</button>
@@ -117,33 +80,10 @@
         </div>
     </div>
     
-    <footer>
-        <div class="container footer-content">
-            <nav class="footer-nav">
-                <ul>
-                    <li><a href="bio.html">زندگینامه</a></li>
-                    <li><a href="gallery.html">گالری</a></li>
-                    <li><a href="poem.html">اشعار</a></li>
-                    <li><a href="recitation.html">دکلمه</a></li>
-                    <li><a href="books.html">کتاب‌ها</a></li>
-                    <li><a href="awards.html">افتخارات</a></li>
-                    <li><a href="contact.html">تماس با ما</a></li>
-                </ul>
-            </nav>
-            <div class="social-links">
-                <a href="https://t.me/ashkeghalb" target="_blank" rel="noopener noreferrer" title="تلگرام">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                </a>
-                <a href="https://www.instagram.com/tamanna_poem/" target="_blank" rel="noopener noreferrer" title="اینستاگرام">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
-                </a>
-                <a href="mailto:support@tamannah.website" title="ایمیل">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                </a>
-            </div>
-            <p>&copy; 2025 تمنا. تمامی حقوق محفوظ است.</p>
-        </div>
-    </footer>
+    <!-- فوتر دینامیک -->
+    <div id="footer"></div>
+
+    <!-- اسکریپت بانک اشعار و نمایش متون شعر -->
     <script>
         const firstBookClassicalPoems = [
             {
@@ -243,13 +183,11 @@
             overlayTitle.textContent = poem.title;
             overlayText.textContent = poem.text;
             overlay.classList.add('active');
-            // Prevent scrolling on the main page
             document.body.style.overflow = 'hidden';
         }
 
         function closePoem() {
             overlay.classList.remove('active');
-            // Re-enable scrolling on the main page
             document.body.style.overflow = 'auto';
         }
 
@@ -268,17 +206,20 @@
             });
         }
         
-        // Event listener for the close button
         closeBtn.addEventListener('click', closePoem);
 
-        // Event listener to close the overlay with the Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && overlay.classList.contains('active')) {
                 closePoem();
             }
         });
+
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) {
+                closePoem();
+            }
+        });
         
-        // Populate all lists based on the new structure
         createPoemList(firstBookClassicalList, firstBookClassicalPoems);
         createPoemList(firstBookBlankVerseList, firstBookBlankVersePoems);
         createPoemList(firstBookAzeriList, firstBookAzeriPoems);
@@ -286,33 +227,65 @@
         createPoemList(secondBookClassicalList, secondBookClassicalPoems);
         createPoemList(secondBookBlankVerseList, secondBookBlankVersePoems);
         createPoemList(secondBookAzeriList, secondBookAzeriPoems);
-
     </script>
-    <script>
-    // Block right-click context menu
-    document.addEventListener("contextmenu", function(e) {
-        e.preventDefault();
-    });
 
-    // Block copy action
-    document.addEventListener("copy", function(e) {
-        e.preventDefault();
-        alert("کپی کردن این متن مجاز نیست.");
-    });
-</script>
+    <!-- کدهای قفل حفاظت از کپی برداری -->
     <script>
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const navMenu = document.getElementById('nav-menu');
-  hamburgerBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-  });
-</script>
-<script>
-    overlay.addEventListener('click', function(e) {
-    if (e.target === overlay) {
-        closePoem();
-    }
-});
-</script>
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener("copy", function(e) {
+            e.preventDefault();
+            alert("کپی کردن این متن مجاز نیست.");
+        });
+    </script>
+
+    <!-- اسکریپت لود هدر و فوتر دینامیک -->
+    <script>
+      // ۱. بارگذاری هدر و فعال‌سازی منوی همبرگری
+      fetch("/_includes/header.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+            initMobileMenu();
+        })
+        .catch(err => console.error("خطا در بارگذاری هدر:", err));
+
+      // ۲. بارگذاری فوتر
+      fetch("/_includes/footer.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("footer").innerHTML = data)
+        .catch(err => console.error("خطا در بارگذاری فوتر:", err));
+
+      // تابع راه‌اندازی منوی همبرگری
+      function initMobileMenu() {
+          const hamburger = document.getElementById('hamburger');
+          const mobileNav = document.getElementById('mobileNav');
+
+          if (hamburger && mobileNav) {
+              hamburger.addEventListener('click', function (e) {
+                  e.stopPropagation();
+                  hamburger.classList.toggle('open');
+                  mobileNav.classList.toggle('active');
+              });
+
+              const mobileLinks = mobileNav.querySelectorAll('a');
+              mobileLinks.forEach(link => {
+                  link.addEventListener('click', () => {
+                      hamburger.classList.remove('open');
+                      mobileNav.classList.remove('active');
+                  });
+              });
+
+              document.addEventListener('click', function (e) {
+                  if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
+                      hamburger.classList.remove('open');
+                      mobileNav.classList.remove('active');
+                  }
+              });
+          }
+      }
+    </script>
 </body>
 </html>
