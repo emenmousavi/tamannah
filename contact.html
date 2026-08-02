@@ -6,7 +6,7 @@ title: تماس با ما - تمنا
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تماس با ما - تمنا</title>
+    <title>{{ page.title }}</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
         /* Custom Font for Nastaliq text */
@@ -506,9 +506,7 @@ title: تماس با ما - تمنا
     </style>
 </head>
 <body>
-    <header>
-        {% include header.html %}
-    </header>
+    {% include header.html %}
     <main>
         <section class="hero">
             <div class="container">
@@ -575,36 +573,8 @@ title: تماس با ما - تمنا
             </div>
         </section>
     </main>
-    <footer>
-        {% include footer.html %}
-    </footer>
+    {% include footer.html %}
     <script>
-        // Hamburger menu functionality
-        const hamburger = document.getElementById('hamburger');
-        const mobileNav = document.getElementById('mobileNav');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        const mobileLinks = mobileNav.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileNav.classList.remove('active');
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
-                hamburger.classList.remove('active');
-                mobileNav.classList.remove('active');
-            }
-        });
-        
         const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
         fetch(poemsUrl)
             .then(response => response.json())
