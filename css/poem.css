@@ -34,7 +34,7 @@ body {
     direction: rtl;
     text-align: right;
     overflow-x: hidden;
-    background-color: #333; /* Fallback color */
+    background-color: #333;
     background-image: url('https://github.com/emenmousavi/tamannah/blob/main/images/1280px-Beautiful_view_of_Tabriz_in_Iran.jpg?raw=true');
     background-size: cover;
     background-position: center;
@@ -50,8 +50,8 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Dark overlay */
-    backdrop-filter: blur(3px); /* Subtle blur effect */
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
     z-index: -1;
 }
 
@@ -80,49 +80,11 @@ header {
 }
 
 .logo a {
-    font-family: 'IranNastaliq', serif; /* Apply the custom font */
+    font-family: 'IranNastaliq', serif;
     font-size: 2.5rem;
     color: var(--primary-color);
     text-decoration: none;
-    line-height: 1; /* Adjust line height for better alignment */
-}
-
-/* Hamburger Menu Button */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 10px;
-    margin-right: 20px;
-    width: 30px;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: var(--primary-color);
-    margin: 3px 0;
-    border-radius: 2px;
-    transition: 0.3s;
-}
-
-/* Hamburger active toggle animations */
-.hamburger.active span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* Desktop Navigation */
-nav {
-    display: block;
-    position: relative;
+    line-height: 1;
 }
 
 nav ul {
@@ -163,50 +125,10 @@ nav a:hover::before {
     width: 100%;
 }
 
-/* Mobile Navigation Menu */
+/* Hamburger Menu & Mobile Nav (Default Hidden) */
+.hamburger, 
 .mobile-nav {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--header-bg-color);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1100;
-}
-
-.mobile-nav.active {
-    display: block;
-}
-
-.mobile-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.mobile-nav li {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.mobile-nav li:last-child {
-    border-bottom: none;
-}
-
-.mobile-nav a {
-    display: block;
-    padding: 15px 30px;
-    text-decoration: none;
-    color: var(--link-color);
-    font-size: 1rem;
-    font-weight: 700;
-    transition: background-color 0.3s ease;
-}
-
-.mobile-nav a:hover {
-    background-color: rgba(77, 182, 172, 0.1);
-    color: var(--primary-color);
 }
 
 main {
@@ -459,17 +381,9 @@ footer {
     transform: scale(1.1);
 }
 
-.social-links a[title="تلگرام"]:hover {
-    color: #0088cc;
-}
-
-.social-links a[title="اینستاگرام"]:hover {
-    color: #C13584;
-}
-
-.social-links a[title="ایمیل"]:hover {
-    color: #4CAF50;
-}
+.social-links a[title="تلگرام"]:hover { color: #0088cc; }
+.social-links a[title="اینستاگرام"]:hover { color: #C13584; }
+.social-links a[title="ایمیل"]:hover { color: #4CAF50; }
 
 footer p {
     font-size: 0.8rem;
@@ -488,75 +402,94 @@ footer p {
     }
 }
 
-/* Responsive Design Overrides */
+/* Responsive Design & Mobile Menu Fix */
 @media (max-width: 768px) {
     .container {
         padding: 0 20px;
     }
-    .header-content {
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5rem;
+
+    header nav {
+        display: none !important;
     }
-    /* Show hamburger menu */
+
+    /* دکمه همبرگری */
     .hamburger {
-        display: flex;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+        z-index: 10001;
+        padding: 2px;
     }
 
-    /* Hide desktop nav */
-    nav {
-        display: none;
-    }
-
-    /* Mobile navigation menu */
-    .mobile-nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
+    .hamburger span {
         width: 100%;
+        height: 3px;
+        background-color: var(--primary-color);
+        border-radius: 2px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    /* منوی کشویی موبایل */
+    .mobile-nav {
+        display: block !important;
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
         background-color: var(--header-bg-color);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1100;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        transition: right 0.3s ease-in-out;
+        z-index: 10000;
+        padding-top: 20px;
     }
 
     .mobile-nav.active {
-        display: block;
+        right: 0 !important;
     }
 
     .mobile-nav ul {
-        list-style: none;
+        list-style: none !important;
         padding: 0;
         margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .mobile-nav li {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .mobile-nav li:last-child {
-        border-bottom: none;
+        margin: 12px 0;
+        width: 100%;
+        text-align: center;
     }
 
     .mobile-nav a {
-        display: block;
-        padding: 15px 30px;
-        text-decoration: none;
-        color: var(--link-color);
-        font-size: 1rem;
+        font-size: 1.1rem;
         font-weight: 700;
-        transition: background-color 0.3s ease;
+        color: var(--link-color);
+        text-decoration: none;
+        display: block;
+        padding: 10px;
     }
 
-    .mobile-nav a:hover {
-        background-color: rgba(77, 182, 172, 0.1);
-        color: var(--primary-color);
-    }
-
-    /* Other responsive adjustments */
     main {
-        padding-top: 140px;
+        padding-top: 90px;
     }
 
     .hero {
@@ -613,6 +546,7 @@ footer p {
         margin: 0 8px;
         font-size: 1.1rem;
     }
+
     .full-page-poem-content {
         min-width: 0 !important;
         width: 95vw !important;
@@ -623,6 +557,7 @@ footer p {
         max-height: 90vh !important;
         overflow-y: auto !important;
     }
+
     #close-poem-btn {
         left: auto !important;
         right: 10px !important;
@@ -633,7 +568,6 @@ footer p {
     }
 }
 
-/* Extra small screens */
 @media (max-width: 480px) {
     .container {
         padding: 0 10px;
@@ -649,22 +583,5 @@ footer p {
 
     .hero h2 {
         font-size: 0.9rem;
-    }
-
-    .recitation-section {
-        padding: 15px 10px;
-    }
-
-    .recitation-section h3 {
-        font-size: 1.2rem;
-    }
-
-    .vocalist-menu {
-        padding: 12px;
-    }
-
-    .vocalist-menu li {
-        padding: 10px 6px;
-        font-size: 0.85rem;
     }
 }
