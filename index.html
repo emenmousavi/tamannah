@@ -7,35 +7,7 @@
     <link rel="stylesheet" href="/css//default.css">
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <div class="logo-section">
-                <div class="logo">
-                    <a href="index.html">تمنا</a>
-                </div>
-                <button class="theme-toggle" id="themeToggle" aria-label="تغییر حالت">
-                    <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="5"/>
-                        <path d="m12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                    </svg>
-                    <svg id="moonIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                    </svg>
-                </button>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="bio.html">زندگینامه</a></li>
-                    <li><a href="gallery.html">گالری</a></li>
-                    <li><a href="poem.html">اشعار</a></li>
-                    <li><a href="recitation.html">دکلمه</a></li>
-                    <li><a href="books.html">کتاب‌ها</a></li>
-                    <li><a href="awards.html">افتخارات</a></li>
-                    <li><a href="contact.html">تماس با ما</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div id="header"></div>
     <main>
         <section class="hero">
             <div class="container hero-content">
@@ -132,33 +104,7 @@
             </div>
         </section>
     </main>
-    <footer>
-        <div class="container footer-content">
-            <nav class="footer-nav">
-                <ul>
-                    <li><a href="bio.html">زندگینامه</a></li>
-                    <li><a href="gallery.html">گالری</a></li>
-                    <li><a href="poem.html">اشعار</a></li>
-                    <li><a href="recitation.html">دکلمه</a></li>
-                    <li><a href="books.html">کتاب‌ها</a></li>
-                    <li><a href="awards.html">افتخارات</a></li>
-                    <li><a href="contact.html">تماس با ما</a></li>
-                </ul>
-            </nav>
-            <div class="social-links">
-                <a href="https://t.me/ashkeghalb" target="_blank" rel="noopener noreferrer" title="تلگرام">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                </a>
-                <a href="https://www.instagram.com/tamanna_poem/" target="_blank" rel="noopener noreferrer" title="اینستاگرام">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
-                </a>
-                <a href="mailto:support@tamannah.website" title="ایمیل">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                </a>
-            </div>
-            <p>&copy; 2025 تمنا. تمامی حقوق محفوظ است.</p>
-        </div>
-    </footer>
+    
     <script>
         const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
         
@@ -296,5 +242,19 @@
             });
         }
     </script>
+    <div id="footer"></div>
+
+    <script>
+  // header
+  fetch("/_includes/header.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("header").innerHTML = data);
+
+  // footer
+  fetch("/_includes/footer.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("footer").innerHTML = data);
+</script>
+
 </body>
 </html>
