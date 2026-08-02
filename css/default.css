@@ -605,121 +605,94 @@ footer p {
    =================================================== */
 
 @media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-    }
-
-    /* Hide Desktop Navigation */
+    /* مخفی کردن منوی دسکتاپ */
     header nav {
-        display: none;
+        display: none !important;
     }
 
-    /* Show Hamburger Button */
+    /* تنظیم لایه هدر برای جلوگیری از تداخل */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+    }
+
+    /* دکمه همبرگری */
     .hamburger {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        width: 26px;
-        height: 18px;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
         cursor: pointer;
-        z-index: 1001;
+        z-index: 10001; /* بالاترین لایه برای کلیک خوردن */
+        padding: 2px;
     }
 
     .hamburger span {
-        display: block;
         width: 100%;
-        height: 2px;
+        height: 3px;
         background-color: var(--primary-color);
         border-radius: 2px;
-        transition: all 0.3s ease;
+        transition: all 0.3s ease-in-out;
     }
 
-    /* Mobile Dropdown Navigation */
+    /* استایل تغییر شکل همبرگر به ایکس (X) هنگام باز شدن */
+    .hamburger.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    /* منوی کشویی موبایل */
     .mobile-nav {
-        display: block;
-        position: absolute;
-        top: 100%;
-        right: 0;
+        display: block !important;
+        position: fixed;
+        top: 60px; /* دقیقا زیر هدر */
+        right: -100%; /* در حالت عادی خارج از صفحه سمت راست */
         width: 100%;
+        height: calc(100vh - 60px);
         background-color: var(--header-bg-color);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-in-out, padding 0.3s ease;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        transition: right 0.3s ease-in-out;
+        z-index: 10000;
+        padding-top: 20px;
     }
 
+    /* زمانی که منو باز می‌شود */
     .mobile-nav.active {
-        max-height: 350px;
-        padding: 15px 0;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        right: 0 !important; /* ورود منو به داخل صفحه */
     }
 
     .mobile-nav ul {
-        list-style: none;
+        list-style: none !important;
+        padding: 0;
+        margin: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+    }
+
+    .mobile-nav li {
+        margin: 12px 0;
+        width: 100%;
+        text-align: center;
     }
 
     .mobile-nav a {
-        font-size: 1rem;
+        font-size: 1.1rem;
         font-weight: 700;
         color: var(--link-color);
         text-decoration: none;
         display: block;
-        padding: 8px 16px;
-        transition: color 0.2s ease;
-    }
-
-    .mobile-nav a:hover {
-        color: var(--primary-color);
-    }
-
-    /* Layout & Spacing Tweaks */
-    main {
-        padding-top: 85px;
-    }
-
-    .hero {
-        padding: 40px 15px;
-    }
-
-    .poet-image-container {
-        width: 110px;
-        height: 110px;
-    }
-
-    .poet-info h1 {
-        font-size: 1.8rem;
-    }
-
-    .hero h2 {
-        font-size: 1rem;
-        margin-bottom: 20px;
-    }
-
-    .about-section-content,
-    .books-section-content,
-    .declamation-container,
-    .poem-container {
-        padding: 20px 15px;
-    }
-
-    .about-section p,
-    .books-text p {
-        font-size: 0.95rem;
-        line-height: 1.8;
-    }
-
-    .progress-container {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .time-display {
-        font-size: 0.8rem;
+        padding: 10px;
     }
 }
 
