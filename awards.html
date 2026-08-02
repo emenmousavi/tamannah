@@ -59,26 +59,49 @@
     <div id="footer"></div>
 
     <script>
-      // بارگذاری هدر و اجرای دقیق اسکریپت داخلی آن (دقیقاً مشابه روش index.html)
+      // ۱. بارگذاری هدر و اتصال رویداد کلیک منوی همبرگری
       fetch("/_includes/header.html")
         .then(response => response.text())
         .then(data => {
-          const headerDiv = document.getElementById("header");
-          headerDiv.innerHTML = data;
-          
-          // اجرای اسکریپت‌های داخل header.html پس از تزریق به صفحه
-          Array.from(headerDiv.querySelectorAll("script")).forEach(oldScript => {
-            const newScript = document.createElement("script");
-            Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
-            newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-            oldScript.parentNode.replaceChild(newScript, oldScript);
-          });
-        });
+            document.getElementById("header").innerHTML = data;
+            initMobileMenu(); // راه‌اندازی منوی موبایل بلافاصله پس از درج هدر
+        })
+        .catch(err => console.error("خطا در بارگذاری هدر:", err));
 
-      // بارگذاری فوتر
+      // ۲. بارگذاری فوتر
       fetch("/_includes/footer.html")
         .then(res => res.text())
-        .then(data => document.getElementById("footer").innerHTML = data);
+        .then(data => document.getElementById("footer").innerHTML = data)
+        .catch(err => console.error("خطا در بارگذاری فوتر:", err));
+
+      // تابع کنترل و باز/بسته شدن منوی همبرگری
+      function initMobileMenu() {
+          const hamburger = document.getElementById('hamburger');
+          const mobileNav = document.getElementById('mobileNav');
+
+          if (hamburger && mobileNav) {
+              hamburger.addEventListener('click', function (e) {
+                  e.stopPropagation();
+                  hamburger.classList.toggle('open');
+                  mobileNav.classList.toggle('active');
+              });
+
+              const mobileLinks = mobileNav.querySelectorAll('a');
+              mobileLinks.forEach(link => {
+                  link.addEventListener('click', () => {
+                      hamburger.classList.remove('open');
+                      mobileNav.classList.remove('active');
+                  });
+              });
+
+              document.addEventListener('click', function (e) {
+                  if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
+                      hamburger.classList.remove('open');
+                      mobileNav.classList.remove('active');
+                  }
+              });
+          }
+      }
     </script>
 </body>
 </html>
