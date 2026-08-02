@@ -1,197 +1,252 @@
----
-layout: default
-title: تماس با ما
-lang: fa
----
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماس با ما</title>
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="/index.html">تمنا</a>
+            </div>
 
-    <section class="hero">
-        <div class="container">
-            <h1>تماس با ما</h1>
-            <h2>با افتخار پاسخگوی شما هستیم</h2>
+            <!-- Desktop Navigation -->
+            <nav>
+                <ul>
+                    <li><a href="/bio.html">زندگینامه</a></li>
+                    <li><a href="/gallery.html">گالری</a></li>
+                    <li><a href="/poem.html">اشعار</a></li>
+                    <li><a href="/recitation.html">دکلمه</a></li>
+                    <li><a href="/books.html">کتاب‌ها</a></li>
+                    <li><a href="/awards.html">افتخارات</a></li>
+                    <li><a href="/contact.html">تماس با ما</a></li>
+                </ul>
+            </nav>
+
+            <!-- Hamburger Menu Button (Mobile Only) -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-nav" id="mobileNav">
+                <ul>
+                    <li><a href="/bio.html">زندگینامه</a></li>
+                    <li><a href="/gallery.html">گالری</a></li>
+                    <li><a href="/poem.html">اشعار</a></li>
+                    <li><a href="/recitation.html">دکلمه</a></li>
+                    <li><a href="/books.html">کتاب‌ها</a></li>
+                    <li><a href="/awards.html">افتخارات</a></li>
+                    <li><a href="/contact.html">تماس با ما</a></li>
+                </ul>
+            </div>
         </div>
-    </section>
+    </header>
     
-    <section class="section">
-        <div class="container">
-            <h2>روش‌های ارتباط با ما</h2>
-            <div class="contact-info">
-                <p>
-                    برای دلنوشته‌ها، انتقادات سازنده یا پرسش‌های شاعرانه، از طریق این پل‌های ارتباطی با ما در ارتباط باشید. ما منتظر شنیدن صدای قلب و قلم شما هستیم. هر پیام شما، شعری است که به این دفتر اضافه می‌شود.
-                </p>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>تماس با ما</h1>
+                <h2>با افتخار پاسخگوی شما هستیم</h2>
             </div>
-            <div class="contact-details">
-                <p>ایمیل: <a href="mailto:support@tamannah.website">support@tamannah.website</a></p>
-                <p>اینستاگرام: <a href="https://www.instagram.com/tamanna_poem/" target="_blank">@tamanna_poem</a></p>
-                <p>تلگرام: <a href="https://t.me/ashkeghalb" target="_blank">@ashkeghalb</a></p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <h2>فرم تماس</h2>
-            <div class="form-container">
-                <form name="contact"
-                      method="POST"
-                      netlify
-                      netlify-honeypot="bot-field"
-                      accept-charset="UTF-8"
-                      action="/thankyou.html">
-                    <input type="hidden" name="form-name" value="contact">
-
-                    <p style="display:none;">
-                        <label>Don't fill this out: <input name="bot-field"></label>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <h2>روش‌های ارتباط با ما</h2>
+                <div class="contact-info">
+                    <p>
+                        برای دلنوشته‌ها، انتقادات سازنده یا پرسش‌های شاعرانه، از طریق این پل‌های ارتباطی با ما در ارتباط باشید. ما منتظر شنیدن صدای قلب و قلم شما هستیم. هر پیام شما، شعری است که به این دفتر اضافه می‌شود.
                     </p>
-
-                    <div class="form-group">
-                        <label for="full-name">نام کامل</label>
-                        <input type="text" id="full-name" name="full_name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">ایمیل</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="reason">دلیل تماس</label>
-                        <select id="reason" name="reason" required>
-                            <option value="" disabled selected>انتخاب کنید</option>
-                            <option value="poetry-question">پرسش درباره اشعار</option>
-                            <option value="collaboration">همکاری</option>
-                            <option value="feedback">انتقاد یا پیشنهاد</option>
-                            <option value="other">سایر</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="description">توضیحات کامل</label>
-                        <textarea id="description" name="description" required></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn">ارسال</button>
-                </form>
+                </div>
+                <div class="contact-details">
+                    <p>ایمیل: <a href="mailto:support@tamannah.website">support@tamannah.website</a></p>
+                    <p>اینستاگرام: <a href="https://www.instagram.com/tamanna_poem/" target="_blank">@tamanna_poem</a></p>
+                    <p>تلگرام: <a href="https://t.me/ashkeghalb" target="_blank">@ashkeghalb</a></p>
+                </div>
             </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>فرم تماس</h2>
+                <div class="form-container">
+                    <form name="contact"
+                          method="POST"
+                          netlify
+                          netlify-honeypot="bot-field"
+                          accept-charset="UTF-8"
+                          action="/thankyou.html">
+                        <input type="hidden" name="form-name" value="contact">
+                        <p style="display:none;">
+                            <label>Don't fill this out: <input name="bot-field"></label>
+                        </p>
+                        <div class="form-group">
+                            <label for="full-name">نام کامل</label>
+                            <input type="text" id="full-name" name="full_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">ایمیل</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reason">دلیل تماس</label>
+                            <select id="reason" name="reason" required>
+                                <option value="" disabled selected>انتخاب کنید</option>
+                                <option value="poetry-question">پرسش درباره اشعار</option>
+                                <option value="collaboration">همکاری</option>
+                                <option value="feedback">انتقاد یا پیشنهاد</option>
+                                <option value="other">سایر</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">توضیحات کامل</label>
+                            <textarea id="description" name="description" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">ارسال</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+<footer>
+        <div class="container footer-content">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="/bio.html">زندگینامه</a></li>
+                    <li><a href="/gallery.html">گالری</a></li>
+                    <li><a href="/poem.html">اشعار</a></li>
+                    <li><a href="/recitation.html">دکلمه</a></li>
+                    <li><a href="/books.html">کتاب‌ها</a></li>
+                    <li><a href="/awards.html">افتخارات</a></li>
+                    <li><a href="/contact.html">تماس با ما</a></li>
+                </ul>
+            </nav>
+            <div class="social-links">
+                <a href="https://t.me/ashkeghalb" target="_blank" rel="noopener noreferrer" title="تلگرام">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </a>
+                <a href="https://www.instagram.com/tamanna_poem/" target="_blank" rel="noopener noreferrer" title="اینستاگرام">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+                </a>
+                <a href="mailto:support@tamannah.website" title="ایمیل">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+            </div>
+            <p>&copy; 2025 تمنا. تمامی حقوق محفوظ است.</p>
         </div>
-    </section>
+    </footer>
 
-<script>
-    // Hamburger menu functionality (مشترک بین همه صفحات)
-    const hamburger = document.getElementById('hamburger');
-    const mobileNav = document.getElementById('mobileNav');
+    <script>
+        // Hamburger menu functionality (مشترک بین همه صفحات)
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
 
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        mobileNav.classList.toggle('active');
-    });
-
-    const mobileLinks = mobileNav.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            mobileNav.classList.remove('active');
-        });
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
-            hamburger.classList.remove('active');
-            mobileNav.classList.remove('active');
-        }
-    });
-</script>
-
-<script>
-    const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
-
-    fetch(poemsUrl)
-        .then(response => response.json())
-        .then(data => {
-            const randomIndex = Math.floor(Math.random() * data.length);
-            const poem = data[randomIndex];
-        })
-        .catch(err => console.error("خطا در بارگذاری اشعار:", err));
-
-    const audio = document.getElementById('declamationAudio');
-    const playPauseButton = document.getElementById('playPauseButton');
-    const playIcon = document.getElementById('playIcon');
-    const pauseIcon = document.getElementById('pauseIcon');
-    const progressBarContainer = document.querySelector('.progress-bar-container');
-    const progressBar = document.querySelector('.progress-bar');
-    const currentTimeEl = document.getElementById('currentTime');
-    const durationEl = document.getElementById('duration');
-
-    function formatTime(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = Math.floor(seconds % 60);
-        return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-    }
-
-    if (playPauseButton) {
-        playPauseButton.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                playIcon.style.display = 'none';
-                pauseIcon.style.display = 'block';
-            } else {
-                audio.pause();
-                playIcon.style.display = 'block';
-                pauseIcon.style.display = 'none';
-            }
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
         });
 
-        audio.addEventListener('timeupdate', () => {
-            const progress = (audio.currentTime / audio.duration) * 100;
-            progressBar.style.width = `${progress}%`;
-            currentTimeEl.textContent = formatTime(audio.currentTime);
-        });
-
-        audio.addEventListener('loadedmetadata', () => {
-            durationEl.textContent = formatTime(audio.duration);
-        });
-
-        audio.addEventListener('ended', () => {
-            playIcon.style.display = 'block';
-            pauseIcon.style.display = 'none';
-            audio.currentTime = 0;
-            progressBar.style.width = '0%';
-        });
-
-        progressBarContainer.addEventListener('click', (e) => {
-            const clickPosition = e.offsetX;
-            const containerWidth = progressBarContainer.clientWidth;
-            const newTime = (clickPosition / containerWidth) * audio.duration;
-            audio.currentTime = newTime;
-        });
-    }
-
-    (function () {
-        const form = document.querySelector('form[name="contact"]');
-        if (!form) return;
-
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const action = form.getAttribute("action") || "/";
-            const formData = new FormData(form);
-
-            if (!formData.get("form-name")) {
-                formData.append("form-name", "contact");
-            }
-
-            fetch("/", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: new URLSearchParams(formData).toString()
-            })
-            .then(() => {
-                window.location.href = action;
-            })
-            .catch(() => {
-                window.location.href = action;
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
             });
         });
-    })();
-</script>
+
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            }
+        });
+    </script>
+    
+    <script>
+        const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
+        fetch(poemsUrl)
+            .then(response => response.json())
+            .then(data => {
+                const randomIndex = Math.floor(Math.random() * data.length);
+                const poem = data[randomIndex];
+            })
+            .catch(err => console.error("خطا در بارگذاری اشعار:", err));
+        const audio = document.getElementById('declamationAudio');
+        const playPauseButton = document.getElementById('playPauseButton');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        const progressBarContainer = document.querySelector('.progress-bar-container');
+        const progressBar = document.querySelector('.progress-bar');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+        }
+        if (playPauseButton) {
+            playPauseButton.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'block';
+                } else {
+                    audio.pause();
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                }
+            });
+            audio.addEventListener('timeupdate', () => {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+                currentTimeEl.textContent = formatTime(audio.currentTime);
+            });
+            audio.addEventListener('loadedmetadata', () => {
+                durationEl.textContent = formatTime(audio.duration);
+            });
+            audio.addEventListener('ended', () => {
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+                audio.currentTime = 0;
+                progressBar.style.width = '0%';
+            });
+            progressBarContainer.addEventListener('click', (e) => {
+                const clickPosition = e.offsetX;
+                const containerWidth = progressBarContainer.clientWidth;
+                const newTime = (clickPosition / containerWidth) * audio.duration;
+                audio.currentTime = newTime;
+            });
+        }
+        (function () {
+            const form = document.querySelector('form[name="contact"]');
+            if (!form) return;
+            function encode(data) {
+                return Object.keys(data)
+                    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+                    .join("&");
+            }
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const action = form.getAttribute("action") || "/";
+                const formData = new FormData(form);
+                if (!formData.get("form-name")) formData.append("form-name", "contact");
+                fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                }).then(function () {
+                    window.location.href = action;
+                }).catch(function () {
+                    window.location.href = action;
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
