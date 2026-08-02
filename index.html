@@ -159,17 +159,49 @@
       // ۳. لود اشعار و پلیر
       const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
       
-      function fetchAndDisplayRandomPoem() {
-          fetch(poemsUrl)
-              .then(response => response.json())
-              .then(data => {
-                  const randomIndex = Math.floor(Math.random() * data.length);
-                  const poem = data[randomIndex];
-                  document.getElementById('poem-title').textContent = poem.title;
-                  document.getElementById('poem-text').textContent = poem.text;
-              })
-              .catch(err => console.error("خطا در بارگذاری اشعار:", err));
-      }
+        // تابع نمایش شعر به صورت دو مصراعی
+        function fetchAndDisplayRandomPoem() {
+            fetch(poemsUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const randomIndex = Math.floor(Math.random() * data.length);
+                    const poem = data[randomIndex];
+        
+                    document.getElementById('poem-title').textContent = poem.title;
+        
+                    const poemTextContainer = document.getElementById('poem-text');
+                    poemTextContainer.innerHTML = ''; // پاکسازی قبلی
+        
+                    // جداسازی ابیات بر اساس خط جدید (\n) یا علامت نقطه‌ویرگول (;)
+                    const lines = poem.text.split('\n');
+        
+                    lines.forEach(line => {
+                        if (!line.trim()) return;
+        
+                        // اگر در فایل JSON مصراع‌ها با علامت ';' یا '...' جدا شده باشند
+                        const parts = line.split(/[;؛]/); 
+        
+                        const coupletDiv = document.createElement('div');
+                        coupletDiv.className = 'poem-couplet';
+        
+                        if (parts.length >= 2) {
+                            // بیت دو مصراعی
+                            coupletDiv.innerHTML = `
+                                <div class="poem-hemistich first">${parts[0].trim()}</div>
+                                <div class="poem-hemistich second">${parts[1].trim()}</div>
+                            `;
+                        } else {
+                            // تک مصراع یا شعر نو
+                            coupletDiv.innerHTML = `
+                                <div class="poem-hemistich" style="text-align:center; width:100%;">${line.trim()}</div>
+                            `;
+                        }
+        
+                        poemTextContainer.appendChild(coupletDiv);
+                    });
+                })
+                .catch(err => console.error("خطا در بارگذاری اشعار:", err));
+        }
 
       document.addEventListener('DOMContentLoaded', fetchAndDisplayRandomPoem);
 
