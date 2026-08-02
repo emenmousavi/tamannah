@@ -106,18 +106,6 @@
             </div>
         </section>
     </main>
-
-    <div id="footer"></div>
-
-    <script>
-      fetch("/_includes/header.html")
-        .then(res => res.text())
-        .then(data => document.getElementById("header2").innerHTML = data);
-    
-      fetch("/_includes/footer.html")
-        .then(res => res.text())
-        .then(data => document.getElementById("footer").innerHTML = data);
-    </script>
     
     <script>
         const poemsUrl = "https://raw.githubusercontent.com/emenmousavi/tamannah/main/poems.json";
@@ -255,6 +243,20 @@
                 audio.currentTime = newTime;
             });
         }
+    </script>
+
+    <div id="footer"></div>
+    
+    <script>
+      // header
+      fetch("/_includes/header.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("header").innerHTML = data);
+    
+      // footer
+      fetch("/_includes/footer.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("footer").innerHTML = data);
     </script>
 
 </body>
