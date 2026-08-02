@@ -258,30 +258,6 @@
         .then(res => res.text())
         .then(data => document.getElementById("footer").innerHTML = data);
     </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-                const hamburger = document.getElementById('hamburger');
-                const mobileNav = document.getElementById('mobileNav');
-            
-                if (hamburger && mobileNav) {
-                    hamburger.addEventListener('click', function (e) {
-                        e.stopPropagation(); // جلوگیری از تداخل کلیک
-                        hamburger.classList.toggle('open');
-                        mobileNav.classList.toggle('active');
-                    });
-            
-                    // بستن منو با کلیک روی لینک‌ها
-                    const mobileLinks = mobileNav.querySelectorAll('a');
-                    mobileLinks.forEach(link => {
-                        link.addEventListener('click', () => {
-                            hamburger.classList.remove('open');
-                            mobileNav.classList.remove('active');
-                        });
-                    });
-                }
-            });
-    </script>
     
 </body>
 </html>
