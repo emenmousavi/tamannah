@@ -193,26 +193,6 @@ main {
     margin-bottom: 30px;
 }
 
-.contact-details {
-    text-align: right;
-    margin-top: 30px;
-}
-
-.contact-details p {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-}
-
-.contact-details a {
-    color: var(--text-color);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.contact-details a:hover {
-    color: var(--primary-color);
-}
-
 .form-container {
     max-width: 600px;
     margin: 0 auto;
@@ -467,10 +447,6 @@ footer p {
         padding: 0 10px;
     }
 
-    .contact-details p {
-        font-size: 1rem;
-    }
-
     .form-container {
         padding: 20px;
         margin: 0 10px;
@@ -528,6 +504,105 @@ footer p {
     .form-group input,
     .form-group select,
     .form-group textarea {
+        font-size: 0.85rem;
+    }
+}
+
+/* ==========================================
+   استایل‌های لیست ارتباطی (مشابه الگوی تصویری)
+   ========================================== */
+
+.contact-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    margin: 30px auto 0 auto; /* وسط‌چین کردن باکس کل لیست */
+    text-align: right;
+}
+
+.contact-link-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-link-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* آیکون‌ها */
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    color: #555;
+    flex-shrink: 0;
+}
+
+.contact-icon.instagram-icon {
+    color: #E1306C;
+    background-color: #FCE4EC;
+}
+
+.contact-icon.telegram-icon {
+    color: #0088cc;
+    background-color: #E1F5FE;
+}
+
+/* متن‌ها و لینک‌ها */
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.contact-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.contact-url {
+    font-size: 0.95rem;
+    color: #1e88e5; /* رنگ آبی جذاب و مشخص برای لینک */
+    text-decoration: none;
+    direction: ltr; /* نمایش صحیح آدرس‌های لاتین */
+    text-align: right;
+    font-family: sans-serif;
+    word-break: break-all;
+    transition: color 0.2s ease;
+}
+
+.contact-url:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* هماهنگی در گوشی موبایل */
+@media (max-width: 480px) {
+    .contact-links-list {
+        gap: 15px;
+    }
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+    }
+    .contact-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+    .contact-label, .contact-url {
         font-size: 0.85rem;
     }
 }
