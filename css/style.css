@@ -743,124 +743,124 @@ footer p {
     transform: scale(1.05) !important;
 }
 
-    /* ===================================================
-       Real Minimalist Butterfly Entrance Animation
-       =================================================== */
-    
-    .butterfly-wrapper {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        pointer-events: none;
-        z-index: 9999;
-        overflow: hidden;
-    }
-    
-    /* مسیر حرکت و پرواز موجی پروانه */
-    .butterfly-container {
-        position: absolute;
-        width: 45px;
-        height: 45px;
+/* ===================================================
+   Monarch Butterfly (Green Variant - Based on Image)
+   =================================================== */
+
+.butterfly-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+/* مسیر حرکت پروانه */
+.butterfly-container {
+    position: absolute;
+    width: 60px; /* اندازه کمی بزرگتر برای نمایش بهتر جزئیات مونارک */
+    height: 60px;
+    opacity: 0;
+    animation: flyPath 7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.butterfly {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotate(-30deg) rotateX(35deg);
+}
+
+/* بال چپ - طرح دقیق پروانه مونارک */
+.butterfly-wing-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200'%3E%3C!-- پس‌زمینه بال و حاشیه مشکی --%3E%3Cpath d='M95,100 C70,20 10,0 5,30 C0,60 30,100 95,120 C50,130 10,140 25,185 C45,200 85,170 95,135 Z' fill='%231b2613'/%3E%3C!-- بخش‌های داخلی سبز --%3E%3Cg fill='%234CAF50' opacity='0.9'%3E%3Cpath d='M90,90 C65,25 20,15 15,30 C12,45 35,70 85,95 Z'/%3E%3Cpath d='M85,100 C45,85 20,60 12,50 C10,65 30,85 80,108 Z'/%3E%3Cpath d='M85,125 C50,135 25,145 32,175 C45,185 75,160 85,140 Z'/%3E%3C/g%3E%3C!-- خال‌های سفید روی حاشیه مشکی --%3E%3Cg fill='%23ffffff' opacity='0.8'%3E%3Ccircle cx='10' cy='25' r='2'/%3E%3Ccircle cx='6' cy='35' r='1.5'/%3E%3Ccircle cx='8' cy='48' r='1.5'/%3E%3Ccircle cx='15' cy='65' r='2'/%3E%3Ccircle cx='22' cy='160' r='1.5'/%3E%3Ccircle cx='30' cy='175' r='2'/%3E%3C/g%3E%3C/svg%3E") no-repeat center/contain;
+    transform-origin: right center;
+    animation: flapLeft 0.22s ease-in-out infinite alternate;
+}
+
+/* بال راست - عکس و متقارن بال چپ */
+.butterfly-wing-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200'%3E%3C!-- پس‌زمینه بال و حاشیه مشکی --%3E%3Cpath d='M5,100 C30,20 90,0 95,30 C100,60 70,100 5,120 C50,130 90,140 75,185 C55,200 15,170 5,135 Z' fill='%231b2613'/%3E%3C!-- بخش‌های داخلی سبز --%3E%3Cg fill='%234CAF50' opacity='0.9'%3E%3Cpath d='M10,90 C35,25 80,15 85,30 C88,45 65,70 15,95 Z'/%3E%3Cpath d='M15,100 C55,85 80,60 88,50 C90,65 70,85 20,108 Z'/%3E%3Cpath d='M15,125 C50,135 75,145 68,175 C55,185 25,160 15,140 Z'/%3E%3C/g%3E%3C!-- خال‌های سفید روی حاشیه مشکی --%3E%3Cg fill='%23ffffff' opacity='0.8'%3E%3Ccircle cx='90' cy='25' r='2'/%3E%3Ccircle cx='94' cy='35' r='1.5'/%3E%3Ccircle cx='92' cy='48' r='1.5'/%3E%3Ccircle cx='85' cy='65' r='2'/%3E%3Ccircle cx='78' cy='160' r='1.5'/%3E%3Ccircle cx='70' cy='175' r='2'/%3E%3C/g%3E%3C/svg%3E") no-repeat center/contain;
+    transform-origin: left center;
+    animation: flapRight 0.22s ease-in-out infinite alternate;
+}
+
+/* بدن و شاخک‌های پروانه */
+.butterfly::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: calc(50% - 1.5px);
+    width: 3px;
+    height: 55%;
+    background-color: #0f170a;
+    border-radius: 3px;
+    z-index: 2;
+}
+
+/* انیمیشن بال‌زدن سه‌بعدی */
+@keyframes flapLeft {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(-68deg); }
+}
+
+@keyframes flapRight {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(68deg); }
+}
+
+/* مسیر پرواز */
+@keyframes flyPath {
+    0% {
         opacity: 0;
-        animation: flyPath 7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        top: 90%;
+        left: 105%;
+        transform: scale(0.6) translateY(0);
     }
-    
-    /* بدنه پروانه و زاویه پرواز */
-    .butterfly {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        transform-style: preserve-3d;
-        transform: rotate(-30deg) rotateX(40deg);
+    10% {
+        opacity: 0.95;
     }
-    
-    /* بال چپ */
-    .butterfly-wing-left {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 50%;
-        height: 100%;
-        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 100'%3E%3Cpath d='M50,50 C30,10 0,0 0,30 C0,50 20,60 50,65 C20,70 10,85 20,95 C35,100 48,80 50,70 Z' fill='%234CAF50' opacity='0.75'/%3E%3Cpath d='M45,45 C30,20 10,15 10,30 C10,45 25,52 45,55' fill='none' stroke='%23ffffff' stroke-width='1.5' opacity='0.6'/%3E%3C/svg%3E") no-repeat center/contain;
-        transform-origin: right center;
-        animation: flapLeft 0.22s ease-in-out infinite alternate;
+    30% {
+        top: 65%;
+        left: 70%;
+        transform: scale(0.9) translateY(-25px);
     }
-    
-    /* بال راست */
-    .butterfly-wing-right {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 50%;
-        height: 100%;
-        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 100'%3E%3Cpath d='M0,50 C20,10 50,0 50,30 C50,50 30,60 0,65 C30,70 40,85 30,95 C15,100 2,80 0,70 Z' fill='%234CAF50' opacity='0.75'/%3E%3Cpath d='M5,45 C20,20 40,15 40,30 C40,45 25,52 5,55' fill='none' stroke='%23ffffff' stroke-width='1.5' opacity='0.6'/%3E%3C/svg%3E") no-repeat center/contain;
-        transform-origin: left center;
-        animation: flapRight 0.22s ease-in-out infinite alternate;
+    60% {
+        top: 35%;
+        left: 35%;
+        transform: scale(1) translateY(20px);
     }
-    
-    /* بدنه مرکزی پروانه */
-    .butterfly::before {
-        content: '';
-        position: absolute;
-        top: 25%;
-        left: calc(50% - 1.5px);
-        width: 3px;
-        height: 50%;
-        background-color: #2e7d32;
-        border-radius: 2px;
-        z-index: 2;
+    85% {
+        opacity: 0.95;
     }
-    
-    /* انیمیشن بال زدن سه بعدی و بسیار سریع/طبیعی */
-    @keyframes flapLeft {
-        0% { transform: rotateY(0deg); }
-        100% { transform: rotateY(-70deg); }
+    100% {
+        opacity: 0;
+        top: -10%;
+        left: -10%;
+        transform: scale(0.7) translateY(-10px);
     }
-    
-    @keyframes flapRight {
-        0% { transform: rotateY(0deg); }
-        100% { transform: rotateY(70deg); }
-    }
-    
-    /* مسیر پرواز منحنی و ملایم از گوشه راست-پایین به چپ-بالا */
-    @keyframes flyPath {
-        0% {
-            opacity: 0;
-            top: 90%;
-            left: 105%;
-            transform: scale(0.6) translateY(0);
-        }
-        10% {
-            opacity: 0.9;
-        }
-        30% {
-            top: 65%;
-            left: 70%;
-            transform: scale(0.9) translateY(-25px);
-        }
-        60% {
-            top: 35%;
-            left: 35%;
-            transform: scale(1) translateY(20px);
-        }
-        85% {
-            opacity: 0.9;
-        }
-        100% {
-            opacity: 0;
-            top: -10%;
-            left: -10%;
-            transform: scale(0.7) translateY(-10px);
-        }
-    }
-    
-    /* هماهنگی با تم تاریک (تغییر رنگ بال‌ها به سبز روشن‌تر و درخشان) */
-    [data-theme="dark"] .butterfly-wing-left {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 100'%3E%3Cpath d='M50,50 C30,10 0,0 0,30 C0,50 20,60 50,65 C20,70 10,85 20,95 C35,100 48,80 50,70 Z' fill='%2381C784' opacity='0.85'/%3E%3Cpath d='M45,45 C30,20 10,15 10,30 C10,45 25,52 45,55' fill='none' stroke='%23ffffff' stroke-width='1.5' opacity='0.7'/%3E%3C/svg%3E");
-    }
-    [data-theme="dark"] .butterfly-wing-right {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 100'%3E%3Cpath d='M0,50 C20,10 50,0 50,30 C50,50 30,60 0,65 C30,70 40,85 30,95 C15,100 2,80 0,70 Z' fill='%2381C784' opacity='0.85'/%3E%3Cpath d='M5,45 C20,20 40,15 40,30 C40,45 25,52 5,55' fill='none' stroke='%23ffffff' stroke-width='1.5' opacity='0.7'/%3E%3C/svg%3E");
-    }
+}
+
+/* تنظیم رنگ سبز درخشان‌تر برای حالت تم تاریک (Dark Mode) */
+[data-theme="dark"] .butterfly-wing-left {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200'%3E%3Cpath d='M95,100 C70,20 10,0 5,30 C0,60 30,100 95,120 C50,130 10,140 25,185 C45,200 85,170 95,135 Z' fill='%230e140a'/%3E%3Cg fill='%2381C784' opacity='0.95'%3E%3Cpath d='M90,90 C65,25 20,15 15,30 C12,45 35,70 85,95 Z'/%3E%3Cpath d='M85,100 C45,85 20,60 12,50 C10,65 30,85 80,108 Z'/%3E%3Cpath d='M85,125 C50,135 25,145 32,175 C45,185 75,160 85,140 Z'/%3E%3C/g%3E%3Cg fill='%23ffffff' opacity='0.9'%3E%3Ccircle cx='10' cy='25' r='2'/%3E%3Ccircle cx='6' cy='35' r='1.5'/%3E%3Ccircle cx='8' cy='48' r='1.5'/%3E%3Ccircle cx='15' cy='65' r='2'/%3E%3Ccircle cx='22' cy='160' r='1.5'/%3E%3Ccircle cx='30' cy='175' r='2'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+[data-theme="dark"] .butterfly-wing-right {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200'%3E%3Cpath d='M5,100 C30,20 90,0 95,30 C100,60 70,100 5,120 C50,130 90,140 75,185 C55,200 15,170 5,135 Z' fill='%230e140a'/%3E%3Cg fill='%2381C784' opacity='0.95'%3E%3Cpath d='M10,90 C35,25 80,15 85,30 C88,45 65,70 15,95 Z'/%3E%3Cpath d='M15,100 C55,85 80,60 88,50 C90,65 70,85 20,108 Z'/%3E%3Cpath d='M15,125 C50,135 75,145 68,175 C55,185 25,160 15,140 Z'/%3E%3C/g%3E%3Cg fill='%23ffffff' opacity='0.9'%3E%3Ccircle cx='90' cy='25' r='2'/%3E%3Ccircle cx='94' cy='35' r='1.5'/%3E%3Ccircle cx='92' cy='48' r='1.5'/%3E%3Ccircle cx='85' cy='65' r='2'/%3E%3Ccircle cx='78' cy='160' r='1.5'/%3E%3Ccircle cx='70' cy='175' r='2'/%3E%3C/g%3E%3C/svg%3E");
+}
 }
