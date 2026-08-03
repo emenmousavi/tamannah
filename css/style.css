@@ -287,10 +287,9 @@ main {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;   /* اشغال کل عرض والد برای وسط‌چین شدن کامل */
+    width: 50px;
     height: 2px;
     background-color: var(--accent-color);
-    display: block; /* تغییر از inline-block به block */
 }
 
 .about-section-content,
