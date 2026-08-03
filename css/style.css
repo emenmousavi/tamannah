@@ -702,19 +702,19 @@ footer p {
    بخش دعوت به دلنوشته‌ها (Guestbook CTA Section)
    ========================================== */
 .guestbook-cta-section {
-    text-align: center;
-    padding: 40px 20px;
+    max-width: 1100px;
+    margin: 0 auto 30px auto;
+    padding: 0 20px;
 }
 
 .guestbook-cta-container {
-    max-width: 800px;
-    margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(5px);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
 }
 
 .guestbook-cta-title {
