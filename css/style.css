@@ -186,10 +186,37 @@ main {
     display: block;
 }
 
-.poet-info h1 {
-    font-size: 2.5rem;
-    color: var(--primary-color);
+/* ==========================================
+   Poet Logo Image Responsive Styles
+   ========================================== */
+.poet-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 10px;
+    width: 100%;
+}
+
+.poet-logo-img {
+    max-width: 380px;  /* حداکثر عرض لوگو در دسکتاپ */
+    width: 100%;       /* فیت شدن با عرض صفحه در ابعاد کوچک‌تر */
+    height: auto;      /* حفظ تناسب ارتفاع و عرض */
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1)); /* افکت سایه ملایم برای جلوه بهتر */
+}
+
+/* هماهنگی اندازه لوگو در موبایل */
+@media (max-width: 768px) {
+    .poet-logo-img {
+        max-width: 280px; /* اندازه متناسب برای تبلت و موبایل */
+    }
+}
+
+@media (max-width: 480px) {
+    .poet-logo-img {
+        max-width: 220px; /* اندازه متناسب برای موبایل‌های کوچک */
+    }
 }
 
 .hero h2 {
