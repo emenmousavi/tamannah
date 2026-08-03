@@ -97,5 +97,57 @@
           }
       }
     </script>
+
+    <script>
+        // لیست کلمات رکیک یا نامناسب (می‌توانید کلمات دلخواه را به این آرایه اضافه کنید)
+        const badWords = ["فحش1", "فحش2", "بی ادب", "کلمه_نامناسب_دیگر"];
+    
+        function containsBadWord(text) {
+            const lowerText = text.toLowerCase();
+            return badWords.some(word => lowerText.includes(word));
+        }
+    
+        const form = document.getElementById('guestbookForm');
+        const messagesList = document.getElementById('messagesList');
+        const errorMsg = document.getElementById('errorMsg');
+    
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('userName').value.trim();
+            const message = document.getElementById('userMessage').value.trim();
+    
+            // بررسی وجود فحش یا کلمات نامناسب در نام یا متن
+            if (containsBadWord(name) || containsBadWord(message)) {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = 'متن یا نام وارد شده حاوی کلمات نامناسب است. لطفاً رعایت فرمایید.';
+                return;
+            }
+    
+            // مخفی کردن ارور اگر متن پاک بود
+            errorMsg.style.display = 'none';
+    
+            // ایجاد عنصر جدید برای نمایش پیام در همان صفحه به صورت زنده
+            const messageCard = document.createElement('div');
+            messageCard.style.cssText = "background: #f9f9f9; padding: 15px; border-radius: 6px; border-right: 4px solid var(--primary-color); text-align: right;";
+            
+            messageCard.innerHTML = `
+                <h4 style="color: var(--primary-color); margin-bottom: 5px; font-size: 1rem;">${escapeHtml(name)}</h4>
+                <p style="font-size: 0.95rem; color: #444; line-height: 1.6;">${escapeHtml(message)}</p>
+            `;
+    
+            // اضافه کردن پیام جدید به بالای لیست
+            messagesList.prepend(messageCard);
+    
+            // پاک کردن فرم بعد از ارسال
+            form.reset();
+        });
+    
+        // تابع امنیتی کوچک برای جلوگیری از کدهای مخرب احتمالی
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+    </script>
+    
 </body>
 </html>
