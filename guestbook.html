@@ -115,12 +115,27 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // لیست کلمات رکیک یا نامناسب (می‌توانید موارد دلخواه را اضافه کنید)
-        const badWords = ["فحش1", "فحش2", "بی ادب", "کلمه_نامناسب"];
-
+        // لیست ریشه‌ها و کلمات نامناسب (ریشه‌ها را قرار دهید تا ترکیبات آن‌ها هم بلاک شوند)
+        const badWords = [
+            "کیر", "کص", "جنده", "پدرسگ", "لاشی", "کسکش", "مادرجنده", "Hose", 
+            "حشری", "بیغیرت", "سگ", "فاک", "Lashi", "Kir", "Kos",
+            "احمق", "جنده", "کون", "سکس", "sex", "ass", "pussy", "dick",
+            "butt", "koskesh", "fuck"
+            // هر ریشه یا کلمه زشتی که مد نظر دارید را به این لیست اضافه کنید
+        ];
+    
         function containsBadWord(text) {
-            const lowerText = text.toLowerCase();
-            return badWords.some(word => lowerText.includes(word));
+            if (!text) return false;
+            
+            // تبدیل به حروف کوچک و حذف تمام فاصله‌ها، نیم‌فاصله‌ها و علائم نگارشی برای جلوگیری از دور زدن فیلتر
+            const cleanText = text.toLowerCase()
+                .replace(/[\s‌.\-_/\\+*#@!^&()]/g, '');
+    
+            // بررسی اینکه آیا متن پاک‌شده شامل هیچ‌کدام از ریشه‌های ممنوعه هست یا خیر
+            return badWords.some(word => {
+                const cleanWord = word.toLowerCase().replace(/[\s‌.\-_/\\+*#@!^&()]/g, '');
+                return cleanText.includes(cleanWord);
+            });
         }
 
         const form = document.getElementById('guestbookForm');
