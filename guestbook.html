@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دلنوشته های شما - تمنا</title>
+    <link rel="stylesheet" href="/css/thank.css">
+</head>
+<body>
+
+
+    <!-- هدر دینامیک -->
+    <div id="header"></div>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>دلنوشته‌های شما</h1>
+                <h2>حس و حال خود را با ما به اشتراک بگذارید</h2>
+            </div>
+        </section>
+    
+        <section class="section">
+            <div class="container">
+                <!-- فرم ارسال دلنوشته -->
+                <div class="thankyou-container" style="margin-bottom: 40px;">
+                    <h3 style="margin-bottom: 20px; color: var(--primary-color);">ثبت دلنوشته جدید</h3>
+                    <form id="guestbookForm">
+                        <div style="margin-bottom: 15px;">
+                            <input type="text" id="userName" placeholder="نام شما..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: 'Vazirmatn';">
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <textarea id="userMessage" placeholder="متن دلنوشته..." rows="4" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: 'Vazirmatn';"></textarea>
+                        </div>
+                        <p id="errorMsg" style="color: red; font-size: 0.9rem; margin-bottom: 10px; display: none;"></p>
+                        <button type="submit" style="background-color: var(--primary-color); color: white; border: none; padding: 10px 25px; border-radius: 6px; cursor: pointer; font-family: 'Vazirmatn'; font-weight: 700;">ارسال دلنوشته</button>
+                    </form>
+                </div>
+    
+                <!-- کادر نمایش دلنوشته‌های ثبت شده -->
+                <div class="thankyou-container">
+                    <h3 style="margin-bottom: 20px; color: var(--primary-color);">دلنوشته‌های مخاطبان</h3>
+                    <div id="messagesList" style="text-align: right; display: flex; flex-direction: column; gap: 15px;">
+                        <!-- پیام‌ها به صورت دینامیک اینجا اضافه میشن -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<!-- فوتر دینامیک -->
+    <div id="footer"></div>
+
+    <!-- اسکریپت لود هدر و فوتر دینامیک -->
+    <script>
+      // ۱. بارگذاری هدر و فعال‌سازی منوی همبرگری
+      fetch("/_includes/header.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+            initMobileMenu();
+        })
+        .catch(err => console.error("خطا در بارگذاری هدر:", err));
+
+      // ۲. بارگذاری فوتر
+      fetch("/_includes/footer.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("footer").innerHTML = data)
+        .catch(err => console.error("خطا در بارگذاری فوتر:", err));
+
+      // تابع راه‌اندازی منوی همبرگری
+      function initMobileMenu() {
+          const hamburger = document.getElementById('hamburger');
+          const mobileNav = document.getElementById('mobileNav');
+
+          if (hamburger && mobileNav) {
+              hamburger.addEventListener('click', function (e) {
+                  e.stopPropagation();
+                  hamburger.classList.toggle('open');
+                  mobileNav.classList.toggle('active');
+              });
+
+              const mobileLinks = mobileNav.querySelectorAll('a');
+              mobileLinks.forEach(link => {
+                  link.addEventListener('click', () => {
+                      hamburger.classList.remove('open');
+                      mobileNav.classList.remove('active');
+                  });
+              });
+
+              document.addEventListener('click', function (e) {
+                  if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
+                      hamburger.classList.remove('open');
+                      mobileNav.classList.remove('active');
+                  }
+              });
+          }
+      }
+    </script>
+</body>
+</html>
