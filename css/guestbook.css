@@ -278,4 +278,36 @@ footer p {
         display: block;
         padding: 10px;
     }
+    /* استایل بخش شبکه‌های اجتماعی در فوتر */
+    .social-links {
+        margin-bottom: 15px;
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .social-links a {
+        color: var(--footer-text-color);
+        font-size: 1.3rem;
+        text-decoration: none;
+        transition: transform 0.2s ease, color 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .social-links a svg {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+    }
+    
+    /* رنگ اختصاصی هنگام هاور روی هر آیکون */
+    .social-links a[title="تلگرام"]:hover { color: #0088cc; }
+    .social-links a[title="اینستاگرام"]:hover { color: #C13584; }
+    .social-links a[title="ایمیل"]:hover { color: #52ce1c; }
+    
+    .social-links a:hover {
+        transform: scale(1.15);
+    }
 }
