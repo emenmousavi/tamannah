@@ -8,7 +8,6 @@
 </head>
 <body>
 
-
     <!-- هدر دینامیک -->
     <div id="header"></div>
 
@@ -41,14 +40,14 @@
                 <div class="thankyou-container">
                     <h3 style="margin-bottom: 20px; color: var(--primary-color);">دلنوشته‌های مخاطبان</h3>
                     <div id="messagesList" style="text-align: right; display: flex; flex-direction: column; gap: 15px;">
-                        <!-- پیام‌ها به صورت دینامیک اینجا اضافه میشن -->
+                        <p style="text-align: center; color: #666;">در حال بارگذاری دلنوشته‌ها...</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-<!-- فوتر دینامیک -->
+    <!-- فوتر دینامیک -->
     <div id="footer"></div>
 
     <!-- اسکریپت لود هدر و فوتر دینامیک -->
@@ -98,36 +97,59 @@
       }
     </script>
 
-    <script>
-        // لیست کلمات رکیک یا نامناسب (می‌توانید کلمات دلخواه را به این آرایه اضافه کنید)
-        const badWords = ["فحش1", "فحش2", "بی ادب", "کلمه_نامناسب_دیگر"];
-    
+    <!-- اسکریپت فایربیس و مدیریت دلنوشته‌ها -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAMNGd_qsoU32j6UfkOeWp3SZXJyuS9uNQ",
+            authDomain: "tamanna-guestbook.firebaseapp.com",
+            projectId: "tamanna-guestbook",
+            storageBucket: "tamanna-guestbook.firebasestorage.app",
+            messagingSenderId: "447487383782",
+            appId: "1:447487383782:web:5448a34573d9fa9cda8327",
+            measurementId: "G-BVTB6GQ6RL"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // لیست کلمات رکیک یا نامناسب (می‌توانید موارد دلخواه را اضافه کنید)
+        const badWords = ["فحش1", "فحش2", "بی ادب", "کلمه_نامناسب"];
+
         function containsBadWord(text) {
             const lowerText = text.toLowerCase();
             return badWords.some(word => lowerText.includes(word));
         }
-    
+
         const form = document.getElementById('guestbookForm');
         const messagesList = document.getElementById('messagesList');
         const errorMsg = document.getElementById('errorMsg');
-    
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('userName').value.trim();
-            const message = document.getElementById('userMessage').value.trim();
-    
-            // بررسی وجود فحش یا کلمات نامناسب در نام یا متن
-            if (containsBadWord(name) || containsBadWord(message)) {
-                errorMsg.style.display = 'block';
-                errorMsg.textContent = 'متن یا نام وارد شده حاوی کلمات نامناسب است. لطفاً رعایت فرمایید.';
-                return;
+
+        // بارگذاری و نمایش پیام‌ها از فایربیس
+        async function loadMessages() {
+            messagesList.innerHTML = "";
+            try {
+                const q = query(collection(db, "guestbook"), orderBy("createdAt", "desc"));
+                const querySnapshot = await getDocs(q);
+                
+                if (querySnapshot.empty) {
+                    messagesList.innerHTML = '<p style="text-align: center; color: #666;">هنوز دلنوشته‌ای ثبت نشده است. اولین نفر باشید!</p>';
+                    return;
+                }
+
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    appendMessageToDOM(data.name, data.message);
+                });
+            } catch (error) {
+                console.error("خطا در خواندن پیام‌ها: ", error);
+                messagesList.innerHTML = '<p style="text-align: center; color: red;">خطا در بارگذاری دلنوشته‌ها.</p>';
             }
-    
-            // مخفی کردن ارور اگر متن پاک بود
-            errorMsg.style.display = 'none';
-    
-            // ایجاد عنصر جدید برای نمایش پیام در همان صفحه به صورت زنده
+        }
+
+        function appendMessageToDOM(name, message) {
             const messageCard = document.createElement('div');
             messageCard.style.cssText = "background: #f9f9f9; padding: 15px; border-radius: 6px; border-right: 4px solid var(--primary-color); text-align: right;";
             
@@ -135,18 +157,48 @@
                 <h4 style="color: var(--primary-color); margin-bottom: 5px; font-size: 1rem;">${escapeHtml(name)}</h4>
                 <p style="font-size: 0.95rem; color: #444; line-height: 1.6;">${escapeHtml(message)}</p>
             `;
-    
-            // اضافه کردن پیام جدید به بالای لیست
-            messagesList.prepend(messageCard);
-    
-            // پاک کردن فرم بعد از ارسال
-            form.reset();
+            messagesList.appendChild(messageCard);
+        }
+
+        // ارسال فرم و ثبت در فایربیس
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('userName').value.trim();
+            const message = document.getElementById('userMessage').value.trim();
+
+            // فیلتر کلمات نامناسب
+            if (containsBadWord(name) || containsBadWord(message)) {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = 'متن یا نام وارد شده حاوی کلمات نامناسب است. لطفاً رعایت فرمایید.';
+                return;
+            }
+
+            errorMsg.style.display = 'none';
+
+            try {
+                // ثبت در دیتابیس ابری فایربیس
+                await addDoc(collection(db, "guestbook"), {
+                    name: name,
+                    message: message,
+                    createdAt: serverTimestamp()
+                });
+
+                form.reset();
+                loadMessages(); // به‌روزرسانی لیست پیام‌ها در صفحه
+            } catch (error) {
+                alert("خطا در ارسال پیام. لطفا دوباره تلاش کنید.");
+                console.error("خطا: ", error);
+            }
         });
-    
-        // تابع امنیتی کوچک برای جلوگیری از کدهای مخرب احتمالی
+
         function escapeHtml(text) {
+            if (!text) return "";
             return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
         }
+
+        // بارگذاری اولیه پیام‌ها به محض باز شدن صفحه
+        loadMessages();
     </script>
     
 </body>
