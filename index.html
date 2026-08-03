@@ -294,7 +294,6 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // اجرای انیمیشن فقط در صفحه اصلی
         const path = window.location.pathname;
         const isHomePage = path === "/" || path.endsWith("/index.html") || path === "";
     
@@ -302,19 +301,18 @@
           const wrapper = document.createElement("div");
           wrapper.className = "butterfly-wrapper";
           wrapper.innerHTML = `
-            <div class="butterfly">
-              <div class="butterfly-wings">
-                <div class="wing left"></div>
-                <div class="wing right"></div>
+            <div class="butterfly-container">
+              <div class="butterfly">
+                <div class="butterfly-wing-left"></div>
+                <div class="butterfly-wing-right"></div>
               </div>
             </div>
           `;
           document.body.appendChild(wrapper);
     
-          // حذف المان از DOM بعد از اتمام انیمیشن برای حفظ بهینگی
           setTimeout(() => {
             wrapper.remove();
-          }, 7000);
+          }, 7500);
         }
       });
     </script>
