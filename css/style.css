@@ -277,7 +277,8 @@ main {
     color: var(--primary-color);
     position: relative;
     padding-bottom: 10px;
-    display: inline-block;
+    display: block; /* تغییر از inline-block به block */
+    width: 100%;    /* اشغال کل عرض والد برای وسط‌چین شدن کامل */
 }
 
 .section h2::after {
