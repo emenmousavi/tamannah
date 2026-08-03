@@ -699,15 +699,16 @@ footer p {
 }
 
 /* ==========================================
-   بخش دعوت به دلنوشته‌ها (Guestbook CTA Section)
+   بخش دعوت به دلنوشته‌ها (کادر سفید جداگانه)
    ========================================== */
-/* ==========================================
-   بخش دعوت به دلنوشته‌ها (داخل کادر سفید شعر)
-   ========================================== */
-.guestbook-cta-inline {
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+.guestbook-cta-box {
+    max-width: 850px;
+    margin: 20px auto 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.05);
     text-align: center;
 }
 
@@ -737,10 +738,6 @@ footer p {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.guestbook-cta-btn:hover {
-    background-color: var(--accent-color);
-    transform: scale(1.05);
-}
 .guestbook-cta-btn:hover {
     background-color: var(--accent-color);
     transform: scale(1.05);
