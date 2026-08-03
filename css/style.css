@@ -833,10 +833,10 @@ footer p {
         left: -10%;
         transform: scale(0.7) rotate(-35deg);
     }
-}
 
-/* هماهنگی با تم تاریک */
-[data-theme="dark"] .wing {
-    background: radial-gradient(circle at 30% 30%, rgba(129, 199, 132, 0.9), rgba(102, 187, 106, 0.4));
-    box-shadow: 0 0 12px rgba(129, 199, 132, 0.5);
+    /* هماهنگی با تم تاریک */
+    [data-theme="dark"] .wing {
+        background: radial-gradient(circle at 30% 30%, rgba(129, 199, 132, 0.9), rgba(102, 187, 106, 0.4));
+        box-shadow: 0 0 12px rgba(129, 199, 132, 0.5);
+    }
 }
