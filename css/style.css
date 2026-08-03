@@ -699,46 +699,46 @@ footer p {
 }
 
 /* ==========================================
-   بخش دعوت به دلنوشته‌ها (کادر سفید جداگانه)
+   بخش دلنوشته‌ها - قالب استاندارد مشابه سایر بخش‌ها
    ========================================== */
-.guestbook-cta-box {
+.guestbook-section-box {
     max-width: 850px;
-    margin: 20px auto 0 auto;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-    border: 1px solid rgba(0,0,0,0.05);
-    text-align: center;
+    margin: 30px auto 0 auto;
+    background-color: #fff !important;
+    padding: 30px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06) !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+    text-align: center !important;
 }
 
-.guestbook-cta-title {
-    color: var(--primary-color);
-    font-size: 1.6rem;
-    margin-bottom: 12px;
-    font-weight: 700;
+.guestbook-section-box .guestbook-cta-title {
+    color: var(--primary-color) !important;
+    font-size: 1.6rem !important;
+    margin-bottom: 12px !important;
+    font-weight: 700 !important;
 }
 
-.guestbook-cta-text {
-    color: var(--text-color);
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin-bottom: 20px;
+.guestbook-section-box .guestbook-cta-text {
+    color: var(--text-color) !important;
+    font-size: 1.05rem !important;
+    line-height: 1.8 !important;
+    margin-bottom: 20px !important;
 }
 
-.guestbook-cta-btn {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 12px 30px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-family: 'Vazirmatn', sans-serif;
-    font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+.guestbook-section-box .guestbook-cta-btn {
+    display: inline-block !important;
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    padding: 12px 30px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    font-family: 'Vazirmatn', sans-serif !important;
+    font-weight: 700 !important;
+    transition: background-color 0.3s ease, transform 0.2s ease !important;
 }
 
-.guestbook-cta-btn:hover {
-    background-color: var(--accent-color);
-    transform: scale(1.05);
+.guestbook-section-box .guestbook-cta-btn:hover {
+    background-color: var(--accent-color) !important;
+    transform: scale(1.05) !important;
 }
