@@ -202,7 +202,7 @@ footer p {
     opacity: 0.7;
 }
 
-/* استایل بخش شبکه‌های اجتماعی در فوتر (انتقال به بیرون از مدیاکوئری) */
+/* اصلاح نهایی نمایش آیکون‌های فوتر */
 .social-links {
     margin-bottom: 15px;
     display: flex;
@@ -223,7 +223,11 @@ footer p {
 .social-links a svg {
     width: 24px;
     height: 24px;
-    fill: currentColor;
+    fill: none; /* برای جلوگیری از پر شدن داخل آیکون‌ها به شکل مربع */
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 /* رنگ اختصاصی هنگام هاور روی هر آیکون */
