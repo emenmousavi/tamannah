@@ -747,3 +747,45 @@ footer p {
     background-color: var(--accent-color);
     transform: scale(1.05);
 }
+.guestbook-cta-section {
+    background-color: #fff;
+    padding: 30px 0;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    max-width: 850px;
+    text-align: center;
+}
+
+.guestbook-cta-title {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.guestbook-cta-text {
+    color: var(--text-color);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    padding: 0 20px;
+}
+
+.guestbook-cta-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'Vazirmatn', sans-serif;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.guestbook-cta-btn:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+}
