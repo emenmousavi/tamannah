@@ -514,98 +514,74 @@ footer p {
    ========================================== */
 
 .contact-links-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    margin-top: 20px;
-    text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  margin-top: 20px;
+  text-align: right;
 }
 
 .contact-link-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 12px 16px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .contact-link-item:hover {
-    transform: translateY(-2px);
-    background-color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-/* آیکون‌ها */
-.contact-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background-color: #e8e8e8;
-    color: #555;
-    flex-shrink: 0;
-}
-
-.contact-icon.instagram-icon {
-    color: #E1306C;
-    background-color: #FCE4EC;
-}
-
-.contact-icon.telegram-icon {
-    color: #0088cc;
-    background-color: #E1F5FE;
-}
-
-/* متن‌ها و لینک‌ها */
-.contact-text {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+  transform: translateY(-2px);
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .contact-label {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--text-color);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-color);
 }
 
-.contact-url {
-    font-size: 0.95rem;
-    color: #1e88e5;
-    text-decoration: none;
-    direction: ltr;
-    text-align: right;
-    font-family: sans-serif;
-    word-break: break-all;
-    transition: color 0.2s ease;
+.contact-image-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  line-height: 0;
 }
 
-.contact-url:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
+.contact-image-link img {
+  display: block;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
 }
 
-/* هماهنگی در موبایل */
+.contact-image-link:focus-visible {
+  outline: 2px solid var(--primary-color, #1e88e5);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 @media (max-width: 480px) {
-    .contact-link-item {
-        padding: 10px;
-        gap: 10px;
-    }
-    .contact-icon {
-        width: 38px;
-        height: 38px;
-    }
-    .contact-icon svg {
-        width: 20px;
-        height: 20px;
-    }
-    .contact-label, .contact-url {
-        font-size: 0.85rem;
-    }
+  .contact-link-item {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .contact-label {
+    font-size: 0.85rem;
+  }
+
+  .contact-image-link img {
+    width: 38px;
+    height: 38px;
+  }
 }
